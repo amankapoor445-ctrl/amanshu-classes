@@ -1,343 +1,1362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMANSHU CLASSES</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMANSHU CLASSES - World Class Educational Platform</title>
+<meta name="description" content="AMANSHU CLASSES - A world-class educational platform offering expert faculty, live classes, study materials, and AI-powered learning for students.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>Contact Information</h2>
-                <button class="modal-close" id="modalClose">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" id="phoneInput" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label>Email ID</label>
-                    <input type="email" id="emailInput" placeholder="Enter your email ID">
-                </div>
-                <button class="btn-submit" id="modalSubmit">Submit</button>
-            </div>
-        </div>
-    </div>
 
-    <header>
-        <div class="logo-container">
-            <div class="logo-circle">
-                <span class="logo-text">AC</span>
-            </div>
-            <div class="school-name">AMANSHU CLASSES</div>
-        </div>
-        <nav>
-            <a href="#" class="nav-link active">Home</a>
-            <a href="#" class="nav-link">About</a>
-            <a href="#" class="nav-link">Contact</a>
-        </nav>
-    </header>
+<div id="scroll-progress"></div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-slideshow">
-                <div class="slide active"></div>
-                <div class="slide"></div>
-                <div class="slide"></div>
-            </div>
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <div class="logo-circle large">
-                        <span class="logo-text">AC</span>
-                    </div>
-                </div>
-                <h1>Welcome to AMANSHU CLASSES</h1>
-                <p>Quality Education at Your Fingertips</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Students</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Teachers</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label">Courses</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Results</span>
-                    </div>
-                </div>
-                <button class="btn-cta enroll-btn">Enroll Now</button>
-            </div>
-        </section>
+<nav id="navbar">
+<div class="nav-container">
+<div class="nav-logo">
+<div class="logo-circle">AC</div>
+<span class="logo-text">AMANSHU CLASSES</span>
+</div>
+<div class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#health">Health</a>
+<a href="#career">Career</a>
+<a href="#ai-hub">AI Hub</a>
+<a href="#planner">Planner</a>
+<a href="#quiz">Quiz</a>
+<a href="#contact">Contact</a>
+</div>
+<div class="nav-actions">
+<button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
+<button id="loginBtn" class="btn-login">Login</button>
+<button class="btn-admission" onclick="scrollToAdmission()">Admission</button>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</nav>
 
-        <section class="features">
-            <h2>Why Choose Us?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Expert Teachers</h3>
-                    <p>Learn from qualified and experienced educators</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎥</div>
-                    <h3>Live Classes</h3>
-                    <p>Interactive live sessions with doubt clearing</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3>Study Material</h3>
-                    <p>Comprehensive PDF notes and assignments</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Results</h3>
-                    <p>98% success rate in board exams</p>
-                </div>
-            </div>
-        </section>
+<div id="mobileMenu" class="mobile-menu">
+<div class="mobile-menu-content">
+<button class="mobile-close" id="mobileClose">&times;</button>
+<a href="#home" class="mobile-link">Home</a>
+<a href="#courses" class="mobile-link">Courses</a>
+<a href="#health" class="mobile-link">Health</a>
+<a href="#career" class="mobile-link">Career</a>
+<a href="#ai-hub" class="mobile-link">AI Hub</a>
+<a href="#planner" class="mobile-link">Planner</a>
+<a href="#quiz" class="mobile-link">Quiz</a>
+<a href="#contact" class="mobile-link">Contact</a>
+<button class="btn-login mobile-login" onclick="openLoginModal()">Login</button>
+<button class="btn-admission mobile-admission" onclick="scrollToAdmission()">Admission</button>
+</div>
+</div>
 
-        <section class="tabs-container">
-            <div class="tabs">
-                <button class="tab active" data-tab="admission">Admission</button>
-                <button class="tab" data-tab="class">Class</button>
-                <button class="tab" data-tab="live-class">Live Class</button>
-                <button class="tab" data-tab="my-courses">My Courses</button>
-                <button class="tab" data-tab="pdf-notes">PDF Notes</button>
-                <button class="tab" data-tab="recorded-batch">Recorded Batch</button>
-                <button class="tab" data-tab="student-health">Student Health</button>
-                <button class="tab" data-tab="important-links">Important Links</button>
-                <button class="tab" data-tab="notification">Notification</button>
-            </div>
+<header id="home" class="hero-section">
+<div class="hero-bg-shapes">
+<div class="shape shape-1"></div>
+<div class="shape shape-2"></div>
+<div class="shape shape-3"></div>
+<div class="shape shape-4"></div>
+<div class="shape shape-5"></div>
+<div class="shape shape-6"></div>
+</div>
+<div class="hero-container">
+<div class="hero-content">
+<div class="hero-badge">#1 Educational Platform</div>
+<h1 class="hero-title">Welcome to <span class="gradient-text">AMANSHU CLASSES</span></h1>
+<p class="hero-subtitle">Empowering students with world-class education, expert faculty, AI-powered learning tools, and a complete ecosystem for academic excellence and personal growth.</p>
+<div class="hero-cta">
+<button class="btn-primary" onclick="scrollToAdmission()">Start Admission</button>
+<button class="btn-secondary" onclick="playDemo()">Watch Demo</button>
+</div>
+<div class="hero-stats">
+<div class="stat-item">
+<div class="stat-number" data-target="5000">0</div>
+<div class="stat-label">Students</div>
+</div>
+<div class="stat-item">
+<div class="stat-number" data-target="50">0</div>
+<div class="stat-label">Teachers</div>
+</div>
+<div class="stat-item">
+<div class="stat-number" data-target="100">0</div>
+<div class="stat-label">Courses</div>
+</div>
+<div class="stat-item">
+<div class="stat-number" data-target="98">0</div>
+<div class="stat-label">% Results</div>
+</div>
+</div>
+</div>
+<div class="hero-illustration">
+<div class="hero-image">
+<div class="floating-card card-study">Study</div>
+<div class="floating-card card-achieve">Achieve</div>
+<div class="floating-card card-learn">Learn</div>
+<div class="floating-card card-success">Success</div>
+</div>
+</div>
+</div>
+<div class="scroll-indicator">
+<div class="mouse">
+<div class="mouse-wheel"></div>
+</div>
+<span>Scroll Down</span>
+</div>
+</header>
 
-            <div class="tab-content active" id="admission">
-                <h2>Admission Open 2026-27</h2>
-                <p>Select your class to apply for admission</p>
-                <div class="grid">
-                    <div class="card admission-card">Class 1</div>
-                    <div class="card admission-card">Class 2</div>
-                    <div class="card admission-card">Class 3</div>
-                    <div class="card admission-card">Class 4</div>
-                    <div class="card admission-card">Class 5</div>
-                    <div class="card admission-card">Class 6</div>
-                    <div class="card admission-card">Class 7</div>
-                    <div class="card admission-card">Class 8</div>
-                    <div class="card admission-card">Class 9</div>
-                    <div class="card admission-card">Class 10</div>
-                </div>
-            </div>
+<section class="trust-bar">
+<div class="trust-container">
+<div class="trust-item"><span class="trust-icon">📚</span>NCERT Aligned</div>
+<div class="trust-item"><span class="trust-icon">👨‍🏫</span>Expert Faculty</div>
+<div class="trust-item"><span class="trust-icon">💻</span>Live Classes</div>
+<div class="trust-item"><span class="trust-icon">📖</span>Study Material</div>
+<div class="trust-item"><span class="trust-icon">🕐</span>24/7 Support</div>
+<div class="trust-item"><span class="trust-icon">🏆</span>Results Guaranteed</div>
+</div>
+</section>
 
-            <div class="tab-content" id="class">
-                <h2>Our Classes</h2>
-                <p>Select a class from dropdown</p>
-                <div class="dropdown-container">
-                    <select class="dropdown" id="classSelect">
-                        <option value="">-- Select Class --</option>
-                        <option value="1">Class 1</option>
-                        <option value="2">Class 2</option>
-                        <option value="3">Class 3</option>
-                        <option value="4">Class 4</option>
-                        <option value="5">Class 5</option>
-                        <option value="6">Class 6</option>
-                        <option value="7">Class 7</option>
-                        <option value="8">Class 8</option>
-                        <option value="9">Class 9</option>
-                        <option value="10">Class 10</option>
-                    </select>
-                    <button class="btn-submit">Go</button>
-                </div>
-                <div class="class-details" id="classDetails">
-                    <p>Select a class to see details</p>
-                </div>
-            </div>
+<section id="features" class="features-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Why Choose Us</span>
+<h2 class="section-title">Our Amazing Features</h2>
+<p class="section-subtitle">Discover what makes AMANSHU CLASSES the preferred choice for thousands of students</p>
+</div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">👨‍🏫</div>
+<h3 class="feature-title">Expert Teachers</h3>
+<p class="feature-desc">Learn from India's best educators with years of experience and proven track records in their subjects.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🎥</div>
+<h3 class="feature-title">Live Classes</h3>
+<p class="feature-desc">Interactive live sessions with real-time doubt solving, screen sharing, and collaborative learning.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📝</div>
+<h3 class="feature-title">Study Material</h3>
+<p class="feature-desc">Comprehensive study materials aligned with NCERT and competitive exam patterns.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🤖</div>
+<h3 class="feature-title">AI Learning Hub</h3>
+<p class="feature-desc">Personalized AI-powered learning paths, smart analytics, and adaptive practice tests.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">💪</div>
+<h3 class="feature-title">Health Tracker</h3>
+<p class="feature-desc">Complete health monitoring system to track your physical and mental well-being.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🗺️</div>
+<h3 class="feature-title">Career Roadmap</h3>
+<p class="feature-desc">Personalized career guidance and detailed roadmaps for every professional path.</p>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="live-class">
-                <h2>Live Classes</h2>
-                <p>Join our live interactive sessions</p>
-                <div class="grid">
-                    <div class="card live">Physics - Live Now 🔴</div>
-                    <div class="card">Mathematics - 10:00 AM</div>
-                    <div class="card">English - 11:30 AM</div>
-                    <div class="card">Science - 2:00 PM</div>
-                </div>
-            </div>
+<section id="courses" class="tabs-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Explore</span>
+<h2 class="section-title">Everything You Need</h2>
+<p class="section-subtitle">Access all our educational resources from one place</p>
+</div>
+<div class="tabs-nav">
+<button class="tab-btn active" data-tab="admission">Admission</button>
+<button class="tab-btn" data-tab="class">Class</button>
+<button class="tab-btn" data-tab="live">Live Class</button>
+<button class="tab-btn" data-tab="mycourses">My Courses</button>
+<button class="tab-btn" data-tab="pdf">PDF Notes</button>
+<button class="tab-btn" data-tab="recorded">Recorded Batch</button>
+<button class="tab-btn" data-tab="notification">Notification</button>
+</div>
+<div class="tabs-content">
+<div class="tab-pane active" id="tab-admission">
+<h3 class="tab-title">Select Your Class for Admission</h3>
+<div class="admission-grid">
+<div class="admission-card" data-class="1"><div class="class-number">1</div><h4>Class 1</h4><p>Foundation Building</p><button class="btn-enroll" onclick="openAdmissionForm(1)">Apply Now</button></div>
+<div class="admission-card" data-class="2"><div class="class-number">2</div><h4>Class 2</h4><p>Strong Basics</p><button class="btn-enroll" onclick="openAdmissionForm(2)">Apply Now</button></div>
+<div class="admission-card" data-class="3"><div class="class-number">3</div><h4>Class 3</h4><p>Growing Minds</p><button class="btn-enroll" onclick="openAdmissionForm(3)">Apply Now</button></div>
+<div class="admission-card" data-class="4"><div class="class-number">4</div><h4>Class 4</h4><p>Building Concepts</p><button class="btn-enroll" onclick="openAdmissionForm(4)">Apply Now</button></div>
+<div class="admission-card" data-class="5"><div class="class-number">5</div><h4>Class 5</h4><p>Primary Excellence</p><button class="btn-enroll" onclick="openAdmissionForm(5)">Apply Now</button></div>
+<div class="admission-card" data-class="6"><div class="class-number">6</div><h4>Class 6</h4><p>Middle School Start</p><button class="btn-enroll" onclick="openAdmissionForm(6)">Apply Now</button></div>
+<div class="admission-card" data-class="7"><div class="class-number">7</div><h4>Class 7</h4><p>Advanced Learning</p><button class="btn-enroll" onclick="openAdmissionForm(7)">Apply Now</button></div>
+<div class="admission-card" data-class="8"><div class="class-number">8</div><h4>Class 8</h4><p>Board Preparation</p><button class="btn-enroll" onclick="openAdmissionForm(8)">Apply Now</button></div>
+<div class="admission-card" data-class="9"><div class="class-number">9</div><h4>Class 9</h4><p>Secondary Foundation</p><button class="btn-enroll" onclick="openAdmissionForm(9)">Apply Now</button></div>
+<div class="admission-card" data-class="10"><div class="class-number">10</div><h4>Class 10</h4><p>Board Exam Ready</p><button class="btn-enroll" onclick="openAdmissionForm(10)">Apply Now</button></div>
+</div>
+</div>
+<div class="tab-pane" id="tab-class">
+<h3 class="tab-title">Select Your Class</h3>
+<div class="class-selector">
+<select id="classSelect">
+<option value="">-- Select Class --</option>
+<option value="1">Class 1</option>
+<option value="2">Class 2</option>
+<option value="3">Class 3</option>
+<option value="4">Class 4</option>
+<option value="5">Class 5</option>
+<option value="6">Class 6</option>
+<option value="7">Class 7</option>
+<option value="8">Class 8</option>
+<option value="9">Class 9</option>
+<option value="10">Class 10</option>
+</select>
+<button class="btn-go" onclick="showClassResult()">Go</button>
+</div>
+<div id="classResult" class="class-result-box"></div>
+</div>
+<div class="tab-pane" id="tab-live">
+<h3 class="tab-title">Live Classes Schedule</h3>
+<div class="live-grid">
+<div class="live-card">
+<div class="live-badge">LIVE</div>
+<div class="live-info">
+<h4>Mathematics - Class 10</h4>
+<p>Chapter: Quadratic Equations</p>
+<span class="live-time">9:00 AM - 10:30 AM</span>
+<span class="live-teacher">By Mr. Aman</span>
+</div>
+<button class="btn-join">Join Now</button>
+</div>
+<div class="live-card">
+<div class="live-badge">LIVE</div>
+<div class="live-info">
+<h4>Science - Class 9</h4>
+<p>Chapter: Motion and Forces</p>
+<span class="live-time">11:00 AM - 12:30 PM</span>
+<span class="live-teacher">By Dr. Priya</span>
+</div>
+<button class="btn-join">Join Now</button>
+</div>
+<div class="live-card">
+<div class="live-badge">LIVE</div>
+<div class="live-info">
+<h4>English - Class 8</h4>
+<p>Chapter: Grammar and Composition</p>
+<span class="live-time">2:00 PM - 3:30 PM</span>
+<span class="live-teacher">By Ms. Nisha</span>
+</div>
+<button class="btn-join">Join Now</button>
+</div>
+<div class="live-card">
+<div class="live-badge">LIVE</div>
+<div class="live-info">
+<h4>Hindi - Class 7</h4>
+<p>Chapter: Vyakaran Basics</p>
+<span class="live-time">4:00 PM - 5:00 PM</span>
+<span class="live-teacher">By Mr. Rajesh</span>
+</div>
+<button class="btn-join">Join Now</button>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab-mycourses">
+<h3 class="tab-title">My Courses</h3>
+<div class="course-grid">
+<div class="course-card">
+<div class="course-badge">Best Seller</div>
+<h4>CBSE Complete</h4>
+<p>Class 1-12 All Subjects</p>
+<div class="course-price">₹25,000</div>
+<button class="btn-enroll" onclick="enrollCourse('CBSE Complete', 25000)">Enroll Now</button>
+</div>
+<div class="course-card">
+<div class="course-badge">Popular</div>
+<h4>BPSC Preparation</h4>
+<p>Complete BPSC Syllabus</p>
+<div class="course-price">₹35,000</div>
+<button class="btn-enroll" onclick="enrollCourse('BPSC Preparation', 35000)">Enroll Now</button>
+</div>
+<div class="course-card">
+<div class="course-badge">Trending</div>
+<h4>SSC CGL/CHSL</h4>
+<p>Complete SSC Preparation</p>
+<div class="course-price">₹30,000</div>
+<button class="btn-enroll" onclick="enrollCourse('SSC CGL/CHSL', 30000)">Enroll Now</button>
+</div>
+<div class="course-card">
+<div class="course-badge">New</div>
+<h4>Railways RRB</h4>
+<p>Complete Railway Exam Prep</p>
+<div class="course-price">₹28,000</div>
+<button class="btn-enroll" onclick="enrollCourse('Railways RRB', 28000)">Enroll Now</button>
+</div>
+<div class="course-card">
+<div class="course-badge">Value</div>
+<h4>School Package</h4>
+<p>Class 1-10 Complete</p>
+<div class="course-price">₹15,000</div>
+<button class="btn-enroll" onclick="enrollCourse('School Package', 15000)">Enroll Now</button>
+</div>
+</div>
+<div id="courseDetails" class="course-details-box"></div>
+</div>
+<div class="tab-pane" id="tab-pdf">
+<h3 class="tab-title">PDF Notes</h3>
+<div class="pdf-grid">
+<div class="pdf-card">
+<div class="pdf-icon">📐</div>
+<h4>Mathematics</h4>
+<p>NCERT Solutions + Practice</p>
+<button class="btn-download" onclick="downloadPDF('Mathematics')">Download PDF</button>
+</div>
+<div class="pdf-card">
+<div class="pdf-icon">🔬</div>
+<h4>Science</h4>
+<p>Physics, Chemistry, Biology</p>
+<button class="btn-download" onclick="downloadPDF('Science')">Download PDF</button>
+</div>
+<div class="pdf-card">
+<div class="pdf-icon">🔤</div>
+<h4>English</h4>
+<p>Grammar, Literature, Writing</p>
+<button class="btn-download" onclick="downloadPDF('English')">Download PDF</button>
+</div>
+<div class="pdf-card">
+<div class="pdf-icon">🇮🇳</div>
+<h4>Hindi</h4>
+<p>Gadya, Padya, Vyakaran</p>
+<button class="btn-download" onclick="downloadPDF('Hindi')">Download PDF</button>
+</div>
+<div class="pdf-card">
+<div class="pdf-icon">🌍</div>
+<h4>Social Science</h4>
+<p>History, Geography, Civics</p>
+<button class="btn-download" onclick="downloadPDF('Social Science')">Download PDF</button>
+</div>
+<div class="pdf-card">
+<div class="pdf-icon">💻</div>
+<h4>Computer Science</h4>
+<p>Programming & Applications</p>
+<button class="btn-download" onclick="downloadPDF('Computer Science')">Download PDF</button>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab-recorded">
+<h3 class="tab-title">Recorded Batches</h3>
+<div class="recorded-grid">
+<div class="recorded-card">
+<div class="recorded-thumb">📹</div>
+<h4>CBSE 2025-26 Batch</h4>
+<p>Class 10 Complete Syllabus</p>
+<span class="video-count">156 Videos</span>
+<button class="btn-watch">Watch Now</button>
+</div>
+<div class="recorded-card">
+<div class="recorded-thumb">📹</div>
+<h4>BPSC 71st Batch</h4>
+<p>Complete BPSC Preparation</p>
+<span class="video-count">234 Videos</span>
+<button class="btn-watch">Watch Now</button>
+</div>
+<div class="recorded-card">
+<div class="recorded-thumb">📹</div>
+<h4>SSC Foundation Batch</h4>
+<p>Math, English, GK Complete</p>
+<span class="video-count">189 Videos</span>
+<button class="btn-watch">Watch Now</button>
+</div>
+<div class="recorded-card">
+<div class="recorded-thumb">📹</div>
+<h4>Railways Special Batch</h4>
+<p>Complete RRB Syllabus</p>
+<span class="video-count">201 Videos</span>
+<button class="btn-watch">Watch Now</button>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab-notification">
+<h3 class="tab-title">Latest Notifications</h3>
+<div class="notification-list">
+<div class="notification-item">
+<div class="notification-badge new">New</div>
+<div class="notification-content">
+<h4>New Batch Starting - Class 10 CBSE 2026-27</h4>
+<p>Registration open for new academic session. Limited seats available.</p>
+<span class="notification-date">July 25, 2026</span>
+</div>
+</div>
+<div class="notification-item">
+<div class="notification-badge update">Update</div>
+<div class="notification-content">
+<h4>BPSC 71st Notification Released</h4>
+<p>Apply before the deadline. Complete preparation course available.</p>
+<span class="notification-date">July 20, 2026</span>
+</div>
+</div>
+<div class="notification-item">
+<div class="notification-badge info">Info</div>
+<div class="notification-content">
+<h4>Free Scholarship Test on August 5th</h4>
+<p>All students can participate. Top scorers get up to 100% fee waiver.</p>
+<span class="notification-date">July 15, 2026</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="my-courses">
-                <h2>My Courses</h2>
-                <p>Select your course category</p>
-                <div class="grid">
-                    <div class="card course-card" data-course="cbse">CBSE</div>
-                    <div class="card course-card" data-course="bpsc">BPSC</div>
-                    <div class="card course-card" data-course="ssc">SSC</div>
-                    <div class="card course-card" data-course="railways">Railways</div>
-                    <div class="card course-card" data-course="school">School Courses</div>
-                </div>
-                <div class="course-details" id="courseDetails">
-                    <p>Click on a course to see details</p>
-                </div>
-            </div>
+<section id="health" class="health-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Wellness</span>
+<h2 class="section-title">Student Health & Wellness</h2>
+<p class="section-subtitle">Track your health and learn wellness tips for academic success</p>
+</div>
+<div class="health-tracker">
+<h3 class="tracker-title">Daily Health Tracker</h3>
+<div class="health-form">
+<div class="form-group">
+<label for="healthWeight">Weight (kg)</label>
+<input type="number" id="healthWeight" placeholder="65">
+</div>
+<div class="form-group">
+<label for="healthRunning">Running (km)</label>
+<input type="number" id="healthRunning" placeholder="5">
+</div>
+<div class="form-group">
+<label for="healthExercise">Exercise (min)</label>
+<input type="number" id="healthExercise" placeholder="30">
+</div>
+<div class="form-group">
+<label for="healthSunbath">Sunbath (min)</label>
+<input type="number" id="healthSunbath" placeholder="15">
+</div>
+<div class="form-group">
+<label for="healthPlaying">Playing (min)</label>
+<input type="number" id="healthPlaying" placeholder="45">
+</div>
+<button class="btn-save-health" onclick="saveHealthData()">Save Today's Data</button>
+</div>
+<div id="healthMessage" class="health-message"></div>
+</div>
+<div class="health-topics-grid">
+<div class="health-topic-card">
+<div class="topic-icon">🧠</div>
+<h4>Mental Health</h4>
+<p>Practice mindfulness, seek help when needed, and maintain emotional balance for better academic performance.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">😌</div>
+<h4>Stress Management</h4>
+<p>Learn to manage exam stress through breathing exercises, time management, and positive thinking.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🧘</div>
+<h4>Meditation</h4>
+<p>Daily 10-minute meditation improves focus, reduces anxiety, and enhances memory retention.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🥗</div>
+<h4>Healthy Diet</h4>
+<p>Balance your meals with proteins, carbs, vitamins, and minerals for optimal brain function.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">😴</div>
+<h4>Sleep Cycle</h4>
+<p>7-8 hours of quality sleep is essential for memory consolidation and cognitive function.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">💡</div>
+<h4>Memory Improvement</h4>
+<p>Use spaced repetition, active recall, and association techniques to boost memory power.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🥑</div>
+<h4>Brain Foods</h4>
+<p>Incorporate walnuts, blueberries, dark chocolate, and fish into your diet for brain health.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🏃</div>
+<h4>Exercise</h4>
+<p>30 minutes of daily physical activity increases blood flow to the brain and improves focus.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">👁️</div>
+<h4>Eye Care</h4>
+<p>Follow the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">☕</div>
+<h4>Study Breaks</h4>
+<p>Take short breaks every 45-50 minutes to recharge your brain and maintain productivity.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">💧</div>
+<h4>Hydration</h4>
+<p>Drink 8-10 glasses of water daily. Dehydration can cause fatigue and reduced concentration.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">📱</div>
+<h4>Digital Wellbeing</h4>
+<p>Limit screen time, use blue light filters, and take digital detox breaks regularly.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">⏰</div>
+<h4>Time Management</h4>
+<p>Prioritize tasks, use planners, and avoid multitasking for better study efficiency.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🎯</div>
+<h4>Focus Techniques</h4>
+<p>Practice deep work, eliminate distractions, and create a dedicated study environment.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🍅</div>
+<h4>Pomodoro Method</h4>
+<p>Work in 25-minute focused intervals with 5-minute breaks to maintain peak performance.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🔄</div>
+<h4>Active Recall</h4>
+<p>Test yourself regularly instead of re-reading notes. This strengthens neural pathways.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">📅</div>
+<h4>Spaced Repetition</h4>
+<p>Review material at increasing intervals to move information from short to long-term memory.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">😰</div>
+<h4>Exam Anxiety</h4>
+<p>Practice relaxation techniques, prepare well in advance, and maintain a positive mindset.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">💪</div>
+<h4>Confidence Building</h4>
+<p>Celebrate small wins, maintain a success journal, and surround yourself with positive people.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+</div>
+<div class="health-topic-card">
+<div class="topic-icon">🔥</div>
+<h4>Motivation</h4>
+<p>Set clear goals, visualize success, and remember your purpose to stay motivated.</p>
+<div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="pdf-notes">
-                <h2>PDF Notes</h2>
-                <p>Download study materials</p>
-                <div class="grid">
-                    <div class="card pdf-card">Mathematics Notes</div>
-                    <div class="card pdf-card">Science Notes</div>
-                    <div class="card pdf-card">English Notes</div>
-                    <div class="card pdf-card">Hindi Notes</div>
-                    <div class="card pdf-card">Social Science Notes</div>
-                    <div class="card pdf-card">Computer Notes</div>
-                </div>
-            </div>
+<section id="career" class="career-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Guidance</span>
+<h2 class="section-title">Career Roadmap</h2>
+<p class="section-subtitle">Explore career paths and plan your future with our detailed roadmaps</p>
+</div>
+<div class="career-tabs">
+<button class="career-tab-btn active" data-career-tab="after10">After Class 10</button>
+<button class="career-tab-btn" data-career-tab="after12">After Class 12</button>
+<button class="career-tab-btn" data-career-tab="aftergrad">After Graduation</button>
+<button class="career-tab-btn" data-career-tab="govt">Government Jobs</button>
+<button class="career-tab-btn" data-career-tab="modern">Modern Skills</button>
+</div>
+<div class="career-content">
+<div class="career-pane active" id="career-after10">
+<div class="career-grid">
+<div class="career-card"><div class="career-icon">🔧</div><h4>ITI/Polytechnic</h4><p>Technical diploma courses for hands-on skills in engineering trades.</p></div>
+<div class="career-card"><div class="career-icon">📊</div><h4>Commerce Stream</h4><p>Join Class 11 Commerce for CA, CS, Banking career paths.</p></div>
+<div class="career-card"><div class="career-icon">🔬</div><h4>Science Stream</h4><p>Choose PCM or PCB for engineering, medical, research careers.</p></div>
+<div class="career-card"><div class="career-icon">🎨</div><h4>Arts/Humanities</h4><p>Explore literature, history, psychology, sociology fields.</p></div>
+<div class="career-card"><div class="career-icon">💻</div><h4>Diploma in CS</h4><p>Start your tech journey with computer science diploma.</p></div>
+<div class="career-card"><div class="career-icon">🏥</div><h4>Paramedical</h4><p>Nursing, lab technician, pharmacy assistant courses.</p></div>
+</div>
+</div>
+<div class="career-pane" id="career-after12">
+<div class="career-grid">
+<div class="career-card"><div class="career-icon">🎓</div><h4>Engineering (B.Tech)</h4><p>4-year program in various engineering disciplines.</p></div>
+<div class="career-card"><div class="career-icon">⚕️</div><h4>Medical (MBBS/BDS)</h4><p>NEET based medical and dental programs.</p></div>
+<div class="career-card"><div class="career-icon">💼</div><h4>BBA/MBA</h4><p>Business administration for management careers.</p></div>
+<div class="career-card"><div class="career-icon">🏦</div><h4>Banking (IBPS/SBI)</h4><p>Start preparation for banking sector jobs.</p></div>
+<div class="career-card"><div class="career-icon">📐</div><h4>Architecture (B.Arch)</h4><p>Creative design and building architecture.</p></div>
+<div class="career-card"><div class="career-icon">🌐</div><h4>BCA/MCA</h4><p>Computer applications for IT career.</p></div>
+</div>
+</div>
+<div class="career-pane" id="career-aftergrad">
+<div class="career-grid">
+<div class="career-card"><div class="career-icon">📚</div><h4>UPSC Civil Services</h4><p>IAS, IPS, IFS and other prestigious services.</p></div>
+<div class="career-card"><div class="career-icon">🏛️</div><h4>MBA (IIMs)</h4><p>Premier management education and placements.</p></div>
+<div class="career-card"><div class="career-icon">🔬</div><h4>Research (M.Phil/PhD)</h4><p>Academic research and professorship.</p></div>
+<div class="career-card"><div class="career-icon">💻</div><h4>Data Science</h4><p>Analytics, ML, AI career opportunities.</p></div>
+<div class="career-card"><div class="career-icon">⚖️</div><h4>Law (LLB)</h4><p>Legal practice and judiciary preparation.</p></div>
+<div class="career-card"><div class="career-icon">✈️</div><h4>Management Consultant</h4><p>Corporate advisory and strategy roles.</p></div>
+</div>
+</div>
+<div class="career-pane" id="career-govt">
+<div class="career-grid">
+<div class="career-card"><div class="career-icon">🏛️</div><h4>UPSC (IAS/IPS)</h4><p>India's most prestigious civil services exam.</p></div>
+<div class="career-card"><div class="career-icon">📋</div><h4>BPSC (Bihar)</h4><p>Bihar Public Service Commission exams.</p></div>
+<div class="career-card"><div class="career-icon">📊</div><h4>SSC CGL/CHSL</h4><p>Staff Selection Commission government posts.</p></div>
+<div class="career-card"><div class="career-icon">🚂</div><h4>Railways (RRB)</h4><p>Indian Railway recruitment board exams.</p></div>
+<div class="career-card"><div class="career-icon">🏦</div><h4>Banking (IBPS/SBI)</h4><p>Bank officer and clerk positions.</p></div>
+<div class="career-card"><div class="career-icon">👮</div><h4>Defence (NDA/CDS)</h4><p>Army, Navy, Air Force officer positions.</p></div>
+</div>
+</div>
+<div class="career-pane" id="career-modern">
+<div class="career-grid">
+<div class="career-card"><div class="career-icon">🤖</div><h4>AI/ML Engineer</h4><p>Build intelligent systems and machine learning models.</p></div>
+<div class="career-card"><div class="career-icon">📊</div><h4>Data Analyst</h4><p>Interpret data and drive business decisions.</p></div>
+<div class="career-card"><div class="career-icon">🎨</div><h4>UI/UX Designer</h4><p>Create intuitive and beautiful digital experiences.</p></div>
+<div class="career-card"><div class="career-icon">☁️</div><h4>Cloud Architect</h4><p>Design and manage cloud infrastructure.</p></div>
+<div class="career-card"><div class="career-icon">🔐</div><h4>Cyber Security</h4><p>Protect systems from digital threats.</p></div>
+<div class="career-card"><div class="career-icon">📱</div><h4>App Developer</h4><p>Build mobile applications for iOS and Android.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="recorded-batch">
-                <h2>Recorded Batches</h2>
-                <p>Access recorded lectures anytime</p>
-                <div class="grid">
-                    <div class="card batch-card">CBSE 2025-26 Batch</div>
-                    <div class="card batch-card">CBSE 2024-25 Batch</div>
-                    <div class="card batch-card">BPSC Complete Course</div>
-                    <div class="card batch-card">SSC Preparation</div>
-                    <div class="card batch-card">Railways Exam Batch</div>
-                    <div class="card batch-card">Foundation Course</div>
-                </div>
-            </div>
+<section id="ai-hub" class="ai-hub-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">AI Powered</span>
+<h2 class="section-title">AI Learning Hub</h2>
+<p class="section-subtitle">Master AI tools to supercharge your learning and productivity</p>
+</div>
+<div class="ai-grid">
+<div class="ai-card">
+<div class="ai-card-icon">🤖</div>
+<h4>ChatGPT</h4>
+<p>Learn how to use ChatGPT effectively for research, writing, coding, and problem-solving in education.</p>
+<span class="ai-tag">Conversational AI</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">🏢</div>
+<h4>Microsoft Copilot</h4>
+<p>Integrate AI into your workflow with Microsoft's Copilot for Office, Edge, and development tools.</p>
+<span class="ai-tag">Productivity AI</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">💎</div>
+<h4>Google Gemini</h4>
+<p>Explore Google's multimodal AI for research, creative projects, and academic assistance.</p>
+<span class="ai-tag">Multimodal AI</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">📓</div>
+<h4>NotebookLM</h4>
+<p>AI-powered notebook that helps you understand complex topics from your study materials.</p>
+<span class="ai-tag">Study AI</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">🔍</div>
+<h4>Perplexity</h4>
+<p>AI-powered search engine for accurate, cited answers to your academic questions.</p>
+<span class="ai-tag">Research AI</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">💡</div>
+<h4>Prompt Engineering</h4>
+<p>Master the art of crafting effective prompts to get the best results from any AI tool.</p>
+<span class="ai-tag">Essential Skill</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">⚡</div>
+<h4>AI Productivity</h4>
+<p>Automate tasks, organize study materials, and create efficient workflows using AI.</p>
+<span class="ai-tag">Workflow</span>
+</div>
+<div class="ai-card">
+<div class="ai-card-icon">🛡️</div>
+<h4>Responsible AI</h4>
+<p>Understand AI ethics, avoid plagiarism, use AI as a learning aid not a crutch.</p>
+<span class="ai-tag">Ethics</span>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="student-health">
-                <h2>Student Health Tracker</h2>
-                <p>Track your daily health activities</p>
-                <div class="health-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Weight (kg)</label>
-                            <input type="number" id="weight" placeholder="Enter your weight">
-                        </div>
-                        <div class="form-group">
-                            <label>Today's Running (km)</label>
-                            <input type="number" id="running" placeholder="Enter running distance" step="0.1">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Exercise Time (minutes)</label>
-                            <input type="number" id="exercise" placeholder="Enter exercise time">
-                        </div>
-                        <div class="form-group">
-                            <label>Sunbath Time (minutes)</label>
-                            <input type="number" id="sunbath" placeholder="Enter sunbath time">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Playing Time (minutes)</label>
-                            <input type="number" id="playing" placeholder="Enter playing time">
-                        </div>
-                    </div>
-                    <button class="btn-submit" id="saveHealth">Save Health Data</button>
-                    <div class="health-message" id="healthMessage"></div>
-                </div>
-            </div>
+<section id="planner" class="planner-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Organization</span>
+<h2 class="section-title">Daily Study Planner</h2>
+<p class="section-subtitle">Plan, track, and achieve your study goals with our smart planner</p>
+</div>
+<div class="planner-grid">
+<div class="planner-card goals-card">
+<h3 class="planner-card-title">Daily Goals</h3>
+<div class="goal-input-group">
+<input type="text" id="dailyGoalInput" placeholder="Add a new goal...">
+<button class="btn-add-goal" onclick="addDailyGoal()">Add</button>
+</div>
+<ul id="dailyGoalsList" class="goals-list"></ul>
+</div>
+<div class="planner-card timer-card">
+<h3 class="planner-card-title">Study Timer (Pomodoro)</h3>
+<div class="timer-display" id="timerDisplay">25:00</div>
+<div class="timer-controls">
+<button class="btn-timer" id="timerStartBtn" onclick="startTimer()">Start</button>
+<button class="btn-timer" id="timerPauseBtn" onclick="pauseTimer()" style="display:none">Pause</button>
+<button class="btn-timer" id="timerResetBtn" onclick="resetTimer()">Reset</button>
+</div>
+<div class="timer-settings">
+<button class="timer-preset active" onclick="setTimerPreset(25)">25 min</button>
+<button class="timer-preset" onclick="setTimerPreset(15)">15 min</button>
+<button class="timer-preset" onclick="setTimerPreset(5)">5 min Break</button>
+</div>
+</div>
+<div class="planner-card progress-card">
+<h3 class="planner-card-title">Progress Circle</h3>
+<div class="progress-circle-container">
+<svg class="progress-circle" viewBox="0 0 120 120">
+<circle class="progress-bg" cx="60" cy="60" r="50"></circle>
+<circle class="progress-fill-circle" id="progressFillCircle" cx="60" cy="60" r="50"></circle>
+</svg>
+<div class="progress-text" id="progressText">0%</div>
+</div>
+<p class="progress-label">Today's Goal Completion</p>
+</div>
+<div class="planner-card calendar-card">
+<h3 class="planner-card-title">Calendar</h3>
+<div class="calendar-header">
+<button onclick="changeMonth(-1)">&lt;</button>
+<span id="calendarMonthYear"></span>
+<button onclick="changeMonth(1)">&gt;</button>
+</div>
+<div class="calendar-grid">
+<span class="day-name">Sun</span><span class="day-name">Mon</span><span class="day-name">Tue</span><span class="day-name">Wed</span><span class="day-name">Thu</span><span class="day-name">Fri</span><span class="day-name">Sat</span>
+</div>
+<div id="calendarDays" class="calendar-days"></div>
+</div>
+<div class="planner-card weekly-card">
+<h3 class="planner-card-title">Weekly Goals</h3>
+<div class="goal-input-group">
+<input type="text" id="weeklyGoalInput" placeholder="Add weekly goal...">
+<button class="btn-add-goal" onclick="addWeeklyGoal()">Add</button>
+</div>
+<ul id="weeklyGoalsList" class="goals-list"></ul>
+</div>
+<div class="planner-card monthly-card">
+<h3 class="planner-card-title">Monthly Goals</h3>
+<div class="goal-input-group">
+<input type="text" id="monthlyGoalInput" placeholder="Add monthly goal...">
+<button class="btn-add-goal" onclick="addMonthlyGoal()">Add</button>
+</div>
+<ul id="monthlyGoalsList" class="goals-list"></ul>
+</div>
+<div class="planner-card achievements-card">
+<h3 class="planner-card-title">Achievement Badges</h3>
+<div class="badges-grid">
+<div class="badge-item unlocked" title="First Day Complete">🌟</div>
+<div class="badge-item unlocked" title="7 Day Streak">🔥</div>
+<div class="badge-item" title="30 Day Streak">💎</div>
+<div class="badge-item unlocked" title="First Quiz">📝</div>
+<div class="badge-item" title="Quiz Master">🏆</div>
+<div class="badge-item" title="Health Champion">💪</div>
+<div class="badge-item" title="AI Explorer">🤖</div>
+<div class="badge-item" title="Perfect Month">👑</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="important-links">
-                <h2>Important Links</h2>
-                <p>Access useful educational resources</p>
-                <div class="links-grid">
-                    <a href="https://www.youtube.com/@AmanSirEducation" target="_blank" class="link-card youtube">
-                        <div class="link-icon">📺</div>
-                        <h3>Aman Sir Education</h3>
-                        <p>Free educational videos</p>
-                    </a>
-                    <a href="https://www.youtube.com/@KhanAcademyHindi" target="_blank" class="link-card youtube">
-                        <div class="link-icon">📺</div>
-                        <h3>Khan Academy Hindi</h3>
-                        <p>Math & Science tutorials</p>
-                    </a>
-                    <a href="https://www.youtube.com/@UnacademyFoundation" target="_blank" class="link-card youtube">
-                        <div class="link-icon">📺</div>
-                        <h3>Unacademy Foundation</h3>
-                        <p>Board exam preparation</p>
-                    </a>
-                    <a href="https://www.youtube.com/@StudyIQeducation" target="_blank" class="link-card youtube">
-                        <div class="link-icon">📺</div>
-                        <h3>Study IQ Education</h3>
-                        <p>Competitive exam videos</p>
-                    </a>
-                    <a href="https://ncert.nic.in/" target="_blank" class="link-card website">
-                        <div class="link-icon">🌐</div>
-                        <h3>NCERT Official</h3>
-                        <p>Free textbooks & resources</p>
-                    </a>
-                    <a href="https://cbseacademic.nic.in/" target="_blank" class="link-card website">
-                        <div class="link-icon">🌐</div>
-                        <h3>CBSE Academic</h3>
-                        <p>Official CBSE resources</p>
-                    </a>
-                </div>
-            </div>
+<section id="resources" class="resources-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Free</span>
+<h2 class="section-title">Free Resources</h2>
+<p class="section-subtitle">Access premium study materials completely free</p>
+</div>
+<div class="resources-grid">
+<div class="resource-card">
+<div class="resource-icon">📝</div>
+<h4>Notes</h4>
+<p>Chapter-wise handwritten notes</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">📄</div>
+<h4>PDF</h4>
+<p>Downloadable study PDFs</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">📋</div>
+<h4>Practice Papers</h4>
+<p>Daily practice problem sets</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">📚</div>
+<h4>PYQs</h4>
+<p>Previous year question papers</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">📊</div>
+<h4>Formula Sheets</h4>
+<p>Quick revision formula collections</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">🗺️</div>
+<h4>Mind Maps</h4>
+<p>Visual learning mind maps</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">⚡</div>
+<h4>Cheat Sheets</h4>
+<p>Quick reference guides</p>
+<button class="btn-resource">Access Now</button>
+</div>
+<div class="resource-card">
+<div class="resource-icon">🎬</div>
+<h4>Video Library</h4>
+<p>Concept explanation videos</p>
+<button class="btn-resource">Access Now</button>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="tab-content" id="notification">
-                <h2>Notifications</h2>
-                <div class="notifications">
-                    <div class="notification">
-                        <span class="badge new">New</span>
-                        <p>Admission for 2026-27 session is now open!</p>
-                    </div>
-                    <div class="notification">
-                        <span class="badge">Important</span>
-                        <p>Live classes will start from 15th August 2026</p>
-                    </div>
-                    <div class="notification">
-                        <span class="badge">Update</span>
-                        <p>New PDF notes uploaded for Class 10</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="quiz" class="quiz-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Test Yourself</span>
+<h2 class="section-title">Quiz Arena</h2>
+<p class="section-subtitle">Challenge yourself with daily quizzes and climb the leaderboard</p>
+</div>
+<div class="quiz-grid">
+<div class="quiz-card daily-quiz">
+<div class="quiz-card-header">📝 Daily Quiz</div>
+<div class="quiz-card-body">
+<h4>Today's Challenge</h4>
+<p>10 Questions | 10 Minutes</p>
+<span class="quiz-subject">Mathematics & Science</span>
+<button class="btn-start-quiz" onclick="startQuiz('daily')">Start Quiz</button>
+</div>
+</div>
+<div class="quiz-card weekly-quiz">
+<div class="quiz-card-header">🏆 Weekly Quiz</div>
+<div class="quiz-card-body">
+<h4>Weekly Mega Quiz</h4>
+<p>50 Questions | 60 Minutes</p>
+<span class="quiz-subject">All Subjects</span>
+<button class="btn-start-quiz" onclick="startQuiz('weekly')">Start Quiz</button>
+</div>
+</div>
+<div class="quiz-card leaderboard-card">
+<div class="quiz-card-header">🏅 Leaderboard</div>
+<div class="quiz-card-body">
+<div class="leaderboard-list">
+<div class="leaderboard-item"><span class="rank">1</span><span class="name">Priya Sharma</span><span class="score">980 pts</span></div>
+<div class="leaderboard-item"><span class="rank">2</span><span class="name">Rahul Kumar</span><span class="score">945 pts</span></div>
+<div class="leaderboard-item"><span class="rank">3</span><span class="name">Anjali Singh</span><span class="score">920 pts</span></div>
+<div class="leaderboard-item"><span class="rank">4</span><span class="name">Vikash Patel</span><span class="score">895 pts</span></div>
+<div class="leaderboard-item"><span class="rank">5</span><span class="name">Sneha Gupta</span><span class="score">870 pts</span></div>
+</div>
+</div>
+</div>
+<div class="quiz-card score-tracker-card">
+<div class="quiz-card-header">📊 Score Tracker</div>
+<div class="quiz-card-body">
+<div class="score-stats">
+<div class="score-stat"><span class="score-value" id="totalQuizzes">0</span><span class="score-label">Quizzes Taken</span></div>
+<div class="score-stat"><span class="score-value" id="avgScore">0%</span><span class="score-label">Avg Score</span></div>
+<div class="score-stat"><span class="score-value" id="bestScore">0%</span><span class="score-label">Best Score</span></div>
+<div class="score-stat"><span class="score-value" id="totalPoints">0</span><span class="score-label">Total Points</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-        <section class="expert-teacher">
-            <h2>Our Expert Teacher</h2>
-            <div class="teacher-profile">
-                <div class="teacher-avatar">A</div>
-                <div class="teacher-info">
-                    <h3>Mr. Aman</h3>
-                    <p class="teacher-subject">Founder & Head Teacher</p>
-                    <p class="teacher-desc">10+ years of experience in teaching. Specialized in Mathematics, Science & Competitive Exam Preparation.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+<section id="testimonials" class="testimonials-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Reviews</span>
+<h2 class="section-title">What Students Say</h2>
+<p class="section-subtitle">Hear from our students about their learning experience</p>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card">
+<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonial-text">"AMANSHU CLASSES transformed my approach to studying. The live classes and AI tools helped me score 95% in my boards!"</p>
+<div class="testimonial-author">
+<div class="author-avatar">PS</div>
+<div class="author-info">
+<h4>Priya Sharma</h4>
+<span>Class 12 | CBSE</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonial-text">"The BPSC preparation course is phenomenal. Mr. Aman's teaching style makes even complex topics easy to understand."</p>
+<div class="testimonial-author">
+<div class="author-avatar">RK</div>
+<div class="author-info">
+<h4>Rahul Kumar</h4>
+<span>BPSC Aspirant</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonial-text">"The health tracker and study planner keep me on track. I feel more organized and productive than ever before."</p>
+<div class="testimonial-author">
+<div class="author-avatar">AS</div>
+<div class="author-info">
+<h4>Anjali Singh</h4>
+<span>Class 10 | CBSE</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+<p class="testimonial-text">"The AI Learning Hub introduced me to tools I never knew existed. My research and writing skills have improved 10x."</p>
+<div class="testimonial-author">
+<div class="author-avatar">VP</div>
+<div class="author-info">
+<h4>Vikash Patel</h4>
+<span>Class 11 | Science</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>AMANSHU CLASSES</h3>
-                <p>Quality Education at Your Fingertips</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Courses</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: info@amanshuclasses.com</p>
-                <p>Phone: +91 9876543210</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 AMANSHU CLASSES. All rights reserved.</p>
-        </div>
-    </footer>
+<section id="faculty" class="faculty-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Team</span>
+<h2 class="section-title">Our Expert Faculty</h2>
+<p class="section-subtitle">Learn from the best educators in India</p>
+</div>
+<div class="faculty-grid">
+<div class="faculty-card featured">
+<div class="faculty-avatar">AM</div>
+<h4>Mr. Aman</h4>
+<span class="faculty-subject">Expert Teacher & Founder</span>
+<p>Mathematics & Science Expert with 10+ years of teaching experience. Passionate about making education accessible to all.</p>
+<div class="faculty-social">
+<a href="https://www.youtube.com/@AmanSirEducation" target="_blank" rel="noopener">YouTube</a>
+</div>
+</div>
+<div class="faculty-card">
+<div class="faculty-avatar">PP</div>
+<h4>Dr. Priya Pandey</h4>
+<span class="faculty-subject">Science Expert</span>
+<p>PhD in Physics with expertise in making complex concepts simple and engaging for students.</p>
+</div>
+<div class="faculty-card">
+<div class="faculty-avatar">NR</div>
+<h4>Ms. Nisha Rani</h4>
+<span class="faculty-subject">English Expert</span>
+<p>MA English with years of experience in language teaching and creative writing.</p>
+</div>
+<div class="faculty-card">
+<div class="faculty-avatar">RK</div>
+<h4>Mr. Rajesh Kumar</h4>
+<span class="faculty-subject">Hindi Expert</span>
+<p>Expert in Hindi literature and grammar with a passion for language education.</p>
+</div>
+</div>
+</div>
+</section>
 
-    <script src="script.js"></script>
+<section id="gallery" class="gallery-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Moments</span>
+<h2 class="section-title">Our Gallery</h2>
+<p class="section-subtitle">Glimpses of life at AMANSHU CLASSES</p>
+</div>
+<div class="gallery-masonry">
+<div class="gallery-item tall"><div class="gallery-placeholder">📚</div><span>Library</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">🏫</div><span>Classroom</span></div>
+<div class="gallery-item wide"><div class="gallery-placeholder">🎓</div><span>Graduation</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">🏆</div><span>Awards</span></div>
+<div class="gallery-item tall"><div class="gallery-placeholder">🔬</div><span>Laboratory</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">🎤</div><span>Event</span></div>
+<div class="gallery-item wide"><div class="gallery-placeholder">🏕️</div><span>Workshop</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">⚽</div><span>Sports</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">🎨</div><span>Art Class</span></div>
+<div class="gallery-item tall"><div class="gallery-placeholder">💻</div><span>Computer Lab</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">📖</div><span>Study Hall</span></div>
+<div class="gallery-item"><div class="gallery-placeholder">🎭</div><span>Cultural</span></div>
+</div>
+</div>
+</section>
+
+<section id="blog" class="blog-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Read</span>
+<h2 class="section-title">Latest Blog Posts</h2>
+<p class="section-subtitle">Stay updated with education, career, and wellness tips</p>
+</div>
+<div class="blog-grid">
+<div class="blog-card">
+<div class="blog-thumb">📚</div>
+<div class="blog-content">
+<span class="blog-category">Education</span>
+<h4>Top 10 Study Tips for Board Exam 2027</h4>
+<p>Effective strategies and techniques to score maximum marks in your board examinations.</p>
+<span class="blog-date">July 28, 2026</span>
+</div>
+</div>
+<div class="blog-card">
+<div class="blog-thumb">💼</div>
+<div class="blog-content">
+<span class="blog-category">Career</span>
+<h4>Complete Guide to BPSC Preparation 2026</h4>
+<p>Everything you need to know about Bihar Public Service Commission exam preparation.</p>
+<span class="blog-date">July 25, 2026</span>
+</div>
+</div>
+<div class="blog-card">
+<div class="blog-thumb">💪</div>
+<div class="blog-content">
+<span class="blog-category">Health</span>
+<h4>How to Stay Healthy During Exam Season</h4>
+<p>Practical health tips for students preparing for important examinations.</p>
+<span class="blog-date">July 22, 2026</span>
+</div>
+</div>
+<div class="blog-card">
+<div class="blog-thumb">🤖</div>
+<div class="blog-content">
+<span class="blog-category">AI</span>
+<h4>How AI is Transforming Education in India</h4>
+<p>Explore how artificial intelligence is revolutionizing the way students learn.</p>
+<span class="blog-date">July 20, 2026</span>
+</div>
+</div>
+<div class="blog-card">
+<div class="blog-thumb">🧠</div>
+<div class="blog-content">
+<span class="blog-category">Health</span>
+<h4>Meditation Techniques for Students</h4>
+<p>Simple meditation practices that improve focus, memory, and academic performance.</p>
+<span class="blog-date">July 18, 2026</span>
+</div>
+</div>
+<div class="blog-card">
+<div class="blog-thumb">🎯</div>
+<div class="blog-content">
+<span class="blog-category">Career</span>
+<h4>Government Jobs After Class 12 - Complete List</h4>
+<p>All available government job opportunities for 12th pass students in 2026.</p>
+<span class="blog-date">July 15, 2026</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="important-links" class="important-links-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Resources</span>
+<h2 class="section-title">Important Links</h2>
+<p class="section-subtitle">Curated educational resources to support your learning journey</p>
+</div>
+<div class="important-links-grid">
+<a href="https://www.youtube.com/@AmanSirEducation" target="_blank" rel="noopener noreferrer" class="important-link-card">
+<div class="link-icon">🎬</div>
+<h4>Aman Sir Education</h4>
+<p>Official YouTube channel with free educational videos, tutorials, and exam preparation content.</p>
+<span class="link-url">youtube.com/@AmanSirEducation</span>
+</a>
+<a href="https://www.youtube.com/@KhanAcademyHindi" target="_blank" rel="noopener noreferrer" class="important-link-card">
+<div class="link-icon">📖</div>
+<h4>Khan Academy Hindi</h4>
+<p>World-class education content in Hindi covering math, science, and more.</p>
+<span class="link-url">youtube.com/@KhanAcademyHindi</span>
+</a>
+<a href="https://www.youtube.com/@UnacademyFoundation" target="_blank" rel="noopener noreferrer" class="important-link-card">
+<div class="link-icon">🎓</div>
+<h4>Unacademy Foundation</h4>
+<p>Foundation course videos for competitive exam preparation and school studies.</p>
+<span class="link-url">youtube.com/@UnacademyFoundation</span>
+</a>
+<a href="https://www.youtube.com/@StudyIQeducation" target="_blank" rel="noopener noreferrer" class="important-link-card">
+<div class="link-icon">📊</div>
+<h4>Study IQ Education</h4>
+<p>Comprehensive current affairs, GK, and competitive exam preparation videos.</p>
+<span class="link-url">youtube.com/@StudyIQeducation</span>
+</a>
+<a href="https://ncert.nic.in/" target="_blank" rel="noopener noreferrer" class="important-link-card">
+<div class="link-icon">📚</div>
+<h4>NCERT Official</h4>
+<p>Download NCERT textbooks, syllabus, and study material directly from the official website.</p>
+<span class="link-url">ncert.nic.in</span>
+</a>
+<a href="https://cbseacademic.nic.in/" target="_blank" rel="noopener noreferrer" class="important-link-card">
+<div class="link-icon">🏫</div>
+<h4>CBSE Academic</h4>
+<p>Official CBSE academic resources, curriculum, sample papers, and exam updates.</p>
+<span class="link-url">cbseacademic.nic.in</span>
+</a>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact-section">
+<div class="section-container">
+<div class="section-header">
+<span class="section-tag">Get in Touch</span>
+<h2 class="section-title">Contact Us</h2>
+<p class="section-subtitle">We'd love to hear from you. Reach out for admissions or queries.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<h3>Contact Information</h3>
+<div class="contact-item">
+<span class="contact-icon">📞</span>
+<div><h4>Phone</h4><p>+91 98765 43210</p></div>
+</div>
+<div class="contact-item">
+<span class="contact-icon">📧</span>
+<div><h4>Email</h4><p>info@amanshuclasses.com</p></div>
+</div>
+<div class="contact-item">
+<span class="contact-icon">💬</span>
+<div><h4>WhatsApp</h4><p>+91 98765 43210</p></div>
+</div>
+<div class="contact-item">
+<span class="contact-icon">📍</span>
+<div><h4>Address</h4><p>AMANSHU CLASSES, Main Road, Patna, Bihar - 800001</p></div>
+</div>
+<div class="social-links">
+<a href="https://www.youtube.com/@AmanSirEducation" target="_blank" rel="noopener" class="social-link">YouTube</a>
+<a href="#" class="social-link">Facebook</a>
+<a href="#" class="social-link">Instagram</a>
+<a href="#" class="social-link">Twitter</a>
+</div>
+</div>
+<div class="contact-form">
+<h3>Send Admission Enquiry</h3>
+<form id="admissionForm" onsubmit="submitAdmission(event)">
+<div class="form-group">
+<label for="contactName">Full Name</label>
+<input type="text" id="contactName" placeholder="Enter your full name" required>
+</div>
+<div class="form-group">
+<label for="contactPhone">Phone Number</label>
+<input type="tel" id="contactPhone" placeholder="Enter phone number" required>
+</div>
+<div class="form-group">
+<label for="contactEmail">Email Address</label>
+<input type="email" id="contactEmail" placeholder="Enter email address" required>
+</div>
+<div class="form-group">
+<label for="contactClass">Select Class</label>
+<select id="contactClass" required>
+<option value="">-- Select Class --</option>
+<option value="1">Class 1</option>
+<option value="2">Class 2</option>
+<option value="3">Class 3</option>
+<option value="4">Class 4</option>
+<option value="5">Class 5</option>
+<option value="6">Class 6</option>
+<option value="7">Class 7</option>
+<option value="8">Class 8</option>
+<option value="9">Class 9</option>
+<option value="10">Class 10</option>
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
+<option value="bpsc">BPSC Preparation</option>
+<option value="ssc">SSC Preparation</option>
+<option value="railways">Railways Preparation</option>
+</select>
+</div>
+<div class="form-group">
+<label for="contactMessage">Message</label>
+<textarea id="contactMessage" rows="4" placeholder="Your message or query..."></textarea>
+</div>
+<button type="submit" class="btn-submit">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-grid">
+<div class="footer-col">
+<div class="footer-logo">
+<div class="logo-circle">AC</div>
+<span>AMANSHU CLASSES</span>
+</div>
+<p class="footer-desc">Empowering students with world-class education and personalized learning experiences since 2015.</p>
+<div class="newsletter">
+<h4>Newsletter</h4>
+<div class="newsletter-form">
+<input type="email" placeholder="Enter your email" id="newsletterEmail">
+<button onclick="subscribeNewsletter()">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#health">Health Tracker</a></li>
+<li><a href="#career">Career Roadmap</a></li>
+<li><a href="#ai-hub">AI Learning Hub</a></li>
+<li><a href="#planner">Study Planner</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<ul>
+<li><a href="#resources">Free Notes</a></li>
+<li><a href="#resources">PDF Downloads</a></li>
+<li><a href="#resources">Practice Papers</a></li>
+<li><a href="#resources">PYQs</a></li>
+<li><a href="#resources">Formula Sheets</a></li>
+<li><a href="#resources">Video Library</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Courses</h4>
+<ul>
+<li><a href="#courses">CBSE Complete</a></li>
+<li><a href="#courses">BPSC Preparation</a></li>
+<li><a href="#courses">SSC CGL/CHSL</a></li>
+<li><a href="#courses">Railways RRB</a></li>
+<li><a href="#courses">School Package</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Support</h4>
+<ul>
+<li><a href="#contact">Contact Us</a></li>
+<li><a href="#">Help Center</a></li>
+<li><a href="#">FAQs</a></li>
+<li><a href="#">Terms of Service</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Refund Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-bottom-left">
+<p>&copy; 2026 AMANSHU CLASSES. All rights reserved.</p>
+</div>
+<div class="footer-bottom-right">
+<div class="footer-social">
+<a href="https://www.youtube.com/@AmanSirEducation" target="_blank" rel="noopener" class="footer-social-link">YouTube</a>
+<a href="#" class="footer-social-link">Facebook</a>
+<a href="#" class="footer-social-link">Instagram</a>
+<a href="#" class="footer-social-link">Twitter</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
+
+<button id="backToTop" class="back-to-top" title="Back to Top">↑</button>
+
+<div id="loginModal" class="modal-overlay">
+<div class="modal-content">
+<button class="modal-close" onclick="closeLoginModal()">&times;</button>
+<h3 class="modal-title">Login to AMANSHU CLASSES</h3>
+<form id="loginForm" onsubmit="handleLogin(event)">
+<div class="form-group">
+<label for="loginPhone">Phone Number</label>
+<input type="tel" id="loginPhone" placeholder="Enter your phone number" required>
+</div>
+<div class="form-group">
+<label for="loginEmail">Email Address</label>
+<input type="email" id="loginEmail" placeholder="Enter your email address" required>
+</div>
+<button type="submit" class="btn-submit">Login</button>
+</form>
+</div>
+</div>
+
+<div id="demoModal" class="modal-overlay">
+<div class="modal-content demo-modal-content">
+<button class="modal-close" onclick="closeDemoModal()">&times;</button>
+<h3 class="modal-title">Watch Demo Video</h3>
+<div class="demo-video-placeholder">
+<div class="demo-play-btn">▶</div>
+<p>Demo video coming soon!</p>
+</div>
+</div>
+</div>
+
+<div id="admissionModal" class="modal-overlay">
+<div class="modal-content admission-modal-content">
+<button class="modal-close" onclick="closeAdmissionModal()">&times;</button>
+<h3 class="modal-title">Apply for Admission - Class <span id="admissionClassNum"></span></h3>
+<form id="admissionModalForm" onsubmit="submitModalAdmission(event)">
+<div class="form-group">
+<label for="admName">Full Name</label>
+<input type="text" id="admName" placeholder="Enter full name" required>
+</div>
+<div class="form-group">
+<label for="admPhone">Phone Number</label>
+<input type="tel" id="admPhone" placeholder="Enter phone number" required>
+</div>
+<div class="form-group">
+<label for="admEmail">Email Address</label>
+<input type="email" id="admEmail" placeholder="Enter email address" required>
+</div>
+<div class="form-group">
+<label for="admClass">Class</label>
+<select id="admClass" required>
+<option value="">-- Select Class --</option>
+<option value="1">Class 1</option>
+<option value="2">Class 2</option>
+<option value="3">Class 3</option>
+<option value="4">Class 4</option>
+<option value="5">Class 5</option>
+<option value="6">Class 6</option>
+<option value="7">Class 7</option>
+<option value="8">Class 8</option>
+<option value="9">Class 9</option>
+<option value="10">Class 10</option>
+</select>
+</div>
+<button type="submit" class="btn-submit">Submit Application</button>
+</form>
+</div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
