@@ -3,606 +3,1434 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMANSHU CLASSES</title>
+  <title>AMANSHU CLASSES - Premium Education Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
     <div class="logo">
       <div class="logo-circle">AC</div>
-      <span class="logo-text">AMANSHU CLASSES</span>
+      <div class="logo-info">
+        <span class="logo-text">AMANSHU CLASSES</span>
+        <span class="logo-sub">Excellence in Education</span>
+      </div>
     </div>
   </div>
   <nav class="sidebar-nav">
-    <a class="nav-link active" data-section="sec-home"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></a>
-    <a class="nav-link" data-section="sec-courses"><span class="nav-icon">📚</span><span class="nav-label">Courses</span></a>
-    <a class="nav-link" data-section="sec-class"><span class="nav-icon">📖</span><span class="nav-label">Class</span></a>
-    <a class="nav-link" data-section="sec-live"><span class="nav-icon">🎥</span><span class="nav-label">Live Class</span></a>
-    <a class="nav-link" data-section="sec-pdf"><span class="nav-icon">📝</span><span class="nav-label">PDF Notes</span></a>
-    <a class="nav-link" data-section="sec-recorded"><span class="nav-icon">🎬</span><span class="nav-label">Recorded Batch</span></a>
-    <a class="nav-link" data-section="sec-health"><span class="nav-icon">💪</span><span class="nav-label">Health & Wellness</span></a>
-    <a class="nav-link" data-section="sec-career"><span class="nav-icon">🗺️</span><span class="nav-label">Career Roadmap</span></a>
-    <a class="nav-link" data-section="sec-ai"><span class="nav-icon">🤖</span><span class="nav-label">AI Learning Hub</span></a>
-    <a class="nav-link" data-section="sec-planner"><span class="nav-icon">⏱️</span><span class="nav-label">Study Planner</span></a>
-    <a class="nav-link" data-section="sec-quiz"><span class="nav-icon">❓</span><span class="nav-label">Quiz</span></a>
-    <a class="nav-link" data-section="sec-links"><span class="nav-icon">🔗</span><span class="nav-label">Important Links</span></a>
-    <a class="nav-link" data-section="sec-notifications"><span class="nav-icon">📢</span><span class="nav-label">Notifications</span></a>
+    <a class="nav-link active" data-section="sec-home"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span><span class="nav-label">Home</span></a>
+    <a class="nav-link" data-section="sec-courses"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="nav-label">Courses</span></a>
+    <a class="nav-link" data-section="sec-health"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><span class="nav-label">Student Health</span></a>
+    <a class="nav-link" data-section="sec-career"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88"/></svg></span><span class="nav-label">Career Guidance</span></a>
+    <a class="nav-link" data-section="sec-resources"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span class="nav-label">Resources</span></a>
+    <a class="nav-link" data-section="sec-about"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="nav-label">About</span></a>
+    <a class="nav-link" data-section="sec-contact"><span class="nav-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="nav-label">Contact</span></a>
   </nav>
   <div class="sidebar-footer">
-    <button class="sidebar-footer-btn" id="darkModeToggle">🌙 Dark Mode</button>
-    <button class="sidebar-footer-btn" id="settingsBtn">⚙️ Settings</button>
+    <button class="sidebar-footer-btn" id="darkModeToggle">
+      <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <span class="theme-text">Dark Mode</span>
+    </button>
   </div>
 </aside>
 
-<header class="topbar">
-  <button class="menu-toggle" id="menuToggle">☰</button>
+<header class="topbar" id="topbar">
+  <button class="menu-toggle" id="menuToggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
   <h1 class="page-title" id="pageTitle">Home</h1>
-  <button class="login-btn" id="loginBtn">Login</button>
+  <div class="topbar-actions">
+    <button class="topbar-btn" id="searchBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button class="topbar-btn login-btn" id="loginBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Login</span>
+    </button>
+  </div>
 </header>
 
 <main class="content-area">
-  <div class="content-scroll">
+  <div class="content-scroll" id="contentScroll">
 
+    <!-- HOME SECTION -->
     <section id="sec-home" class="section active">
-      <div class="welcome-banner glass-card">
-        <h2>Welcome to AMANSHU CLASSES 🎓</h2>
-        <p>Your complete learning dashboard — courses, live classes, health tracking, and more.</p>
+      <div class="hero-banner">
+        <div class="hero-content">
+          <div class="hero-badge">India's Trusted Coaching Institute</div>
+          <h1 class="hero-title">Welcome to <span class="gradient-text">AMANSHU CLASSES</span></h1>
+          <p class="hero-desc">Your complete learning dashboard — courses, live classes, health tracking, career guidance, and AI-powered tools. Study smarter, not harder.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-glow" data-target="sec-courses">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+              Explore Courses
+            </button>
+            <button class="btn btn-outline" data-target="sec-health">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Health Check
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-float-card hf-1">
+            <div class="hf-icon">📚</div>
+            <div class="hf-text">5000+ Students</div>
+          </div>
+          <div class="hero-float-card hf-2">
+            <div class="hf-icon">🏆</div>
+            <div class="hf-text">98% Results</div>
+          </div>
+          <div class="hero-float-card hf-3">
+            <div class="hf-icon">👨‍🏫</div>
+            <div class="hf-text">50+ Teachers</div>
+          </div>
+          <div class="hero-ring"></div>
+          <div class="hero-ring ring-2"></div>
+        </div>
       </div>
-      <div class="stat-cards">
-        <div class="stat-card glass-card"><span class="stat-num">5000+</span><span class="stat-label">Students</span></div>
-        <div class="stat-card glass-card"><span class="stat-num">50+</span><span class="stat-label">Teachers</span></div>
-        <div class="stat-card glass-card"><span class="stat-num">100+</span><span class="stat-label">Courses</span></div>
-        <div class="stat-card glass-card"><span class="stat-num">98%</span><span class="stat-label">Results</span></div>
+
+      <div class="stats-row">
+        <div class="stat-card glass-card hover-lift">
+          <div class="stat-icon" style="background:rgba(37,99,235,0.1);color:#2563eb">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="stat-num" data-count="5000">0</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat-card glass-card hover-lift">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+          </div>
+          <span class="stat-num" data-count="100">0</span>
+          <span class="stat-label">Courses</span>
+        </div>
+        <div class="stat-card glass-card hover-lift">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <span class="stat-num" data-count="50">0</span>
+          <span class="stat-label">Teachers</span>
+        </div>
+        <div class="stat-card glass-card hover-lift">
+          <div class="stat-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+          </div>
+          <span class="stat-num" data-count="98">0</span>
+          <span class="stat-label">% Results</span>
+        </div>
       </div>
+
       <h3 class="section-subtitle">Quick Actions</h3>
       <div class="quick-actions-grid">
-        <button class="quick-action glass-card" data-target="sec-courses">🎓<span>Admission</span></button>
-        <button class="quick-action glass-card" data-target="sec-courses">📚<span>Courses</span></button>
-        <button class="quick-action glass-card" data-target="sec-live">🎥<span>Live</span></button>
-        <button class="quick-action glass-card" data-target="sec-health">💪<span>Health</span></button>
-      </div>
-      <h3 class="section-subtitle">Recent Notifications</h3>
-      <div class="recent-notifications glass-card">
-        <div class="notif-item"><span class="notif-dot"></span>New batch starting for BPSC — Enroll now!</div>
-        <div class="notif-item"><span class="notif-dot"></span>Live class at 6 PM — Physics Chapter 5</div>
-        <div class="notif-item"><span class="notif-dot"></span>Health tracker updated — Check your progress</div>
-      </div>
-    </section>
-
-    <section id="sec-courses" class="section">
-      <h2 class="section-title">Our Courses</h2>
-      <div class="courses-grid">
-        <div class="course-card glass-card">
-          <div class="course-badge">CBSE</div>
-          <h3>CBSE Board (Class 9-12)</h3>
-          <p>Complete CBSE syllabus with expert faculty and study material.</p>
-          <div class="course-price">₹5,999</div>
-          <button class="course-details-btn" data-course="cbse">View Details</button>
-        </div>
-        <div class="course-card glass-card">
-          <div class="course-badge">BPSC</div>
-          <h3>BPSC Preparation</h3>
-          <p>Comprehensive Bihar Public Service Commission exam preparation.</p>
-          <div class="course-price">₹8,999</div>
-          <button class="course-details-btn" data-course="bpsc">View Details</button>
-        </div>
-        <div class="course-card glass-card">
-          <div class="course-badge">SSC</div>
-          <h3>SSC CGL/CHSL</h3>
-          <p>Staff Selection Commission exam preparation with practice sets.</p>
-          <div class="course-price">₹7,499</div>
-          <button class="course-details-btn" data-course="ssc">View Details</button>
-        </div>
-        <div class="course-card glass-card">
-          <div class="course-badge">Railways</div>
-          <h3>Railway Exams (RRB)</h3>
-          <p>Railway recruitment board exam preparation with mock tests.</p>
-          <div class="course-price">₹6,999</div>
-          <button class="course-details-btn" data-course="railways">View Details</button>
-        </div>
-        <div class="course-card glass-card">
-          <div class="course-badge">School</div>
-          <h3>School Tuition (1-10)</h3>
-          <p>Foundation courses for all subjects with personalized attention.</p>
-          <div class="course-price">₹3,999</div>
-          <button class="course-details-btn" data-course="school">View Details</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-class" class="section">
-      <h2 class="section-title">Class Portal</h2>
-      <div class="class-selector glass-card">
-        <label for="classSelect">Select your class:</label>
-        <div class="class-select-row">
-          <select id="classSelect">
-            <option value="">-- Choose Class --</option>
-            <option value="1">Class 1</option>
-            <option value="2">Class 2</option>
-            <option value="3">Class 3</option>
-            <option value="4">Class 4</option>
-            <option value="5">Class 5</option>
-            <option value="6">Class 6</option>
-            <option value="7">Class 7</option>
-            <option value="8">Class 8</option>
-            <option value="9">Class 9</option>
-            <option value="10">Class 10</option>
-          </select>
-          <button id="goClassBtn" class="btn-go">Go →</button>
-        </div>
-        <div id="classResult" class="class-result"></div>
-      </div>
-    </section>
-
-    <section id="sec-live" class="section">
-      <h2 class="section-title">Live Classes</h2>
-      <div class="live-grid">
-        <div class="live-card glass-card">
-          <div class="live-badge live-active">● LIVE</div>
-          <h3>Physics — Thermodynamics</h3>
-          <p>Teacher: Aman Sir</p>
-          <span class="live-time">6:00 PM - 7:30 PM</span>
-        </div>
-        <div class="live-card glass-card">
-          <div class="live-badge live-active">● LIVE</div>
-          <h3>Mathematics — Calculus</h3>
-          <p>Teacher: Priya Ma'am</p>
-          <span class="live-time">5:00 PM - 6:00 PM</span>
-        </div>
-        <div class="live-card glass-card">
-          <div class="live-badge live-upcoming">UPCOMING</div>
-          <h3>Chemistry — Organic</h3>
-          <p>Teacher: Raj Sir</p>
-          <span class="live-time">Tomorrow 7:00 AM</span>
-        </div>
-        <div class="live-card glass-card">
-          <div class="live-badge live-upcoming">UPCOMING</div>
-          <h3>English — Grammar</h3>
-          <p>Teacher: Sneha Ma'am</p>
-          <span class="live-time">Tomorrow 10:00 AM</span>
-        </div>
-        <div class="live-card glass-card">
-          <div class="live-badge live-active">● LIVE</div>
-          <h3>Biology — Human Anatomy</h3>
-          <p>Teacher: Neha Ma'am</p>
-          <span class="live-time">4:00 PM - 5:30 PM</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-pdf" class="section">
-      <h2 class="section-title">PDF Notes</h2>
-      <div class="pdf-controls glass-card">
-        <label for="pdfClassSelect">Select Class:</label>
-        <select id="pdfClassSelect">
-          <option value="">-- Choose Class --</option>
-          <option value="9">Class 9</option>
-          <option value="10">Class 10</option>
-          <option value="11">Class 11</option>
-          <option value="12">Class 12</option>
-        </select>
-      </div>
-      <div class="pdf-grid">
-        <div class="pdf-card glass-card">
-          <div class="pdf-icon">📄</div>
-          <h4>Physics — Chapter 1: Motion</h4>
-          <p>Class 11 • 2.4 MB</p>
-          <button class="btn-download">Download PDF</button>
-        </div>
-        <div class="pdf-card glass-card">
-          <div class="pdf-icon">📄</div>
-          <h4>Mathematics — Algebra Notes</h4>
-          <p>Class 10 • 1.8 MB</p>
-          <button class="btn-download">Download PDF</button>
-        </div>
-        <div class="pdf-card glass-card">
-          <div class="pdf-icon">📄</div>
-          <h4>Chemistry — Periodic Table</h4>
-          <p>Class 10 • 3.1 MB</p>
-          <button class="btn-download">Download PDF</button>
-        </div>
-        <div class="pdf-card glass-card">
-          <div class="pdf-icon">📄</div>
-          <h4>Biology — Cell Structure</h4>
-          <p>Class 9 • 2.0 MB</p>
-          <button class="btn-download">Download PDF</button>
-        </div>
-        <div class="pdf-card glass-card">
-          <div class="pdf-icon">📄</div>
-          <h4>English — Writing Skills</h4>
-          <p>Class 12 • 1.5 MB</p>
-          <button class="btn-download">Download PDF</button>
-        </div>
-        <div class="pdf-card glass-card">
-          <div class="pdf-icon">📄</div>
-          <h4>History — Modern India</h4>
-          <p>Class 10 • 4.2 MB</p>
-          <button class="btn-download">Download PDF</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-recorded" class="section">
-      <h2 class="section-title">Recorded Batches</h2>
-      <div class="recorded-grid">
-        <div class="recorded-card glass-card">
-          <div class="recorded-thumb">🎬</div>
-          <h3>CBSE 2025-26 Complete</h3>
-          <p>All subjects • 150+ lectures</p>
-          <div class="recorded-meta"><span>45 hours</span><span>By Aman Sir</span></div>
-          <button class="btn-watch">Watch Now</button>
-        </div>
-        <div class="recorded-card glass-card">
-          <div class="recorded-thumb">🎬</div>
-          <h3>BPSC Foundation Batch</h3>
-          <p>Pre + Mains • 200+ lectures</p>
-          <div class="recorded-meta"><span>80 hours</span><span>By Team AC</span></div>
-          <button class="btn-watch">Watch Now</button>
-        </div>
-        <div class="recorded-card glass-card">
-          <div class="recorded-thumb">🎬</div>
-          <h3>SSC CGL Crash Course</h3>
-          <p>Complete • 120+ lectures</p>
-          <div class="recorded-meta"><span>60 hours</span><span>By Priya Ma'am</span></div>
-          <button class="btn-watch">Watch Now</button>
-        </div>
-        <div class="recorded-card glass-card">
-          <div class="recorded-thumb">🎬</div>
-          <h3>Railway Special Batch</h3>
-          <p>RRB • 100+ lectures</p>
-          <div class="recorded-meta"><span>55 hours</span><span>By Raj Sir</span></div>
-          <button class="btn-watch">Watch Now</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-health" class="section">
-      <div class="health-header">
-        <h2 class="section-title">Health & Wellness Hub</h2>
-        <button class="ai-analyzer-trigger" id="openAiHealthBtn">
-          <span class="pulse-dot"></span> AI Health Analyzer
+        <button class="quick-action glass-card hover-lift" data-target="sec-courses">
+          <div class="qa-icon-wrap" style="background:rgba(37,99,235,0.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+          </div>
+          <span>Admission</span>
+        </button>
+        <button class="quick-action glass-card hover-lift" data-target="sec-courses">
+          <div class="qa-icon-wrap" style="background:rgba(16,185,129,0.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span>Live Classes</span>
+        </button>
+        <button class="quick-action glass-card hover-lift" data-target="sec-health">
+          <div class="qa-icon-wrap" style="background:rgba(239,68,68,0.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span>Health</span>
+        </button>
+        <button class="quick-action glass-card hover-lift" data-target="sec-career">
+          <div class="qa-icon-wrap" style="background:rgba(245,158,11,0.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88"/></svg>
+          </div>
+          <span>Career</span>
+        </button>
+        <button class="quick-action glass-card hover-lift" data-target="sec-resources">
+          <div class="qa-icon-wrap" style="background:rgba(139,92,246,0.1)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          </div>
+          <span>Resources</span>
         </button>
       </div>
 
-      <div class="health-pills">
-        <button class="h-pill active" data-hcat="all">All</button>
-        <button class="h-pill" data-hcat="diet">🥗 Diet</button>
-        <button class="h-pill" data-hcat="sleep">😴 Sleep</button>
-        <button class="h-pill" data-hcat="mental">🧠 Mental</button>
-        <button class="h-pill" data-hcat="exercise">🏃 Exercise</button>
-        <button class="h-pill" data-hcat="hydration">💧 Hydration</button>
-        <button class="h-pill" data-hcat="eyes">👁️ Eyes</button>
-        <button class="h-pill" data-hcat="brain">🧠 Brain</button>
-      </div>
-
-      <div class="health-dashboard">
-        <div class="health-left">
-          <div class="daily-tracker glass-card">
-            <h3>Daily Tracker</h3>
-            <div class="tracker-grid">
-              <div class="t-field"><label>Weight (kg)</label><input type="number" id="trackWeight" placeholder="65"></div>
-              <div class="t-field"><label>Running (min)</label><input type="number" id="trackRunning" placeholder="30"></div>
-              <div class="t-field"><label>Exercise (min)</label><input type="number" id="trackExercise" placeholder="45"></div>
-              <div class="t-field"><label>Sunbath (min)</label><input type="number" id="trackSunbath" placeholder="15"></div>
-              <div class="t-field"><label>Playing (min)</label><input type="number" id="trackPlaying" placeholder="20"></div>
-            </div>
-            <button class="btn-save-tracker" id="saveTrackerBtn">💾 Save Today</button>
-            <div id="trackerMsg" class="tracker-msg"></div>
-          </div>
-
-          <div class="health-stats-row">
-            <div class="mini-stat glass-card">
-              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="72, 100" class="ring-fill"/></svg></div>
-              <span class="ms-val">72%</span><span class="ms-label">Overall</span>
-            </div>
-            <div class="mini-stat glass-card">
-              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="65, 100" class="ring-fill"/></svg></div>
-              <span class="ms-val">65%</span><span class="ms-label">Energy</span>
-            </div>
-            <div class="mini-stat glass-card">
-              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="58, 100" class="ring-fill"/></svg></div>
-              <span class="ms-val">58%</span><span class="ms-label">Focus</span>
-            </div>
-            <div class="mini-stat glass-card">
-              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#06b6d4" stroke-width="3" stroke-dasharray="50, 100" class="ring-fill"/></svg></div>
-              <span class="ms-val">50%</span><span class="ms-label">Hydration</span>
-            </div>
+      <h3 class="section-subtitle">Recent Notifications</h3>
+      <div class="notifications-preview">
+        <div class="notif-item glass-card">
+          <div class="notif-badge new">NEW</div>
+          <div class="notif-content">
+            <strong>New BPSC Batch Announced</strong>
+            <p>Enrollment open for BPSC 2026 Foundation Batch. Limited seats!</p>
+            <span class="notif-time">2 hours ago</span>
           </div>
         </div>
+        <div class="notif-item glass-card">
+          <div class="notif-badge live">LIVE</div>
+          <div class="notif-content">
+            <strong>Live Class: Physics — Thermodynamics</strong>
+            <p>Tonight at 6:00 PM. Don't miss the numericals session!</p>
+            <span class="notif-time">5 hours ago</span>
+          </div>
+        </div>
+        <div class="notif-item glass-card">
+          <div class="notif-content">
+            <strong>Health Tracker Updated</strong>
+            <p>Your weekly health report is ready. Check your progress!</p>
+            <span class="notif-time">1 day ago</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="health-right">
-          <div class="health-topics-grid">
-            <div class="ht-card" data-cat="diet">
-              <div class="htc-icon">🥗</div>
-              <h4>Diet & Nutrition</h4>
-              <p>Balanced meals with proteins, carbs, vitamins</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:70%"></div></div>
-              <span class="htc-val">70%</span>
-              <p class="htc-tip">Eat 5 fruits daily</p>
+    <!-- COURSES SECTION -->
+    <section id="sec-courses" class="section">
+      <h2 class="section-title">Our Courses</h2>
+      <p class="section-desc">Choose from our wide range of expertly designed courses</p>
+      <div class="courses-grid">
+        <div class="course-card glass-card hover-lift">
+          <div class="course-badge cbse">CBSE</div>
+          <div class="course-icon-wrap" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3>CBSE Board (Class 9-12)</h3>
+          <p>Complete CBSE syllabus with expert faculty and comprehensive study material.</p>
+          <div class="course-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> 1 Year</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg> 4.8</span>
+          </div>
+          <div class="course-price">₹5,999</div>
+          <button class="btn btn-primary btn-full course-details-btn" data-course="cbse">View Details</button>
+        </div>
+        <div class="course-card glass-card hover-lift">
+          <div class="course-badge bpsc">BPSC</div>
+          <div class="course-icon-wrap" style="background:linear-gradient(135deg,#10b981,#34d399)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3>BPSC Preparation</h3>
+          <p>Comprehensive Bihar Public Service Commission exam preparation.</p>
+          <div class="course-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> 8 Months</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg> 4.9</span>
+          </div>
+          <div class="course-price">₹8,999</div>
+          <button class="btn btn-primary btn-full course-details-btn" data-course="bpsc">View Details</button>
+        </div>
+        <div class="course-card glass-card hover-lift">
+          <div class="course-badge ssc">SSC</div>
+          <div class="course-icon-wrap" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>SSC CGL/CHSL</h3>
+          <p>Staff Selection Commission exam preparation with practice sets.</p>
+          <div class="course-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> 6 Months</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg> 4.7</span>
+          </div>
+          <div class="course-price">₹7,499</div>
+          <button class="btn btn-primary btn-full course-details-btn" data-course="ssc">View Details</button>
+        </div>
+        <div class="course-card glass-card hover-lift">
+          <div class="course-badge railway">RAILWAY</div>
+          <div class="course-icon-wrap" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><circle cx="8.5" cy="21" r="1"/><circle cx="15.5" cy="21" r="1"/><path d="M12 3L4 11h16L12 3z"/></svg>
+          </div>
+          <h3>Railway Exams (RRB)</h3>
+          <p>Railway recruitment board exam preparation with mock tests.</p>
+          <div class="course-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> 5 Months</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg> 4.6</span>
+          </div>
+          <div class="course-price">₹6,999</div>
+          <button class="btn btn-primary btn-full course-details-btn" data-course="railways">View Details</button>
+        </div>
+        <div class="course-card glass-card hover-lift">
+          <div class="course-badge school">SCHOOL</div>
+          <div class="course-icon-wrap" style="background:linear-gradient(135deg,#06b6d4,#22d3ee)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+          </div>
+          <h3>School Tuition (1-10)</h3>
+          <p>Foundation courses for all subjects with personalized attention.</p>
+          <div class="course-meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> 1 Year</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg> 4.8</span>
+          </div>
+          <div class="course-price">₹3,999</div>
+          <button class="btn btn-primary btn-full course-details-btn" data-course="school">View Details</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT HEALTH SECTION -->
+    <section id="sec-health" class="section">
+      <div class="health-header">
+        <div>
+          <h2 class="section-title">Student Health Module</h2>
+          <p class="section-desc">Your complete interactive health and wellness system</p>
+        </div>
+        <button class="btn btn-primary btn-glow" id="openHealthAnalysis">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Health Analysis
+        </button>
+      </div>
+
+      <div class="health-tabs" id="healthTabs">
+        <button class="health-tab active" data-htab="mental">🧠 Mental Health</button>
+        <button class="health-tab" data-htab="physical">💪 Physical Health</button>
+        <button class="health-tab" data-htab="nutrition">🥗 Nutrition</button>
+        <button class="health-tab" data-htab="sleep">😴 Sleep</button>
+        <button class="health-tab" data-htab="eyes">👁️ Eye Care</button>
+        <button class="health-tab" data-htab="exercise">🏃 Exercise</button>
+        <button class="health-tab" data-htab="study">📖 Study Habits</button>
+        <button class="health-tab" data-htab="exam">📝 Exam Stress</button>
+        <button class="health-tab" data-htab="productivity">⚡ Productivity</button>
+        <button class="health-tab" data-htab="analysis">📊 Health Analysis</button>
+      </div>
+
+      <!-- Mental Health Tab -->
+      <div class="health-tab-content active" id="htab-mental">
+        <div class="health-topic-card" data-topic="stress">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(37,99,235,0.1);color:#2563eb">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
-            <div class="ht-card" data-cat="sleep">
-              <div class="htc-icon">😴</div>
-              <h4>Sleep Quality</h4>
-              <p>7-8 hours of quality sleep</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:60%"></div></div>
-              <span class="htc-val">60%</span>
-              <p class="htc-tip">Sleep before 10 PM</p>
-            </div>
-            <div class="ht-card" data-cat="mental">
-              <div class="htc-icon">🧠</div>
-              <h4>Mental Health</h4>
-              <p>Meditation & stress management</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:55%"></div></div>
-              <span class="htc-val">55%</span>
-              <p class="htc-tip">Meditate 10 min daily</p>
-            </div>
-            <div class="ht-card" data-cat="exercise">
-              <div class="htc-icon">🏃</div>
-              <h4>Exercise</h4>
-              <p>30-45 min physical activity daily</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:65%"></div></div>
-              <span class="htc-val">65%</span>
-              <p class="htc-tip">Morning walks are best</p>
-            </div>
-            <div class="ht-card" data-cat="hydration">
-              <div class="htc-icon">💧</div>
-              <h4>Hydration</h4>
-              <p>3-4 liters of water daily</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:50%"></div></div>
-              <span class="htc-val">50%</span>
-              <p class="htc-tip">Keep water bottle nearby</p>
-            </div>
-            <div class="ht-card" data-cat="eyes">
-              <div class="htc-icon">👁️</div>
-              <h4>Eye Care</h4>
-              <p>20-20-20 rule for screens</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:45%"></div></div>
-              <span class="htc-val">45%</span>
-              <p class="htc-tip">Look away every 20 min</p>
-            </div>
-            <div class="ht-card" data-cat="brain">
-              <div class="htc-icon">🧠</div>
-              <h4>Brain Power</h4>
-              <p>Solve puzzles & read daily</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:60%"></div></div>
-              <span class="htc-val">60%</span>
-              <p class="htc-tip">Learn something new daily</p>
-            </div>
-            <div class="ht-card" data-cat="mental">
-              <div class="htc-icon">🧘</div>
+            <div class="htc-info">
               <h4>Stress Management</h4>
-              <p>Take breaks & breathe deeply</p>
-              <div class="htc-progress"><div class="htc-fill" style="width:40%"></div></div>
-              <span class="htc-val">40%</span>
-              <p class="htc-tip">Deep breathing helps</p>
+              <p>Learn to identify and manage academic stress effectively</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>What is Academic Stress?</h5>
+              <p>Academic stress is the mental pressure students face from exams, assignments, and expectations. It's normal in small amounts but harmful when chronic.</p>
+              <h5>Signs of Stress</h5>
+              <ul>
+                <li>Headaches and body tension</li>
+                <li>Difficulty concentrating</li>
+                <li>Irritability and mood swings</li>
+                <li>Sleep problems</li>
+                <li>Loss of appetite or overeating</li>
+              </ul>
+              <h5>Effective Techniques</h5>
+              <ul>
+                <li><strong>Deep Breathing:</strong> 4-7-8 technique — inhale 4s, hold 7s, exhale 8s</li>
+                <li><strong>Progressive Muscle Relaxation:</strong> Tense and release each muscle group</li>
+                <li><strong>Time Management:</strong> Break tasks into smaller chunks</li>
+                <li><strong>Physical Activity:</strong> Even a 10-minute walk helps</li>
+                <li><strong>Talking:</strong> Share your feelings with trusted friends or family</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> When feeling stressed, try the 5-4-3-2-1 grounding technique: Name 5 things you see, 4 you touch, 3 you hear, 2 you smell, 1 you taste.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="anxiety">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Anxiety Management</h4>
+              <p>Understand and overcome exam and social anxiety</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Understanding Anxiety</h5>
+              <p>Anxiety is your body's natural response to stress. It's a feeling of fear or apprehension about what's to come. Some anxiety before exams is normal and can even be helpful.</p>
+              <h5>Common Triggers for Students</h5>
+              <ul>
+                <li>Exam pressure and fear of failure</li>
+                <li>Peer comparison</li>
+                <li>Future uncertainty</li>
+                <li>Social situations</li>
+                <li>Parental expectations</li>
+              </ul>
+              <h5>Coping Strategies</h5>
+              <ul>
+                <li><strong>Mindfulness:</strong> Stay present, don't worry about future</li>
+                <li><strong>Journaling:</strong> Write down your anxious thoughts</li>
+                <li><strong>Limit Caffeine:</strong> Reduce tea/coffee intake</li>
+                <li><strong>Regular Exercise:</strong> Releases natural stress relievers</li>
+                <li><strong>Professional Help:</strong> Don't hesitate to seek counseling</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> When anxious, try box breathing: Inhale for 4 seconds, hold for 4, exhale for 4, hold for 4. Repeat 4 times.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="motivation">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Motivation & Drive</h4>
+              <p>Build lasting motivation for academic success</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Types of Motivation</h5>
+              <ul>
+                <li><strong>Intrinsic:</strong> Internal desire to learn and grow</li>
+                <li><strong>Extrinsic:</strong> External rewards like grades, praise</li>
+                <li><strong>Achievement:</strong> Drive to accomplish goals</li>
+              </ul>
+              <h5>How to Stay Motivated</h5>
+              <ul>
+                <li>Set clear, achievable daily goals</li>
+                <li>Celebrate small wins</li>
+                <li>Visualize your success</li>
+                <li>Find a study buddy</li>
+                <li>Keep your workspace clean and inspiring</li>
+                <li>Take regular breaks to avoid burnout</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Start each day by writing down 3 things you want to accomplish. This creates a sense of purpose and direction.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="confidence">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Confidence Building</h4>
+              <p>Develop self-confidence for exams and life</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Building Self-Confidence</h5>
+              <p>Confidence comes from preparation, practice, and positive self-talk. It's a skill you can develop over time.</p>
+              <h5>Practical Steps</h5>
+              <ul>
+                <li><strong>Prepare Thoroughly:</strong> Knowledge breeds confidence</li>
+                <li><strong>Practice Speaking:</strong> Speak up in class regularly</li>
+                <li><strong>Positive Self-Talk:</strong> Replace "I can't" with "I'm learning"</li>
+                <li><strong>Body Language:</strong> Stand tall, make eye contact</li>
+                <li><strong>Help Others:</strong> Teaching builds your own understanding</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Every night before sleep, write down 3 things you did well today. This rewires your brain to notice achievements.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="focus">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(236,72,153,0.1);color:#ec4899">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Focus & Concentration</h4>
+              <p>Improve your ability to concentrate while studying</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Why Focus Matters</h5>
+              <p>Deep focus allows you to learn more in less time. Students who can concentrate for extended periods perform significantly better academically.</p>
+              <h5>Techniques to Improve Focus</h5>
+              <ul>
+                <li><strong>Pomodoro Technique:</strong> 25 min focus + 5 min break</li>
+                <li><strong>Eliminate Distractions:</strong> Phone on DND, clean desk</li>
+                <li><strong>Single-Tasking:</strong> One subject at a time</li>
+                <li><strong>Active Learning:</strong> Take notes, ask questions</li>
+                <li><strong>Sleep Well:</strong> Tired brain can't focus</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Use the "2-Minute Rule" — if a task takes less than 2 minutes, do it immediately. This clears mental clutter.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Physical Health Tab -->
+      <div class="health-tab-content" id="htab-physical">
+        <div class="health-topic-card" data-topic="exercise">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M12 12l-4 8"/><path d="M12 12l4 8"/><path d="M12 12V2"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Physical Exercise</h4>
+              <p>Essential physical activities for student health</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Why Exercise Matters for Students</h5>
+              <p>Regular physical activity improves blood flow to the brain, enhances memory, reduces stress, and boosts mood through endorphin release.</p>
+              <h5>Recommended Activities</h5>
+              <ul>
+                <li><strong>Morning Walk:</strong> 20-30 minutes daily</li>
+                <li><strong>Yoga:</strong> Improves flexibility and mental clarity</li>
+                <li><strong>Stretching:</strong> Every 2 hours while studying</li>
+                <li><strong>Sports:</strong> Cricket, football, badminton</li>
+                <li><strong>Cycling:</strong> Great cardio exercise</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Do 10 jumping jacks every hour while studying. This boosts blood flow to the brain and improves concentration.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="posture">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(6,182,212,0.1);color:#06b6d4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/><path d="M12 8v8"/><path d="M8 20h8"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Posture & Ergonomics</h4>
+              <p>Maintain proper posture while studying</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Correct Study Posture</h5>
+              <ul>
+                <li>Keep your back straight against the chair</li>
+                <li>Feet flat on the floor</li>
+                <li>Screen at eye level</li>
+                <li>Take breaks every 30 minutes</li>
+                <li>Use a proper desk and chair setup</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Set a timer to remind yourself to check your posture every 30 minutes.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutrition Tab -->
+      <div class="health-tab-content" id="htab-nutrition">
+        <div class="health-topic-card" data-topic="brain-foods">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Brain Foods</h4>
+              <p>Foods that boost brain power and memory</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Top Brain-Boosting Foods</h5>
+              <ul>
+                <li><strong>Walnuts:</strong> Rich in Omega-3 fatty acids</li>
+                <li><strong>Blueberries:</strong> Improve memory and concentration</li>
+                <li><strong>Eggs:</strong> Contains choline for brain health</li>
+                <li><strong>Dark Chocolate:</strong> Increases blood flow to brain</li>
+                <li><strong>Green Tea:</strong> Contains L-theanine for calm focus</li>
+                <li><strong>Fatty Fish:</strong> Salmon, sardines for Omega-3</li>
+                <li><strong>Leafy Greens:</strong> Spinach, kale for vitamins</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Eat a handful of walnuts and some dark chocolate before studying for a natural brain boost!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="water">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(6,182,212,0.1);color:#06b6d4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Water Intake</h4>
+              <p>Stay hydrated for optimal brain function</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Why Hydration Matters</h5>
+              <p>Even 2% dehydration can reduce cognitive performance by up to 25%. Your brain is 75% water and needs consistent hydration.</p>
+              <h5>Daily Water Goals</h5>
+              <ul>
+                <li><strong>Minimum:</strong> 2-3 liters per day</li>
+                <li><strong>Ideal:</strong> 3-4 liters per day</li>
+                <li><strong>While Studying:</strong> Keep a bottle nearby, sip every 15 min</li>
+                <li><strong>Morning:</strong> Start with 1 glass of warm water</li>
+                <li><strong>Avoid:</strong> Excessive caffeine and sugary drinks</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Set hourly water reminders on your phone. Drink 1 glass every hour for consistent hydration.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="diet">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-10 10c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Healthy Diet Plan</h4>
+              <p>Balanced nutrition for student life</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Student-Friendly Meal Plan</h5>
+              <ul>
+                <li><strong>Breakfast:</strong> Oats/Paratha + Eggs + Fruits + Milk</li>
+                <li><strong>Mid-Morning:</strong> Nuts + Green Tea</li>
+                <li><strong>Lunch:</strong> Rice + Dal + Vegetables + Curd</li>
+                <li><strong>Evening:</strong> Sprouts/Sandwich + Juice</li>
+                <li><strong>Dinner:</strong> Chapati + Sabzi + Salad (light meal)</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Never skip breakfast! It's the fuel your brain needs for morning classes.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sleep Tab -->
+      <div class="health-tab-content" id="htab-sleep">
+        <div class="health-topic-card" data-topic="sleep-duration">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Sleep Duration</h4>
+              <p>How much sleep do students actually need?</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Sleep Requirements by Age</h5>
+              <ul>
+                <li><strong>Children (6-12):</strong> 9-12 hours</li>
+                <li><strong>Teenagers (13-18):</strong> 8-10 hours</li>
+                <li><strong>Adults (18+):</strong> 7-9 hours</li>
+              </ul>
+              <h5>Effects of Sleep Deprivation</h5>
+              <ul>
+                <li>Poor memory consolidation</li>
+                <li>Reduced problem-solving ability</li>
+                <li>Irritability and mood swings</li>
+                <li>Weakened immune system</li>
+                <li>Weight gain</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Your brain processes and stores memories during sleep. Studying then sleeping is more effective than pulling an all-nighter.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="sleep-quality">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(37,99,235,0.1);color:#2563eb">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Sleep Quality</h4>
+              <p>Tips for better quality sleep</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Improve Sleep Quality</h5>
+              <ul>
+                <li>Maintain consistent sleep/wake times</li>
+                <li>Avoid screens 1 hour before bed</li>
+                <li>Keep room cool and dark</li>
+                <li>Avoid heavy meals before sleep</li>
+                <li>Practice relaxation techniques</li>
+                <li>Limit naps to 20-30 minutes</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Create a "wind-down" routine: dim lights, read a book, or listen to calm music 30 minutes before bed.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eye Care Tab -->
+      <div class="health-tab-content" id="htab-eyes">
+        <div class="health-topic-card" data-topic="eye-strain">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(236,72,153,0.1);color:#ec4899">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Eye Care for Screen Users</h4>
+              <p>Protect your eyes from screen damage</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>The 20-20-20 Rule</h5>
+              <p>Every 20 minutes, look at something 20 feet away for 20 seconds. This reduces eye strain significantly.</p>
+              <h5>Screen Safety Tips</h5>
+              <ul>
+                <li>Keep screen at arm's length distance</li>
+                <li>Adjust screen brightness to match surroundings</li>
+                <li>Use night mode/blue light filter</li>
+                <li>Blink regularly (we blink 66% less while staring at screens)</li>
+                <li>Keep room well-lit while using screens</li>
+              </ul>
+              <h5>Eye Exercises</h5>
+              <ul>
+                <li><strong>Palming:</strong> Rub hands, place over closed eyes for 30 seconds</li>
+                <li><strong>Figure 8:</strong> Trace a figure 8 with your eyes</li>
+                <li><strong>Near-Far Focus:</strong> Alternate focusing on near and far objects</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Keep your phone at least 16 inches from your face and use the largest screen available for studying.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise Tab -->
+      <div class="health-tab-content" id="htab-exercise">
+        <div class="health-topic-card" data-topic="daily-exercise">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M12 12l-4 8"/><path d="M12 12l4 8"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Daily Exercise Routine</h4>
+              <p>Simple exercises students can do daily</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>30-Minute Student Workout</h5>
+              <ul>
+                <li><strong>Warm-up (5 min):</strong> Jumping jacks, high knees</li>
+                <li><strong>Push-ups (5 min):</strong> 3 sets of 10-15</li>
+                <li><strong>Squats (5 min):</strong> 3 sets of 15-20</li>
+                <li><strong>Plank (5 min):</strong> 3 holds of 30-60 seconds</li>
+                <li><strong>Cool-down (5 min):</strong> Stretching and breathing</li>
+                <li><strong>Walking (5 min):</strong> Light walk to recover</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Exercise in the morning for best results. It boosts energy and focus for the entire day.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study Habits Tab -->
+      <div class="health-tab-content" id="htab-study">
+        <div class="health-topic-card" data-topic="active-recall">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(37,99,235,0.1);color:#2563eb">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Active Recall</h4>
+              <p>The most effective study technique</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>What is Active Recall?</h5>
+              <p>Active recall is testing yourself on material rather than passively re-reading. It's proven to be 50% more effective than highlighting or re-reading.</p>
+              <h5>How to Use Active Recall</h5>
+              <ul>
+                <li><strong>Flashcards:</strong> Create Q&A cards and test yourself</li>
+                <li><strong>Practice Tests:</strong> Solve past papers without looking at answers</li>
+                <li><strong>Teach Someone:</strong> Explain concepts to a friend or even a wall</li>
+                <li><strong>Blank Page:</strong> Write everything you remember about a topic</li>
+                <li><strong>Self-Quizzing:</strong> Close the book and write key points</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> After reading a chapter, close the book and write down everything you remember. Then check what you missed.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="spaced-repetition">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Spaced Repetition</h4>
+              <p>Review at optimal intervals for long-term memory</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>The Spaced Repetition Schedule</h5>
+              <ul>
+                <li><strong>Day 1:</strong> Learn the material</li>
+                <li><strong>Day 2:</strong> First review (1 day later)</li>
+                <li><strong>Day 4:</strong> Second review (3 days later)</li>
+                <li><strong>Day 8:</strong> Third review (7 days later)</li>
+                <li><strong>Day 20:</strong> Fourth review (19 days later)</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Use apps like Anki or Quizlet that automatically schedule spaced repetition for you.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="pomodoro">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Pomodoro Technique</h4>
+              <p>Study in focused intervals with breaks</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>How Pomodoro Works</h5>
+              <ul>
+                <li><strong>Step 1:</strong> Choose a task to work on</li>
+                <li><strong>Step 2:</strong> Set timer for 25 minutes</li>
+                <li><strong>Step 3:</strong> Work with full focus until timer rings</li>
+                <li><strong>Step 4:</strong> Take a 5-minute break</li>
+                <li><strong>Step 5:</strong> After 4 pomodoros, take a 15-30 min break</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Use our built-in Pomodoro timer in the Study Planner section!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="note-making">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Note Making</h4>
+              <p>Effective note-taking strategies</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Cornell Note-Taking Method</h5>
+              <ul>
+                <li>Divide page into 3 sections: Notes, Cues, Summary</li>
+                <li>Write main notes on the right (2/3 of page)</li>
+                <li>Write key questions on the left (1/3 of page)</li>
+                <li>Write a summary at the bottom</li>
+                <li>Review and revise within 24 hours</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Use mind maps for subjects that have interconnected concepts. It helps visualize relationships between topics.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Stress Tab -->
+      <div class="health-tab-content" id="htab-exam">
+        <div class="health-topic-card" data-topic="exam-anxiety">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(239,68,68,0.1);color:#ef4444">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Exam Anxiety</h4>
+              <p>How to handle exam pressure effectively</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Before the Exam</h5>
+              <ul>
+                <li>Prepare well in advance — start revision 2 weeks early</li>
+                <li>Get 7-8 hours of sleep the night before</li>
+                <li>Eat a healthy breakfast</li>
+                <li>Arrive 15 minutes early to settle in</li>
+                <li>Practice deep breathing before entering</li>
+              </ul>
+              <h5>During the Exam</h5>
+              <ul>
+                <li>Read all questions first</li>
+                <li>Start with questions you know best</li>
+                <li>If stuck, move on and come back later</li>
+                <li>Manage your time wisely</li>
+                <li>Stay calm — panicking wastes time</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> If you feel panic rising, close your eyes and take 5 deep breaths. It activates your parasympathetic nervous system and calms you down.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="confidence-building">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Exam Confidence</h4>
+              <p>Build unshakeable confidence for exams</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Confidence Building Strategies</h5>
+              <ul>
+                <li><strong>Mock Tests:</strong> Practice under exam conditions</li>
+                <li><strong>Positive Visualization:</strong> Imagine yourself succeeding</li>
+                <li><strong>Track Progress:</strong> See how much you've improved</li>
+                <li><strong>Study Groups:</strong> Learn with supportive peers</li>
+                <li><strong>Expert Guidance:</strong> Ask teachers for help when needed</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Before an exam, recall 3 times you succeeded in the past. This reminds your brain that you're capable.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Productivity Tab -->
+      <div class="health-tab-content" id="htab-productivity">
+        <div class="health-topic-card" data-topic="time-management">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(37,99,235,0.1);color:#2563eb">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Time Management</h4>
+              <p>Master your schedule and boost productivity</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Time Management Techniques</h5>
+              <ul>
+                <li><strong>Eisenhower Matrix:</strong> Urgent/Important grid</li>
+                <li><strong>Time Blocking:</strong> Allocate specific hours for tasks</li>
+                <li><strong>Batch Processing:</strong> Group similar tasks together</li>
+                <li><strong>Two-Minute Rule:</strong> Do it now if it takes < 2 min</li>
+                <li><strong>Daily Planning:</strong> Plan tomorrow tonight</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Use our Study Planner tool to set daily goals, track progress, and manage your time effectively.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-topic-card" data-topic="digital-wellbeing">
+          <div class="htc-header">
+            <div class="htc-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <div class="htc-info">
+              <h4>Digital Wellbeing</h4>
+              <p>Balance screen time for better health</p>
+            </div>
+            <div class="htc-toggle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+          <div class="htc-body">
+            <div class="htc-content">
+              <h5>Healthy Screen Habits</h5>
+              <ul>
+                <li>Set daily screen time limits</li>
+                <li>Use app timers for social media</li>
+                <li>Turn off non-essential notifications</li>
+                <li>Keep phone away during study time</li>
+                <li>Practice "digital sunset" — no screens after 9 PM</li>
+              </ul>
+              <div class="htc-tip-box">
+                <strong>Quick Tip:</strong> Keep your phone in another room while studying. Out of sight, out of mind!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Analysis Tab (inline) -->
+      <div class="health-tab-content" id="htab-analysis">
+        <div class="health-analysis-intro glass-card">
+          <div class="hai-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>AI Health Analysis</h3>
+          <p>Enter your daily health information and get a personalized health dashboard with scores and recommendations.</p>
+          <button class="btn btn-primary btn-glow" id="openHealthAnalysis2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Start Health Analysis
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER GUIDANCE SECTION -->
+    <section id="sec-career" class="section">
+      <h2 class="section-title">Career Guidance</h2>
+      <p class="section-desc">Interactive career roadmap — click any path to explore</p>
+
+      <div class="career-paths">
+        <div class="career-path glass-card hover-lift" data-path="after10">
+          <div class="cp-icon" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+          </div>
+          <h3>After Class 10</h3>
+          <p>Choose your stream wisely</p>
+          <div class="cp-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </div>
+        </div>
+        <div class="career-path glass-card hover-lift" data-path="after12">
+          <div class="cp-icon" style="background:linear-gradient(135deg,#10b981,#34d399)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+          </div>
+          <h3>After Class 12</h3>
+          <p>Engineering, Medical, Arts, Commerce</p>
+          <div class="cp-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </div>
+        </div>
+        <div class="career-path glass-card hover-lift" data-path="government">
+          <div class="cp-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+          </div>
+          <h3>Government Jobs</h3>
+          <p>UPSC, SSC, BPSC, Railways</p>
+          <div class="cp-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </div>
+        </div>
+        <div class="career-path glass-card hover-lift" data-path="tech">
+          <div class="cp-icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg>
+          </div>
+          <h3>Technology</h3>
+          <p>BCA, B.Tech CS, AI, Data Science</p>
+          <div class="cp-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </div>
+        </div>
+        <div class="career-path glass-card hover-lift" data-path="graduation">
+          <div class="cp-icon" style="background:linear-gradient(135deg,#ec4899,#f472b6)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+          </div>
+          <h3>Graduation</h3>
+          <p>BA, B.Sc, B.Com, Professional Courses</p>
+          <div class="cp-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Details Panel -->
+      <div class="career-details glass-card" id="careerDetails" style="display:none">
+        <div class="cd-header">
+          <h3 id="cdTitle">Career Path</h3>
+          <button class="cd-close" id="cdClose">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="cd-body" id="cdBody"></div>
+      </div>
+    </section>
+
+    <!-- RESOURCES SECTION -->
+    <section id="sec-resources" class="section">
+      <h2 class="section-title">Resources</h2>
+      <p class="section-desc">Free study materials, notes, and important links</p>
+
+      <div class="resource-tabs" id="resourceTabs">
+        <button class="resource-tab active" data-rtab="pdfs">📄 PDF Notes</button>
+        <button class="resource-tab" data-rtab="links">🔗 Important Links</button>
+        <button class="resource-tab" data-rtab="ai-tools">🤖 AI Learning Hub</button>
+        <button class="resource-tab" data-rtab="quiz">❓ Quiz Zone</button>
+        <button class="resource-tab" data-rtab="planner">⏱️ Study Planner</button>
+      </div>
+
+      <div class="resource-tab-content active" id="rtab-pdfs">
+        <div class="pdf-controls glass-card">
+          <label>Select Class:</label>
+          <select id="pdfClassSelect">
+            <option value="">All Classes</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+            <option value="11">Class 11</option>
+            <option value="12">Class 12</option>
+          </select>
+        </div>
+        <div class="pdf-grid">
+          <div class="pdf-card glass-card hover-lift">
+            <div class="pdf-icon-wrap" style="background:rgba(37,99,235,0.1)">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            </div>
+            <h4>Physics — Chapter 1: Motion</h4>
+            <p>Class 11 • 2.4 MB</p>
+            <button class="btn btn-outline btn-sm">Download</button>
+          </div>
+          <div class="pdf-card glass-card hover-lift">
+            <div class="pdf-icon-wrap" style="background:rgba(16,185,129,0.1)">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            </div>
+            <h4>Mathematics — Algebra Notes</h4>
+            <p>Class 10 • 1.8 MB</p>
+            <button class="btn btn-outline btn-sm">Download</button>
+          </div>
+          <div class="pdf-card glass-card hover-lift">
+            <div class="pdf-icon-wrap" style="background:rgba(245,158,11,0.1)">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            </div>
+            <h4>Chemistry — Periodic Table</h4>
+            <p>Class 10 • 3.1 MB</p>
+            <button class="btn btn-outline btn-sm">Download</button>
+          </div>
+          <div class="pdf-card glass-card hover-lift">
+            <div class="pdf-icon-wrap" style="background:rgba(139,92,246,0.1)">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            </div>
+            <h4>Biology — Cell Structure</h4>
+            <p>Class 9 • 2.0 MB</p>
+            <button class="btn btn-outline btn-sm">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="resource-tab-content" id="rtab-links">
+        <div class="links-grid">
+          <a href="https://ncert.nic.in" target="_blank" class="link-card glass-card hover-lift">
+            <div class="link-icon" style="background:rgba(37,99,235,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h4>NCERT</h4>
+            <p>Official NCERT textbooks & resources</p>
+          </a>
+          <a href="https://cbseacademic.nic.in" target="_blank" class="link-card glass-card hover-lift">
+            <div class="link-icon" style="background:rgba(16,185,129,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h4>CBSE Academic</h4>
+            <p>CBSE syllabus, sample papers & guidelines</p>
+          </a>
+          <a href="https://www.youtube.com/@AmanSirEducation" target="_blank" class="link-card glass-card hover-lift">
+            <div class="link-icon" style="background:rgba(239,68,68,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h4>Aman Sir Education</h4>
+            <p>Official YouTube channel</p>
+          </a>
+          <a href="https://www.youtube.com/@KhanAcademyHindi" target="_blank" class="link-card glass-card hover-lift">
+            <div class="link-icon" style="background:rgba(245,158,11,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h4>Khan Academy Hindi</h4>
+            <p>Free world-class education</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="resource-tab-content" id="rtab-ai-tools">
+        <div class="ai-grid">
+          <div class="ai-card glass-card hover-lift">
+            <div class="ai-icon" style="background:linear-gradient(135deg,#10b981,#34d399)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>ChatGPT</h3>
+            <p>Ask questions, get explanations, write essays, solve problems.</p>
+            <a href="https://chat.openai.com" target="_blank" class="ai-link">Open ChatGPT →</a>
+          </div>
+          <div class="ai-card glass-card hover-lift">
+            <div class="ai-icon" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg>
+            </div>
+            <h3>GitHub Copilot</h3>
+            <p>AI pair programmer for coding students and developers.</p>
+            <a href="https://github.com/features/copilot" target="_blank" class="ai-link">Open Copilot →</a>
+          </div>
+          <div class="ai-card glass-card hover-lift">
+            <div class="ai-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+            </div>
+            <h3>Google Gemini</h3>
+            <p>Google's AI assistant for research, writing, and analysis.</p>
+            <a href="https://gemini.google.com" target="_blank" class="ai-link">Open Gemini →</a>
+          </div>
+          <div class="ai-card glass-card hover-lift">
+            <div class="ai-icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>NotebookLM</h3>
+            <p>Upload notes, get summaries, create study guides with AI.</p>
+            <a href="https://notebooklm.google.com" target="_blank" class="ai-link">Open NotebookLM →</a>
+          </div>
+          <div class="ai-card glass-card hover-lift">
+            <div class="ai-icon" style="background:linear-gradient(135deg,#ec4899,#f472b6)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Perplexity AI</h3>
+            <p>AI-powered search engine with cited sources for research.</p>
+            <a href="https://perplexity.ai" target="_blank" class="ai-link">Open Perplexity →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="resource-tab-content" id="rtab-quiz">
+        <div class="quiz-container glass-card">
+          <div id="quizArea">
+            <h3>🧠 Quiz Zone</h3>
+            <p class="quiz-subtitle">Test your knowledge with quick quizzes</p>
+            <div id="quizActive" style="display:none">
+              <div class="quiz-progress">
+                <span id="quizProgress">Question 1/5</span>
+                <span id="quizScore">Score: 0</span>
+              </div>
+              <h4 id="quizQuestion" class="quiz-question">Loading...</h4>
+              <div id="quizOptions" class="quiz-options"></div>
+              <div id="quizFeedback" class="quiz-feedback"></div>
+            </div>
+            <div id="quizResult" style="display:none">
+              <h4 id="quizResultText">Great job!</h4>
+              <p id="quizFinalScore">0/5</p>
+              <button class="btn btn-primary" id="restartQuizBtn">Try Again</button>
+            </div>
+            <button class="btn btn-primary btn-lg" id="startQuizBtn">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="resource-tab-content" id="rtab-planner">
+        <div class="planner-grid">
+          <div class="pomodoro-card glass-card">
+            <h3>⏱️ Pomodoro Timer</h3>
+            <div class="pomo-display">
+              <svg viewBox="0 0 36 36" class="pomo-ring">
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="100, 100" class="pomo-progress" id="pomoProgress"/>
+              </svg>
+              <div class="pomo-time" id="pomoTime">25:00</div>
+            </div>
+            <div class="pomo-controls">
+              <button id="pomoStart" class="btn btn-primary">▶ Start</button>
+              <button id="pomoPause" class="btn btn-outline" style="display:none">⏸ Pause</button>
+              <button id="pomoReset" class="btn btn-ghost">↺ Reset</button>
+            </div>
+            <div class="pomo-modes">
+              <button class="pomo-mode active" data-duration="25">25 min</button>
+              <button class="pomo-mode" data-duration="15">15 min</button>
+              <button class="pomo-mode" data-duration="5">5 min</button>
+            </div>
+          </div>
+          <div class="goals-card glass-card">
+            <h3>📋 Today's Goals</h3>
+            <div class="goals-input-row">
+              <input type="text" id="goalInput" placeholder="Add a new goal..." class="goal-input">
+              <button id="addGoalBtn" class="btn btn-primary">+ Add</button>
+            </div>
+            <ul id="goalsList" class="goals-list"></ul>
+            <div class="goals-progress">
+              <svg viewBox="0 0 36 36" class="goal-ring">
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border)" stroke-width="2"/>
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="0, 100" id="goalProgress"/>
+              </svg>
+              <span id="goalPercent">0%</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sec-career" class="section">
-      <h2 class="section-title">Career Roadmap</h2>
-      <div class="career-pills">
-        <button class="career-pill active" data-cpath="all">All Paths</button>
-        <button class="career-pill" data-cpath="engineering">Engineering</button>
-        <button class="career-pill" data-cpath="medical">Medical</button>
-        <button class="career-pill" data-cpath="government">Government</button>
-        <button class="career-pill" data-cpath="tech">Technology</button>
-        <button class="career-pill" data-cpath="arts">Arts & Humanities</button>
+    <!-- ABOUT SECTION -->
+    <section id="sec-about" class="section">
+      <h2 class="section-title">About Us</h2>
+      <div class="about-intro glass-card">
+        <h3>AMANSHU CLASSES — Excellence in Education</h3>
+        <p>Founded with a mission to provide quality education to every student, AMANSHU CLASSES has been transforming lives through expert teaching, comprehensive study material, and a student-first approach. We believe every student deserves the best guidance to achieve their dreams.</p>
       </div>
-      <div class="career-grid">
-        <div class="career-card glass-card" data-cpath="engineering">
-          <div class="career-icon">⚙️</div>
-          <h3>Engineering (IIT/JEE)</h3>
-          <p>Class 11-12 PCM → JEE Main → JEE Advanced → IIT/NIT</p>
-          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+
+      <h3 class="section-subtitle">Our Faculty</h3>
+      <div class="faculty-grid">
+        <div class="faculty-card glass-card hover-lift">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4>Mr. Aman</h4>
+          <span class="faculty-role">Founder & Lead Educator</span>
+          <p>Mathematics & Science Expert</p>
         </div>
-        <div class="career-card glass-card" data-cpath="medical">
-          <div class="career-icon">🏥</div>
-          <h3>Medical (NEET)</h3>
-          <p>Class 11-12 PCB → NEET → MBBS/BDS</p>
-          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        <div class="faculty-card glass-card hover-lift">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#10b981,#34d399)">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4>Mrs. Priya Sharma</h4>
+          <span class="faculty-role">Senior Faculty</span>
+          <p>Science & Biology Expert</p>
         </div>
-        <div class="career-card glass-card" data-cpath="government">
-          <div class="career-icon">🏛️</div>
-          <h3>Government (UPSC/BPSC)</h3>
-          <p>Graduation → Prelims → Mains → Interview → IAS/IPS</p>
-          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        <div class="faculty-card glass-card hover-lift">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4>Mr. Amit Singh</h4>
+          <span class="faculty-role">Faculty</span>
+          <p>English & Hindi Expert</p>
         </div>
-        <div class="career-card glass-card" data-cpath="tech">
-          <div class="career-icon">💻</div>
-          <h3>Technology (BCA/B.Tech)</h3>
-          <p>Class 12 → BCA/B.Tech CS → Internships → Job</p>
-          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
-        </div>
-        <div class="career-card glass-card" data-cpath="arts">
-          <div class="career-icon">🎨</div>
-          <h3>Arts & Humanities</h3>
-          <p>Class 12 Arts → BA → UPSC/Teaching/Journalism</p>
-          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
-        </div>
-        <div class="career-card glass-card" data-cpath="government">
-          <div class="career-icon">🚂</div>
-          <h3>Railway (RRB/NTPC)</h3>
-          <p>Graduation → RRB NTPC → Group B/C posts</p>
-          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        <div class="faculty-card glass-card hover-lift">
+          <div class="faculty-avatar" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4>Dr. Alok Verma</h4>
+          <span class="faculty-role">Faculty</span>
+          <p>History & Social Studies</p>
         </div>
       </div>
     </section>
 
-    <section id="sec-ai" class="section">
-      <h2 class="section-title">AI Learning Hub</h2>
-      <p class="section-desc">Leverage AI tools to supercharge your learning.</p>
-      <div class="ai-grid">
-        <div class="ai-card glass-card">
-          <div class="ai-card-icon">💬</div>
-          <h3>ChatGPT</h3>
-          <p>Ask questions, get explanations, write essays, solve problems.</p>
-          <a href="https://chat.openai.com" target="_blank" class="ai-link">Open ChatGPT →</a>
+    <!-- CONTACT SECTION -->
+    <section id="sec-contact" class="section">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-form-wrap glass-card">
+          <h3>Send us a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="10-digit number" maxlength="10">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="How can we help you?" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
         </div>
-        <div class="ai-card glass-card">
-          <div class="ai-card-icon">🐙</div>
-          <h3>GitHub Copilot</h3>
-          <p>AI pair programmer for coding students and developers.</p>
-          <a href="https://github.com/features/copilot" target="_blank" class="ai-link">Open Copilot →</a>
-        </div>
-        <div class="ai-card glass-card">
-          <div class="ai-card-icon">✨</div>
-          <h3>Google Gemini</h3>
-          <p>Google's AI assistant for research, writing, and analysis.</p>
-          <a href="https://gemini.google.com" target="_blank" class="ai-link">Open Gemini →</a>
-        </div>
-        <div class="ai-card glass-card">
-          <div class="ai-card-icon">📓</div>
-          <h3>NotebookLM</h3>
-          <p>Upload notes, get summaries, create study guides with AI.</p>
-          <a href="https://notebooklm.google.com" target="_blank" class="ai-link">Open NotebookLM →</a>
-        </div>
-        <div class="ai-card glass-card">
-          <div class="ai-card-icon">🔍</div>
-          <h3>Perplexity AI</h3>
-          <p>AI-powered search engine with cited sources for research.</p>
-          <a href="https://perplexity.ai" target="_blank" class="ai-link">Open Perplexity →</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-planner" class="section">
-      <h2 class="section-title">Study Planner</h2>
-      <div class="planner-grid">
-        <div class="pomodoro-card glass-card">
-          <h3>Pomodoro Timer</h3>
-          <div class="pomodoro-display">
-            <svg viewBox="0 0 36 36" class="pomo-ring">
-              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2"/>
-              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="100, 100" class="pomo-progress"/>
-            </svg>
-            <div class="pomo-time" id="pomoTime">25:00</div>
+        <div class="contact-info-wrap">
+          <div class="contact-info-card glass-card">
+            <div class="cic-icon" style="background:rgba(37,99,235,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h4>Phone</h4>
+            <p>+91 XXXXX XXXXX</p>
           </div>
-          <div class="pomo-controls">
-            <button id="pomoStart" class="btn-pomo">▶ Start</button>
-            <button id="pomoPause" class="btn-pomo" style="display:none">⏸ Pause</button>
-            <button id="pomoReset" class="btn-pomo">↺ Reset</button>
+          <div class="contact-info-card glass-card">
+            <div class="cic-icon" style="background:rgba(16,185,129,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h4>Email</h4>
+            <p>info@amanshuclasses.com</p>
           </div>
-          <div class="pomo-modes">
-            <button class="pomo-mode active" data-duration="25">25 min</button>
-            <button class="pomo-mode" data-duration="15">15 min</button>
-            <button class="pomo-mode" data-duration="5">5 min</button>
+          <div class="contact-info-card glass-card">
+            <div class="cic-icon" style="background:rgba(245,158,11,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h4>Address</h4>
+            <p>AMANSHU CLASSES, Bihar, India</p>
           </div>
-        </div>
-        <div class="goals-card glass-card">
-          <h3>Today's Goals</h3>
-          <div class="goals-input-row">
-            <input type="text" id="goalInput" placeholder="Add a new goal...">
-            <button id="addGoalBtn" class="btn-add-goal">+ Add</button>
+          <div class="contact-info-card glass-card">
+            <div class="cic-icon" style="background:rgba(139,92,246,0.1)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <h4>Office Hours</h4>
+            <p>Mon - Sat: 8:00 AM - 8:00 PM</p>
           </div>
-          <ul id="goalsList" class="goals-list"></ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-quiz" class="section">
-      <h2 class="section-title">Quiz Zone</h2>
-      <div class="quiz-container glass-card">
-        <div id="quizArea">
-          <h3 id="quizQuestion">Loading question...</h3>
-          <div id="quizOptions" class="quiz-options"></div>
-          <div id="quizFeedback" class="quiz-feedback"></div>
-          <div class="quiz-meta">
-            <span id="quizScore">Score: 0</span>
-            <span id="quizCount">Question 1 / 10</span>
-          </div>
-          <button id="quizNext" class="btn-quiz-next" style="display:none">Next Question →</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="sec-links" class="section">
-      <h2 class="section-title">Important Links</h2>
-      <h3 class="section-subtitle">YouTube Channels</h3>
-      <div class="links-grid">
-        <a href="https://www.youtube.com/@AmanSirEducation" target="_blank" class="link-card glass-card">
-          <div class="link-icon">📺</div>
-          <h4>Aman Sir Education</h4>
-          <p>Official channel of Aman Sir</p>
-        </a>
-        <a href="https://www.youtube.com/@KhanAcademyHindi" target="_blank" class="link-card glass-card">
-          <div class="link-icon">📺</div>
-          <h4>Khan Academy Hindi</h4>
-          <p>Free world-class education</p>
-        </a>
-        <a href="https://www.youtube.com/@UnacademyFoundation" target="_blank" class="link-card glass-card">
-          <div class="link-icon">📺</div>
-          <h4>Unacademy</h4>
-          <p>India's top educators</p>
-        </a>
-        <a href="https://www.youtube.com/@StudyIQeducation" target="_blank" class="link-card glass-card">
-          <div class="link-icon">📺</div>
-          <h4>Study IQ</h4>
-          <p>UPSC & competitive exams</p>
-        </a>
-        <a href="https://www.youtube.com/channel/UCAlDLInBXWHvmraqr7WZx7A" target="_blank" class="link-card glass-card">
-          <div class="link-icon">📺</div>
-          <h4>Aman Shu Classes</h4>
-          <p>AMANSHU CLASSES official</p>
-        </a>
-      </div>
-      <h3 class="section-subtitle">Websites</h3>
-      <div class="links-grid">
-        <a href="https://ncert.nic.in" target="_blank" class="link-card glass-card">
-          <div class="link-icon">🌐</div>
-          <h4>NCERT</h4>
-          <p>Official NCERT textbooks & resources</p>
-        </a>
-        <a href="https://cbseacademic.nic.in" target="_blank" class="link-card glass-card">
-          <div class="link-icon">🌐</div>
-          <h4>CBSE Academic</h4>
-          <p>CBSE syllabus, sample papers & guidelines</p>
-        </a>
-      </div>
-    </section>
-
-    <section id="sec-notifications" class="section">
-      <h2 class="section-title">Notifications</h2>
-      <div class="notifications-list">
-        <div class="notif-card glass-card">
-          <div class="notif-badge new">NEW</div>
-          <h4>New BPSC Batch Announced</h4>
-          <p>Enrollment is now open for BPSC 2026 Foundation Batch. Limited seats available.</p>
-          <span class="notif-time">2 hours ago</span>
-        </div>
-        <div class="notif-card glass-card">
-          <div class="notif-badge new">NEW</div>
-          <h4>Live Class: Physics - Thermodynamics</h4>
-          <p>Tonight at 6:00 PM. Don't miss the important numericals session!</p>
-          <span class="notif-time">5 hours ago</span>
-        </div>
-        <div class="notif-card glass-card">
-          <h4>Health Tracker Updated</h4>
-          <p>Your weekly health report is ready. Check your progress in the Health & Wellness Hub.</p>
-          <span class="notif-time">1 day ago</span>
-        </div>
-        <div class="notif-card glass-card">
-          <h4>New PDF Notes Uploaded</h4>
-          <p>Physics Chapter 5 and Chemistry Chapter 3 notes are now available for download.</p>
-          <span class="notif-time">2 days ago</span>
-        </div>
-        <div class="notif-card glass-card">
-          <h4>CBSE Sample Papers 2026</h4>
-          <p>Official CBSE sample papers for all subjects are now available. Practice daily!</p>
-          <span class="notif-time">3 days ago</span>
-        </div>
-        <div class="notif-card glass-card">
-          <h4>Quiz Results Published</h4>
-          <p>Your Science quiz results are out. Score: 8/10. Great job!</p>
-          <span class="notif-time">4 days ago</span>
         </div>
       </div>
     </section>
@@ -610,83 +1438,195 @@
   </div>
 </main>
 
-<div class="modal-overlay" id="aiHealthModal">
+<!-- Health Analysis Modal -->
+<div class="modal-overlay" id="healthAnalysisModal">
   <div class="analyzer-modal">
     <div class="analyzer-header">
-      <h3>🤖 AI Health Analyzer</h3>
-      <button class="modal-close" data-close="aiHealthModal">✕</button>
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        AI Health Analyzer
+      </h3>
+      <button class="modal-close" data-close="healthAnalysisModal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
     <div class="analyzer-body">
       <div class="analyzer-input-panel">
-        <label>Describe your daily routine or health issues:</label>
-        <textarea id="healthInput" placeholder="e.g., I slept for 4 hours, feeling tired, drank 2 glasses of water, no exercise today, feeling stressed about exams..."></textarea>
-        <button class="btn-analyze" id="analyzeBtn">🔬 Analyze My Health</button>
+        <h4>Enter Your Information</h4>
+        <div class="analyzer-form">
+          <div class="af-row">
+            <div class="af-field">
+              <label>Age</label>
+              <input type="number" id="haAge" placeholder="15" min="5" max="25">
+            </div>
+            <div class="af-field">
+              <label>Class</label>
+              <select id="haClass">
+                <option value="">Select</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+                <option value="11">Class 11</option>
+                <option value="12">Class 12</option>
+                <option value="grad">Graduation</option>
+              </select>
+            </div>
+          </div>
+          <div class="af-row">
+            <div class="af-field">
+              <label>Height (cm)</label>
+              <input type="number" id="haHeight" placeholder="165" min="100" max="220">
+            </div>
+            <div class="af-field">
+              <label>Weight (kg)</label>
+              <input type="number" id="haWeight" placeholder="55" min="20" max="150">
+            </div>
+          </div>
+          <div class="af-row">
+            <div class="af-field">
+              <label>Daily Study Hours</label>
+              <input type="number" id="haStudyHours" placeholder="6" min="0" max="16">
+            </div>
+            <div class="af-field">
+              <label>Daily Sleep (hours)</label>
+              <input type="number" id="haSleep" placeholder="7" min="0" max="14" step="0.5">
+            </div>
+          </div>
+          <div class="af-row">
+            <div class="af-field">
+              <label>Water Intake (glasses)</label>
+              <input type="number" id="haWater" placeholder="8" min="0" max="20">
+            </div>
+            <div class="af-field">
+              <label>Screen Time (hours)</label>
+              <input type="number" id="haScreenTime" placeholder="4" min="0" max="18">
+            </div>
+          </div>
+          <div class="af-row">
+            <div class="af-field">
+              <label>Exercise (minutes/day)</label>
+              <input type="number" id="haExercise" placeholder="30" min="0" max="180">
+            </div>
+            <div class="af-field">
+              <label>Mood</label>
+              <select id="haMood">
+                <option value="">Select</option>
+                <option value="great">Great</option>
+                <option value="good">Good</option>
+                <option value="okay">Okay</option>
+                <option value="low">Low</option>
+                <option value="stressed">Stressed</option>
+              </select>
+            </div>
+          </div>
+          <div class="af-row">
+            <div class="af-field">
+              <label>Stress Level (1-10)</label>
+              <input type="number" id="haStress" placeholder="5" min="1" max="10">
+            </div>
+            <div class="af-field">
+              <label>Food Habits</label>
+              <select id="haFoodHabits">
+                <option value="">Select</option>
+                <option value="healthy">Healthy (Home food, fruits)</option>
+                <option value="moderate">Moderate (Mix of healthy & junk)</option>
+                <option value="junk">Mostly Junk Food</option>
+                <option value="skip">Often skip meals</option>
+              </select>
+            </div>
+          </div>
+          <div class="af-row">
+            <div class="af-field full">
+              <label>Physical Activity Level</label>
+              <select id="haActivity">
+                <option value="">Select</option>
+                <option value="high">High (Sports/Daily exercise)</option>
+                <option value="moderate">Moderate (Walks, light activity)</option>
+                <option value="low">Low (Mostly sedentary)</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-full btn-glow" id="analyzeHealthBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Analyze My Health
+          </button>
+        </div>
       </div>
-      <div class="analyzer-output-panel">
-        <div class="chart-section">
-          <h4>Overall Well-being Radar</h4>
-          <canvas id="radarChart" width="300" height="300"></canvas>
-        </div>
-        <div class="rings-section">
-          <div class="ring-item" id="ringEnergy">
-            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
-            <span class="ring-val">0%</span><span class="ring-label">Energy</span>
+      <div class="analyzer-output-panel" id="analysisOutput" style="display:none">
+        <div class="analysis-dashboard">
+          <div class="ad-overall">
+            <div class="ad-overall-ring">
+              <svg viewBox="0 0 36 36">
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border)" stroke-width="2.5"/>
+                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-dasharray="0, 100" class="ad-ring-fill" id="overallRing"/>
+              </svg>
+              <span class="ad-ring-val" id="overallScore">0%</span>
+            </div>
+            <h4>Overall Health Score</h4>
           </div>
-          <div class="ring-item" id="ringFocus">
-            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
-            <span class="ring-val">0%</span><span class="ring-label">Focus</span>
+          <div class="ad-cards" id="analysisCards"></div>
+          <div class="ad-chart-section">
+            <h4>Health Radar</h4>
+            <canvas id="healthRadarChart" width="300" height="300"></canvas>
           </div>
-          <div class="ring-item" id="ringHydration">
-            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
-            <span class="ring-val">0%</span><span class="ring-label">Hydration</span>
+          <div class="ad-recommendations" id="analysisRecommendations"></div>
+          <div class="ad-disclaimer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p><strong>Disclaimer:</strong> This analysis is for educational purposes only. It is not a medical diagnosis. Please consult a healthcare professional for medical advice.</p>
           </div>
-          <div class="ring-item" id="ringSleep">
-            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
-            <span class="ring-val">0%</span><span class="ring-label">Sleep</span>
-          </div>
-        </div>
-        <div class="body-map-section">
-          <h4>Body Impact Map</h4>
-          <div class="body-map">
-            <svg viewBox="0 0 200 400" id="bodyMap">
-              <circle cx="100" cy="40" r="30" class="body-head" id="bodyHead"/>
-              <rect x="75" y="75" width="50" height="80" rx="10" class="body-torso" id="bodyTorso"/>
-              <rect x="50" y="80" width="22" height="70" rx="8" class="body-arm" id="bodyArmL"/>
-              <rect x="128" y="80" width="22" height="70" rx="8" class="body-arm" id="bodyArmR"/>
-              <rect x="78" y="160" width="18" height="90" rx="8" class="body-leg" id="bodyLegL"/>
-              <rect x="104" y="160" width="18" height="90" rx="8" class="body-leg" id="bodyLegR"/>
-              <circle cx="85" cy="32" r="5" class="body-eye" id="bodyEyeL"/>
-              <circle cx="115" cy="32" r="5" class="body-eye" id="bodyEyeR"/>
-            </svg>
-          </div>
-        </div>
-        <div class="action-items" id="actionItems">
-          <p class="action-placeholder">Enter your routine and click Analyze to see AI-powered health insights</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Course Details Modal -->
 <div class="modal-overlay" id="courseModal">
   <div class="modal">
-    <div class="modal-header"><h3>Course Details</h3><button class="modal-close" data-close="courseModal">✕</button></div>
+    <div class="modal-header">
+      <h3>Course Details</h3>
+      <button class="modal-close" data-close="courseModal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
     <div class="modal-body" id="courseModalBody"></div>
   </div>
 </div>
 
+<!-- Login Modal -->
 <div class="modal-overlay" id="loginModal">
   <div class="modal login-modal">
-    <div class="modal-header"><h3>Login</h3><button class="modal-close" data-close="loginModal">✕</button></div>
+    <div class="modal-header">
+      <h3>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Login
+      </h3>
+      <button class="modal-close" data-close="loginModal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
     <div class="modal-body">
       <form id="loginForm">
-        <div class="form-group"><label>Phone Number</label><input type="tel" id="loginPhone" placeholder="10-digit number" maxlength="10"></div>
-        <div class="form-group"><label>Email ID</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
-        <button type="submit" class="btn-login-submit">Login</button>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="loginPhone" placeholder="10-digit number" maxlength="10">
+        </div>
+        <div class="form-group">
+          <label>Email ID</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Login</button>
       </form>
     </div>
   </div>
 </div>
 
+<button class="scroll-top" id="scrollTop">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+</button>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
