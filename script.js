@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const courseCards = document.querySelectorAll('.course-card');
     const courseModal = document.getElementById('courseModal');
     const courseModalClose = courseModal ? courseModal.querySelector('.modal-close') : null;
-    const courseModalOverlay = courseModal ? courseModal.querySelector('.modal-overlay') : null;
+    const courseModalOverlay = courseModal;
     const classSelect = document.getElementById('classSelect');
     const classGoBtn = document.getElementById('classGoBtn');
     const classResult = document.getElementById('classResult');
     const healthPills = document.querySelectorAll('.health-pill');
     const healthCards = document.querySelectorAll('.health-card');
     const healthSaveBtn = document.getElementById('healthSaveBtn');
-    const aiHealthBtn = document.getElementById('aiHealthBtn');
+    const aiHealthBtn = document.getElementById('openAiHealthBtn');
     const aiHealthModal = document.getElementById('aiHealthModal');
     const aiHealthModalClose = aiHealthModal ? aiHealthModal.querySelector('.modal-close') : null;
-    const aiHealthModalOverlay = aiHealthModal ? aiHealthModal.querySelector('.modal-overlay') : null;
+    const aiHealthModalOverlay = aiHealthModal;
     const analyzeBtn = document.getElementById('analyzeBtn');
     const healthInput = document.getElementById('healthInput');
     const roadmapPills = document.querySelectorAll('.roadmap-pill');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('loginBtn');
     const loginModal = document.getElementById('loginModal');
     const loginModalClose = loginModal ? loginModal.querySelector('.modal-close') : null;
-    const loginModalOverlay = loginModal ? loginModal.querySelector('.modal-overlay') : null;
+    const loginModalOverlay = loginModal;
     const loginForm = document.getElementById('loginForm');
     const downloadBtns = document.querySelectorAll('.download-btn');
     const scrollToTop = document.getElementById('scrollToTop');
@@ -210,9 +210,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var quickActions = document.querySelectorAll('.quick-action-card');
+    var actionToSection = {
+        'admission': 'sec-courses',
+        'courses': 'sec-courses',
+        'live': 'sec-live',
+        'health': 'sec-health'
+    };
     quickActions.forEach(function(card) {
         card.addEventListener('click', function() {
-            var targetId = card.getAttribute('data-section');
+            var action = card.getAttribute('data-action');
+            var targetId = actionToSection[action] || action;
             if (targetId) {
                 hideAllSections();
                 showSection(targetId);
@@ -225,8 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     courseCards.forEach(function(card) {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function(e) {
             var courseKey = card.getAttribute('data-course');
+            if (!courseKey) {
+                var btn = e.target.closest('.course-details-btn');
+                if (btn) courseKey = btn.getAttribute('data-course');
+            }
             var course = courseData[courseKey];
             if (!course || !courseModal) return;
             var modalBody = courseModal.querySelector('.modal-body');
@@ -257,6 +268,32 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeCourseModal() {
         if (courseModal) courseModal.classList.remove('active');
     }
+
+    var courseDetailBtns = document.querySelectorAll('.course-details-btn');
+    courseDetailBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var courseKey = btn.getAttribute('data-course');
+            var course = courseData[courseKey];
+            if (!course || !courseModal) return;
+            var modalBody = courseModal.querySelector('.modal-body');
+            if (!modalBody) return;
+            var teachersHtml = course.teachers.map(function(t) {
+                return '<div class="teacher-item"><strong>' + t.name + '</strong><span>' + t.subject + '</span>' + (t.type ? '<span class="teacher-badge">' + t.type + '</span>' : '') + '</div>';
+            }).join('');
+            modalBody.innerHTML =
+                '<h2>' + course.name + ' Course</h2>' +
+                '<div class="course-details-modal">' +
+                '<div class="detail-row"><span>Price:</span><strong>' + course.price + '</strong></div>' +
+                '<div class="detail-row"><span>Duration:</span><strong>' + course.duration + '</strong></div>' +
+                '<div class="detail-row"><span>Level:</span><strong>' + course.level + '</strong></div>' +
+                '</div>' +
+                '<h3>Our Teachers</h3>' +
+                '<div class="teachers-list">' + teachersHtml + '</div>' +
+                '<button class="btn btn-primary enroll-btn">Enroll Now</button>';
+            courseModal.classList.add('active');
+        });
+    });
 
     if (courseModalClose) courseModalClose.addEventListener('click', closeCourseModal);
     if (courseModalOverlay) courseModalOverlay.addEventListener('click', closeCourseModal);
