@@ -180,14 +180,31 @@
       </section>
 
       <section id="sec-pdf" class="section">
-        <h2 class="section-title">PDF Notes</h2>
-        <div class="pdf-grid">
-          <div class="pdf-card"><div class="pdf-icon">📐</div><h4>Mathematics</h4><p>Chapters 1-15</p><button class="download-btn">⬇️ Download</button></div>
-          <div class="pdf-card"><div class="pdf-icon">⚛️</div><h4>Physics</h4><p>Chapters 1-12</p><button class="download-btn">⬇️ Download</button></div>
-          <div class="pdf-card"><div class="pdf-icon">🧪</div><h4>Chemistry</h4><p>Chapters 1-10</p><button class="download-btn">⬇️ Download</button></div>
-          <div class="pdf-card"><div class="pdf-icon">📖</div><h4>English</h4><p>Literature + Grammar</p><button class="download-btn">⬇️ Download</button></div>
-          <div class="pdf-card"><div class="pdf-icon">📜</div><h4>Hindi</h4><p>साहित्य + व्याकरण</p><button class="download-btn">⬇️ Download</button></div>
-          <div class="pdf-card"><div class="pdf-icon">🧬</div><h4>Biology</h4><p>Chapters 1-14</p><button class="download-btn">⬇️ Download</button></div>
+        <h2 class="section-title">NCERT PDF Notes</h2>
+        <p class="section-desc">Download official NCERT textbooks for all classes</p>
+        <div class="pdf-class-selector">
+          <label>Select Class:</label>
+          <select id="pdfClassSelect" class="select-styled">
+            <option value="">-- Choose Class --</option>
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+            <option value="6">Class 6</option>
+            <option value="7">Class 7</option>
+            <option value="8">Class 8</option>
+            <option value="9">Class 9</option>
+            <option value="10">Class 10</option>
+          </select>
+        </div>
+        <div id="pdfSubjectGrid" class="pdf-grid"></div>
+        <div id="pdfChapterList" class="pdf-chapter-panel" style="display:none;">
+          <div class="chapter-header">
+            <h3 id="chapterTitle"></h3>
+            <button class="btn-close-chapter" id="closeChapterList">✕</button>
+          </div>
+          <div id="chapterList" class="chapter-list"></div>
         </div>
       </section>
 
