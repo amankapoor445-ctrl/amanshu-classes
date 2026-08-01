@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMANSHU CLASSES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Contact Information</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phoneInput" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label>Email ID</label>
+                    <input type="email" id="emailInput" placeholder="Enter your email ID">
+                </div>
+                <button class="btn-submit" id="modalSubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-circle">
+                <span class="logo-text">AC</span>
+            </div>
+            <div class="school-name">AMANSHU CLASSES</div>
+        </div>
+        <nav>
+            <a href="#" class="nav-link active">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-slideshow">
+                <div class="slide active"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <div class="logo-circle large">
+                        <span class="logo-text">AC</span>
+                    </div>
+                </div>
+                <h1>Welcome to AMANSHU CLASSES</h1>
+                <p>Quality Education at Your Fingertips</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Teachers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Courses</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Results</span>
+                    </div>
+                </div>
+                <button class="btn-cta enroll-btn">Enroll Now</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Expert Teachers</h3>
+                    <p>Learn from qualified and experienced educators</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Live Classes</h3>
+                    <p>Interactive live sessions with doubt clearing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Study Material</h3>
+                    <p>Comprehensive PDF notes and assignments</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Results</h3>
+                    <p>98% success rate in board exams</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" data-tab="admission">Admission</button>
+                <button class="tab" data-tab="class">Class</button>
+                <button class="tab" data-tab="live-class">Live Class</button>
+                <button class="tab" data-tab="my-courses">My Courses</button>
+                <button class="tab" data-tab="pdf-notes">PDF Notes</button>
+                <button class="tab" data-tab="recorded-batch">Recorded Batch</button>
+                <button class="tab" data-tab="student-health">Student Health</button>
+                <button class="tab" data-tab="important-links">Important Links</button>
+                <button class="tab" data-tab="notification">Notification</button>
+            </div>
+
+            <div class="tab-content active" id="admission">
+                <h2>Admission Open 2026-27</h2>
+                <p>Select your class to apply for admission</p>
+                <div class="grid">
+                    <div class="card admission-card">Class 1</div>
+                    <div class="card admission-card">Class 2</div>
+                    <div class="card admission-card">Class 3</div>
+                    <div class="card admission-card">Class 4</div>
+                    <div class="card admission-card">Class 5</div>
+                    <div class="card admission-card">Class 6</div>
+                    <div class="card admission-card">Class 7</div>
+                    <div class="card admission-card">Class 8</div>
+                    <div class="card admission-card">Class 9</div>
+                    <div class="card admission-card">Class 10</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="class">
+                <h2>Our Classes</h2>
+                <p>Select a class from dropdown</p>
+                <div class="dropdown-container">
+                    <select class="dropdown" id="classSelect">
+                        <option value="">-- Select Class --</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                    <button class="btn-submit">Go</button>
+                </div>
+                <div class="class-details" id="classDetails">
+                    <p>Select a class to see details</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="live-class">
+                <h2>Live Classes</h2>
+                <p>Join our live interactive sessions</p>
+                <div class="grid">
+                    <div class="card live">Physics - Live Now 🔴</div>
+                    <div class="card">Mathematics - 10:00 AM</div>
+                    <div class="card">English - 11:30 AM</div>
+                    <div class="card">Science - 2:00 PM</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="my-courses">
+                <h2>My Courses</h2>
+                <p>Select your course category</p>
+                <div class="grid">
+                    <div class="card course-card" data-course="cbse">CBSE</div>
+                    <div class="card course-card" data-course="bpsc">BPSC</div>
+                    <div class="card course-card" data-course="ssc">SSC</div>
+                    <div class="card course-card" data-course="railways">Railways</div>
+                    <div class="card course-card" data-course="school">School Courses</div>
+                </div>
+                <div class="course-details" id="courseDetails">
+                    <p>Click on a course to see details</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="pdf-notes">
+                <h2>PDF Notes</h2>
+                <p>Download study materials</p>
+                <div class="grid">
+                    <div class="card pdf-card">Mathematics Notes</div>
+                    <div class="card pdf-card">Science Notes</div>
+                    <div class="card pdf-card">English Notes</div>
+                    <div class="card pdf-card">Hindi Notes</div>
+                    <div class="card pdf-card">Social Science Notes</div>
+                    <div class="card pdf-card">Computer Notes</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="recorded-batch">
+                <h2>Recorded Batches</h2>
+                <p>Access recorded lectures anytime</p>
+                <div class="grid">
+                    <div class="card batch-card">CBSE 2025-26 Batch</div>
+                    <div class="card batch-card">CBSE 2024-25 Batch</div>
+                    <div class="card batch-card">BPSC Complete Course</div>
+                    <div class="card batch-card">SSC Preparation</div>
+                    <div class="card batch-card">Railways Exam Batch</div>
+                    <div class="card batch-card">Foundation Course</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="student-health">
+                <h2>Student Health Tracker</h2>
+                <p>Track your daily health activities</p>
+                <div class="health-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="Enter your weight">
+                        </div>
+                        <div class="form-group">
+                            <label>Today's Running (km)</label>
+                            <input type="number" id="running" placeholder="Enter running distance" step="0.1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Exercise Time (minutes)</label>
+                            <input type="number" id="exercise" placeholder="Enter exercise time">
+                        </div>
+                        <div class="form-group">
+                            <label>Sunbath Time (minutes)</label>
+                            <input type="number" id="sunbath" placeholder="Enter sunbath time">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Playing Time (minutes)</label>
+                            <input type="number" id="playing" placeholder="Enter playing time">
+                        </div>
+                    </div>
+                    <button class="btn-submit" id="saveHealth">Save Health Data</button>
+                    <div class="health-message" id="healthMessage"></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="important-links">
+                <h2>Important Links</h2>
+                <p>Access useful educational resources</p>
+                <div class="links-grid">
+                    <a href="https://www.youtube.com/@AmanSirEducation" target="_blank" class="link-card youtube">
+                        <div class="link-icon">📺</div>
+                        <h3>Aman Sir Education</h3>
+                        <p>Free educational videos</p>
+                    </a>
+                    <a href="https://www.youtube.com/@KhanAcademyHindi" target="_blank" class="link-card youtube">
+                        <div class="link-icon">📺</div>
+                        <h3>Khan Academy Hindi</h3>
+                        <p>Math & Science tutorials</p>
+                    </a>
+                    <a href="https://www.youtube.com/@UnacademyFoundation" target="_blank" class="link-card youtube">
+                        <div class="link-icon">📺</div>
+                        <h3>Unacademy Foundation</h3>
+                        <p>Board exam preparation</p>
+                    </a>
+                    <a href="https://www.youtube.com/@StudyIQeducation" target="_blank" class="link-card youtube">
+                        <div class="link-icon">📺</div>
+                        <h3>Study IQ Education</h3>
+                        <p>Competitive exam videos</p>
+                    </a>
+                    <a href="https://ncert.nic.in/" target="_blank" class="link-card website">
+                        <div class="link-icon">🌐</div>
+                        <h3>NCERT Official</h3>
+                        <p>Free textbooks & resources</p>
+                    </a>
+                    <a href="https://cbseacademic.nic.in/" target="_blank" class="link-card website">
+                        <div class="link-icon">🌐</div>
+                        <h3>CBSE Academic</h3>
+                        <p>Official CBSE resources</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="tab-content" id="notification">
+                <h2>Notifications</h2>
+                <div class="notifications">
+                    <div class="notification">
+                        <span class="badge new">New</span>
+                        <p>Admission for 2026-27 session is now open!</p>
+                    </div>
+                    <div class="notification">
+                        <span class="badge">Important</span>
+                        <p>Live classes will start from 15th August 2026</p>
+                    </div>
+                    <div class="notification">
+                        <span class="badge">Update</span>
+                        <p>New PDF notes uploaded for Class 10</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expert-teacher">
+            <h2>Our Expert Teacher</h2>
+            <div class="teacher-profile">
+                <div class="teacher-avatar">A</div>
+                <div class="teacher-info">
+                    <h3>Mr. Aman</h3>
+                    <p class="teacher-subject">Founder & Head Teacher</p>
+                    <p class="teacher-desc">10+ years of experience in teaching. Specialized in Mathematics, Science & Competitive Exam Preparation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AMANSHU CLASSES</h3>
+                <p>Quality Education at Your Fingertips</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Courses</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@amanshuclasses.com</p>
+                <p>Phone: +91 9876543210</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AMANSHU CLASSES. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
