@@ -837,7 +837,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 {name:'Science',icon:'🔬',code:'sc',chapters:['Nutrition in Plants','Nutrition in Animals','Fibre to Fabric','Heat','Acids Bases and Salts','Physical and Chemical Changes','Weather Climate and Adaptations of Animals to Climate','Winds Storms and Cyclones','Soil','Respiration in Organisms','Transportation in Animals and Plants','Reproduction in Plants','Motion and Time','Electric Current and Its Effects','Light','Water: A Precious Resource','Forests: Our Lifeline','Wastewater Story']},
                 {name:'Social Science',icon:'🌍',code:'ss',chapters:['Tracing Changes Through a Thousand Years','New Kings and Kingdoms','The Delhi Sultans','The Mughal Empire','Rulers and Buildings','Towns Traders and Craftspersons','Tribes Nomads and Settled Communities','Devotional Paths to the Divine','The Making of Regional Cultures','Eighteenth-Century Political Formations','Environment','Inside Our Earth','Our Changing Earth','Air','Water','Human-Environment Interactions','Natural Vegetation and Wild Life','Waste Water Story']},
                 {name:'Hindi',icon:'📝',code:'hi',chapters:['हम पंछी उन्मुक्त गगन के','परीक्षा','पापा की पोशाक','ससुराल में खाना बनाना','शाम की बात','सीता की सिमरन','भोर का तारा','चिड़िया की बच्ची','एक घंटे की दौड़','मिठाइयों की दुकान','नेताजी का चश्मा','बहादुर बच्चे','मिट्टी की मूर्तियाँ','विश्व की भाषा','विद्यालय के बाद']}
-                ]
+            ]
         },
         '8': {
             subjects: [
