@@ -1,162 +1,78 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarLinks = document.querySelectorAll('.sidebar nav a');
-    const sections = document.querySelectorAll('.section');
-    const hamburger = document.getElementById('hamburger');
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const themeIcon = darkModeToggle ? darkModeToggle.querySelector('.theme-icon') : null;
-    const html = document.documentElement;
-    const body = document.body;
-    const courseCards = document.querySelectorAll('.course-card');
-    const courseModal = document.getElementById('courseModal');
-    const courseModalClose = courseModal ? courseModal.querySelector('.modal-close') : null;
-    const courseModalOverlay = courseModal;
-    const classSelect = document.getElementById('classSelect');
-    const classGoBtn = document.getElementById('classGoBtn');
-    const classResult = document.getElementById('classResult');
-    const healthPills = document.querySelectorAll('.health-pill');
-    const healthCards = document.querySelectorAll('.health-card');
-    const healthSaveBtn = document.getElementById('healthSaveBtn');
-    const aiHealthBtn = document.getElementById('openAiHealthBtn');
-    const aiHealthModal = document.getElementById('aiHealthModal');
-    const aiHealthModalClose = aiHealthModal ? aiHealthModal.querySelector('.modal-close') : null;
-    const aiHealthModalOverlay = aiHealthModal;
-    const analyzeBtn = document.getElementById('analyzeBtn');
-    const healthInput = document.getElementById('healthInput');
-    const roadmapPills = document.querySelectorAll('.roadmap-pill');
-    const roadmapPanels = document.querySelectorAll('.roadmap-panel');
-    const startTimerBtn = document.getElementById('startTimer');
-    const pauseTimerBtn = document.getElementById('pauseTimer');
-    const resetTimerBtn = document.getElementById('resetTimer');
-    const timerDisplay = document.getElementById('timerDisplay');
-    const timerLabel = document.getElementById('timerLabel');
-    const goalInput = document.getElementById('goalInput');
-    const addGoalBtn = document.getElementById('addGoalBtn');
-    const goalsList = document.getElementById('goalsList');
-    const goalsProgress = document.getElementById('goalsProgress');
-    const quizStartBtn = document.getElementById('quizStartBtn');
-    const quizContainer = document.getElementById('quizContainer');
-    const loginBtn = document.getElementById('loginBtn');
-    const loginModal = document.getElementById('loginModal');
-    const loginModalClose = loginModal ? loginModal.querySelector('.modal-close') : null;
-    const loginModalOverlay = loginModal;
-    const loginForm = document.getElementById('loginForm');
-    const downloadBtns = document.querySelectorAll('.download-btn');
-    const scrollToTop = document.getElementById('scrollToTop');
-    const navLinks = document.querySelectorAll('.nav-link');
+    var sidebar = document.querySelector('.sidebar');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var sections = document.querySelectorAll('.section');
+    var menuToggle = document.getElementById('menuToggle');
+    var pageTitle = document.getElementById('pageTitle');
+    var darkModeToggle = document.getElementById('darkModeToggle');
+    var html = document.documentElement;
 
-    let timerInterval = null;
-    let timerSeconds = 1500;
-    let isWorkSession = true;
-    let goals = JSON.parse(localStorage.getItem('amanshuGoals')) || [];
-    let healthData = JSON.parse(localStorage.getItem('amanshuHealth')) || [];
-    let radarChart = null;
-
-    const courseData = {
-        cbse: { name:'CBSE', price:'₹25,000/year', duration:'1 Year', level:'Class 1-10', teachers:[
-            {name:'Mr. Aman',subject:'Mathematics & Science',type:'Expert'},
-            {name:'Mrs. Priya Sharma',subject:'Science'},
-            {name:'Mr. Amit Singh',subject:'English'},
-            {name:'Mrs. Neha Gupta',subject:'Hindi'},
-            {name:'Mr. Suresh Patel',subject:'Social Science'}
-        ]},
-        bpsc: { name:'BPSC', price:'₹35,000/year', duration:'8 Months', level:'Graduate', teachers:[
-            {name:'Mr. Aman',subject:'General Studies',type:'Expert'},
-            {name:'Dr. Alok Verma',subject:'General Studies'},
-            {name:'Mr. Vikram Singh',subject:'History'},
-            {name:'Mrs. Kavita Reddy',subject:'Geography'},
-            {name:'Mr. Manish Kumar',subject:'Polity'}
-        ]},
-        ssc: { name:'SSC', price:'₹30,000/year', duration:'6 Months', level:'Graduate', teachers:[
-            {name:'Mr. Aman',subject:'Quantitative Aptitude',type:'Expert'},
-            {name:'Mrs. Pooja Verma',subject:'Reasoning'},
-            {name:'Mr. Deepak Yadav',subject:'English'}
-        ]},
-        railways: { name:'Railways', price:'₹28,000/year', duration:'5 Months', level:'12th Pass', teachers:[
-            {name:'Mr. Aman',subject:'Mathematics',type:'Expert'},
-            {name:'Mrs. Rekha Singh',subject:'General Science'},
-            {name:'Mr. Rajesh Yadav',subject:'Reasoning'}
-        ]},
-        school: { name:'School Courses', price:'₹15,000/year', duration:'1 Year', level:'Class 1-10', teachers:[
-            {name:'Mr. Aman',subject:'All Subjects',type:'Expert'},
-            {name:'Mrs. Sunita Devi',subject:'Primary Section'},
-            {name:'Mr. Rakesh Kumar',subject:'Middle School'}
-        ]}
+    var sectionTitles = {
+        'sec-home': 'Home',
+        'sec-courses': 'Courses',
+        'sec-class': 'Class',
+        'sec-live': 'Live Class',
+        'sec-pdf': 'PDF Notes',
+        'sec-recorded': 'Recorded Batch',
+        'sec-health': 'Health & Wellness',
+        'sec-career': 'Career Roadmap',
+        'sec-ai': 'AI Learning Hub',
+        'sec-planner': 'Study Planner',
+        'sec-quiz': 'Quiz',
+        'sec-links': 'Important Links',
+        'sec-notifications': 'Notifications'
     };
-
-    const classData = {
-        1:{name:'Class 1',subjects:['English','Hindi','Mathematics','EVS','Art & Craft','Physical Education'],timing:'8:00 AM - 12:00 PM',fees:'₹5,000/year'},
-        2:{name:'Class 2',subjects:['English','Hindi','Mathematics','EVS','Art & Craft','Physical Education'],timing:'8:00 AM - 12:00 PM',fees:'₹5,000/year'},
-        3:{name:'Class 3',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer'],timing:'8:00 AM - 1:00 PM',fees:'₹8,000/year'},
-        4:{name:'Class 4',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer'],timing:'8:00 AM - 1:00 PM',fees:'₹8,000/year'},
-        5:{name:'Class 5',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer','General Knowledge'],timing:'8:00 AM - 2:00 PM',fees:'₹10,000/year'},
-        6:{name:'Class 6',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer','Sanskrit'],timing:'7:30 AM - 2:00 PM',fees:'₹12,000/year'},
-        7:{name:'Class 7',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer','Sanskrit'],timing:'7:30 AM - 2:00 PM',fees:'₹12,000/year'},
-        8:{name:'Class 8',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer','Sanskrit'],timing:'7:30 AM - 2:30 PM',fees:'₹15,000/year'},
-        9:{name:'Class 9',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer','Sanskrit'],timing:'7:30 AM - 2:30 PM',fees:'₹18,000/year'},
-        10:{name:'Class 10',subjects:['English','Hindi','Mathematics','Science','Social Science','Computer','Sanskrit'],timing:'7:00 AM - 3:00 PM',fees:'₹20,000/year'}
-    };
-
-    const quizData = [
-        {q:'What is the capital of India?', options:['Mumbai','New Delhi','Kolkata','Chennai'], answer:1},
-        {q:'Which planet is known as Red Planet?', options:['Venus','Mars','Jupiter','Saturn'], answer:1},
-        {q:'What is 15 × 15?', options:['200','225','250','275'], answer:1},
-        {q:'Who invented the telephone?', options:['Edison','Newton','Bell','Tesla'], answer:2},
-        {q:'Largest ocean in the world?', options:['Atlantic','Indian','Pacific','Arctic'], answer:2}
-    ];
 
     function hideAllSections() {
         sections.forEach(function(s) { s.classList.remove('active'); });
     }
 
     function showSection(id) {
-        var target = document.getElementById(id);
-        if (target) {
-            target.classList.add('active');
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        var el = document.getElementById(id);
+        if (el) el.classList.add('active');
     }
 
-    function handleNavClick(e) {
-        e.preventDefault();
-        var link = e.currentTarget;
-        var targetId = link.getAttribute('data-section') || link.getAttribute('href').substring(1);
-        navLinks.forEach(function(l) { l.classList.remove('active'); });
-        link.classList.add('active');
+    function setActiveNav(targetId) {
+        navLinks.forEach(function(l) {
+            l.classList.remove('active');
+            if (l.getAttribute('data-section') === targetId) l.classList.add('active');
+        });
+    }
+
+    function navigateToSection(targetId) {
         hideAllSections();
         showSection(targetId);
+        setActiveNav(targetId);
+        if (pageTitle) pageTitle.textContent = sectionTitles[targetId] || '';
         if (sidebar) sidebar.classList.remove('mobile-open');
     }
 
     navLinks.forEach(function(link) {
-        link.addEventListener('click', handleNavClick);
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigateToSection(link.getAttribute('data-section'));
+        });
     });
 
-    if (sidebarLinks) {
-        sidebarLinks.forEach(function(link) {
-            link.addEventListener('click', handleNavClick);
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('mobile-open');
         });
     }
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            sidebar.classList.toggle('mobile-open');
-        });
-        document.addEventListener('click', function(e) {
-            if (sidebar && sidebar.classList.contains('mobile-open') && !sidebar.contains(e.target) && e.target !== hamburger && !hamburger.contains(e.target)) {
-                sidebar.classList.remove('mobile-open');
-            }
-        });
-    }
+    document.addEventListener('click', function(e) {
+        if (sidebar && sidebar.classList.contains('mobile-open') && !sidebar.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
+            sidebar.classList.remove('mobile-open');
+        }
+    });
+
+    var themeIcon = darkModeToggle ? darkModeToggle.querySelector('span:first-child') : null;
 
     function initDarkMode() {
         var saved = localStorage.getItem('amanshuTheme');
         if (saved === 'dark') {
             html.setAttribute('data-theme', 'dark');
-            if (themeIcon) themeIcon.textContent = '☀️';
-        } else {
-            html.removeAttribute('data-theme');
-            if (themeIcon) themeIcon.textContent = '🌙';
+            if (themeIcon) themeIcon.textContent = '\u2600\uFE0F';
         }
     }
 
@@ -166,48 +82,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isDark) {
                 html.removeAttribute('data-theme');
                 localStorage.setItem('amanshuTheme', 'light');
-                if (themeIcon) themeIcon.textContent = '🌙';
+                if (themeIcon) themeIcon.textContent = '\uD83C\uDF19';
             } else {
                 html.setAttribute('data-theme', 'dark');
                 localStorage.setItem('amanshuTheme', 'dark');
-                if (themeIcon) themeIcon.textContent = '☀️';
+                if (themeIcon) themeIcon.textContent = '\u2600\uFE0F';
             }
         });
     }
 
     initDarkMode();
-
-    function animateCounters() {
-        var counters = document.querySelectorAll('.stat-number');
-        counters.forEach(function(counter) {
-            var target = parseInt(counter.getAttribute('data-target')) || 0;
-            var current = 0;
-            var increment = target / 60;
-            var timer = setInterval(function() {
-                current += increment;
-                if (current >= target) {
-                    counter.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    counter.textContent = Math.floor(current);
-                }
-            }, 30);
-        });
-    }
-
-    var statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                animateCounters();
-                statsObserver.disconnect();
-            }
-        });
-    }, { threshold: 0.5 });
-
-    var statsSection = document.querySelector('.stats-grid');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
 
     var quickActions = document.querySelectorAll('.quick-action-card');
     var actionToSection = {
@@ -216,120 +100,142 @@ document.addEventListener('DOMContentLoaded', function() {
         'live': 'sec-live',
         'health': 'sec-health'
     };
+
     quickActions.forEach(function(card) {
         card.addEventListener('click', function() {
             var action = card.getAttribute('data-action');
-            var targetId = actionToSection[action] || action;
-            if (targetId) {
-                hideAllSections();
-                showSection(targetId);
-                navLinks.forEach(function(l) {
-                    l.classList.remove('active');
-                    if (l.getAttribute('data-section') === targetId) l.classList.add('active');
-                });
-            }
+            var targetId = actionToSection[action];
+            if (targetId) navigateToSection(targetId);
         });
     });
 
-    courseCards.forEach(function(card) {
-        card.addEventListener('click', function(e) {
-            var courseKey = card.getAttribute('data-course');
-            if (!courseKey) {
-                var btn = e.target.closest('.course-details-btn');
-                if (btn) courseKey = btn.getAttribute('data-course');
-            }
-            var course = courseData[courseKey];
-            if (!course || !courseModal) return;
-            var modalBody = courseModal.querySelector('.modal-body');
-            if (!modalBody) return;
-            var teachersHtml = course.teachers.map(function(t) {
-                return '<div class="teacher-item"><strong>' + t.name + '</strong><span>' + t.subject + '</span>' + (t.type ? '<span class="teacher-badge">' + t.type + '</span>' : '') + '</div>';
-            }).join('');
-            modalBody.innerHTML =
-                '<h2>' + course.name + ' Course</h2>' +
-                '<div class="course-details-modal">' +
-                '<div class="detail-row"><span>Price:</span><strong>' + course.price + '</strong></div>' +
-                '<div class="detail-row"><span>Duration:</span><strong>' + course.duration + '</strong></div>' +
-                '<div class="detail-row"><span>Level:</span><strong>' + course.level + '</strong></div>' +
-                '</div>' +
-                '<h3>Our Teachers</h3>' +
-                '<div class="teachers-list">' + teachersHtml + '</div>' +
-                '<button class="btn btn-primary enroll-btn">Enroll Now</button>';
-            courseModal.classList.add('active');
-            var enrollBtn = modalBody.querySelector('.enroll-btn');
-            if (enrollBtn) {
-                enrollBtn.addEventListener('click', function() {
-                    alert('Thank you for your interest in ' + course.name + '! Our team will contact you soon.');
-                });
-            }
-        });
-    });
+    var courseData = {
+        cbse: { name: 'CBSE Board', price: '\u20B95,999', duration: '1 Year', level: 'Class 9-12', teachers: [
+            { name: 'Mr. Aman', subject: 'Mathematics & Science', type: 'Expert' },
+            { name: 'Mrs. Priya Sharma', subject: 'Science' },
+            { name: 'Mr. Amit Singh', subject: 'English' },
+            { name: 'Mrs. Neha Gupta', subject: 'Hindi' }
+        ]},
+        bpsc: { name: 'BPSC', price: '\u20B98,999', duration: '8 Months', level: 'Graduate', teachers: [
+            { name: 'Mr. Aman', subject: 'General Studies', type: 'Expert' },
+            { name: 'Dr. Alok Verma', subject: 'History' },
+            { name: 'Mrs. Kavita Reddy', subject: 'Geography' }
+        ]},
+        ssc: { name: 'SSC Exams', price: '\u20B97,499', duration: '6 Months', level: 'Graduate', teachers: [
+            { name: 'Mr. Aman', subject: 'Quantitative Aptitude', type: 'Expert' },
+            { name: 'Mrs. Pooja Verma', subject: 'Reasoning' },
+            { name: 'Mr. Deepak Yadav', subject: 'English' }
+        ]},
+        railways: { name: 'Railways', price: '\u20B96,999', duration: '5 Months', level: '12th Pass', teachers: [
+            { name: 'Mr. Aman', subject: 'Mathematics', type: 'Expert' },
+            { name: 'Mrs. Rekha Singh', subject: 'General Science' }
+        ]},
+        school: { name: 'School Courses', price: '\u20B93,999', duration: '1 Year', level: 'Class 1-10', teachers: [
+            { name: 'Mr. Aman', subject: 'All Subjects', type: 'Expert' },
+            { name: 'Mrs. Sunita Devi', subject: 'Primary' },
+            { name: 'Mr. Rakesh Kumar', subject: 'Middle School' }
+        ]}
+    };
 
-    function closeCourseModal() {
-        if (courseModal) courseModal.classList.remove('active');
+    var courseModal = document.getElementById('courseModal');
+
+    function openCourseModal(courseKey) {
+        var course = courseData[courseKey];
+        if (!course || !courseModal) return;
+        var body = courseModal.querySelector('.modal-body');
+        if (!body) return;
+        var teachersHtml = course.teachers.map(function(t) {
+            return '<div class="teacher-item"><strong>' + t.name + '</strong> <span>' + t.subject + '</span>' + (t.type ? ' <span class="teacher-badge">' + t.type + '</span>' : '') + '</div>';
+        }).join('');
+        body.innerHTML = '<h2>' + course.name + '</h2>' +
+            '<div class="course-details-modal">' +
+            '<div class="detail-row"><span>Price:</span><strong>' + course.price + '</strong></div>' +
+            '<div class="detail-row"><span>Duration:</span><strong>' + course.duration + '</strong></div>' +
+            '<div class="detail-row"><span>Level:</span><strong>' + course.level + '</strong></div>' +
+            '</div>' +
+            '<h3>Our Teachers</h3>' +
+            '<div class="teachers-list">' + teachersHtml + '</div>';
+        courseModal.classList.add('active');
+    }
+
+    function closeModal(modal) {
+        if (modal) modal.classList.remove('active');
     }
 
     var courseDetailBtns = document.querySelectorAll('.course-details-btn');
     courseDetailBtns.forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            var courseKey = btn.getAttribute('data-course');
-            var course = courseData[courseKey];
-            if (!course || !courseModal) return;
-            var modalBody = courseModal.querySelector('.modal-body');
-            if (!modalBody) return;
-            var teachersHtml = course.teachers.map(function(t) {
-                return '<div class="teacher-item"><strong>' + t.name + '</strong><span>' + t.subject + '</span>' + (t.type ? '<span class="teacher-badge">' + t.type + '</span>' : '') + '</div>';
-            }).join('');
-            modalBody.innerHTML =
-                '<h2>' + course.name + ' Course</h2>' +
-                '<div class="course-details-modal">' +
-                '<div class="detail-row"><span>Price:</span><strong>' + course.price + '</strong></div>' +
-                '<div class="detail-row"><span>Duration:</span><strong>' + course.duration + '</strong></div>' +
-                '<div class="detail-row"><span>Level:</span><strong>' + course.level + '</strong></div>' +
-                '</div>' +
-                '<h3>Our Teachers</h3>' +
-                '<div class="teachers-list">' + teachersHtml + '</div>' +
-                '<button class="btn btn-primary enroll-btn">Enroll Now</button>';
-            courseModal.classList.add('active');
+            openCourseModal(btn.getAttribute('data-course'));
         });
     });
 
-    if (courseModalClose) courseModalClose.addEventListener('click', closeCourseModal);
-    if (courseModalOverlay) courseModalOverlay.addEventListener('click', closeCourseModal);
+    document.querySelectorAll('.modal-close[data-close]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var modalId = btn.getAttribute('data-close');
+            closeModal(document.getElementById(modalId));
+        });
+    });
 
-    if (classGoBtn && classSelect && classResult) {
-        classGoBtn.addEventListener('click', function() {
-            var classId = classSelect.value;
-            if (!classId) {
-                classResult.innerHTML = '<p>Please select a class first.</p>';
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) overlay.classList.remove('active');
+        });
+    });
+
+    var classData = {
+        1: { name: 'Class 1', subjects: ['English', 'Hindi', 'Mathematics', 'EVS', 'Art & Craft', 'Physical Education'], timing: '8:00 AM - 12:00 PM', fees: '\u20B95,000/year' },
+        2: { name: 'Class 2', subjects: ['English', 'Hindi', 'Mathematics', 'EVS', 'Art & Craft', 'Physical Education'], timing: '8:00 AM - 12:00 PM', fees: '\u20B95,000/year' },
+        3: { name: 'Class 3', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer'], timing: '8:00 AM - 1:00 PM', fees: '\u20B98,000/year' },
+        4: { name: 'Class 4', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer'], timing: '8:00 AM - 1:00 PM', fees: '\u20B98,000/year' },
+        5: { name: 'Class 5', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer', 'General Knowledge'], timing: '8:00 AM - 2:00 PM', fees: '\u20B910,000/year' },
+        6: { name: 'Class 6', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer', 'Sanskrit'], timing: '7:30 AM - 2:00 PM', fees: '\u20B912,000/year' },
+        7: { name: 'Class 7', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer', 'Sanskrit'], timing: '7:30 AM - 2:00 PM', fees: '\u20B912,000/year' },
+        8: { name: 'Class 8', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer', 'Sanskrit'], timing: '7:30 AM - 2:30 PM', fees: '\u20B915,000/year' },
+        9: { name: 'Class 9', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer', 'Sanskrit'], timing: '7:30 AM - 2:30 PM', fees: '\u20B918,000/year' },
+        10: { name: 'Class 10', subjects: ['English', 'Hindi', 'Mathematics', 'Science', 'Social Science', 'Computer', 'Sanskrit'], timing: '7:00 AM - 3:00 PM', fees: '\u20B920,000/year' }
+    };
+
+    var classSelect = document.getElementById('classSelect');
+    var goClassBtn = document.getElementById('goClassBtn');
+    var classResult = document.getElementById('classResult');
+    var classResultTitle = document.getElementById('classResultTitle');
+    var subjectsGrid = document.getElementById('subjectsGrid');
+
+    if (goClassBtn) {
+        goClassBtn.addEventListener('click', function() {
+            var val = classSelect ? classSelect.value : '';
+            if (!val || !classData[val]) {
+                if (classResult) classResult.style.display = 'none';
                 return;
             }
-            var cls = classData[classId];
-            if (!cls) return;
-            var subjectsHtml = cls.subjects.map(function(s) {
-                return '<span class="subject-tag">' + s + '</span>';
-            }).join('');
-            classResult.innerHTML =
-                '<h3>' + cls.name + '</h3>' +
-                '<div class="class-info">' +
-                '<div class="info-item"><strong>Timing:</strong> ' + cls.timing + '</div>' +
-                '<div class="info-item"><strong>Fees:</strong> ' + cls.fees + '</div>' +
-                '</div>' +
-                '<h4>Subjects</h4>' +
-                '<div class="subjects-grid">' + subjectsHtml + '</div>';
-            classResult.classList.add('active');
+            var cls = classData[val];
+            if (classResultTitle) classResultTitle.textContent = cls.name;
+            if (subjectsGrid) {
+                subjectsGrid.innerHTML = cls.subjects.map(function(s) {
+                    return '<span class="subject-tag">' + s + '</span>';
+                }).join('');
+            }
+            var timingEl = classResult ? classResult.querySelector('.class-timing') : null;
+            var feesEl = classResult ? classResult.querySelector('.class-fees') : null;
+            if (timingEl) timingEl.innerHTML = '<strong>Timing:</strong> ' + cls.timing;
+            if (feesEl) feesEl.innerHTML = '<strong>Fees:</strong> ' + cls.fees;
+            if (classResult) classResult.style.display = 'block';
         });
     }
+
+    var healthPills = document.querySelectorAll('.health-pill');
+    var healthTopicCards = document.querySelectorAll('.health-topic-card');
+    var saveTrackerBtn = document.getElementById('saveTrackerBtn');
 
     healthPills.forEach(function(pill) {
         pill.addEventListener('click', function() {
             healthPills.forEach(function(p) { p.classList.remove('active'); });
             pill.classList.add('active');
-            var category = pill.getAttribute('data-category');
-            healthCards.forEach(function(card) {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
+            var cat = pill.getAttribute('data-health-cat');
+            healthTopicCards.forEach(function(card) {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = '';
                 } else {
                     card.style.display = 'none';
                 }
@@ -337,163 +243,228 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    if (healthSaveBtn) {
-        healthSaveBtn.addEventListener('click', function() {
-            var activeCards = document.querySelectorAll('.health-card[style="display: block"], .health-card:not([style])');
-            var data = [];
-            activeCards.forEach(function(card) {
-                var title = card.querySelector('h4') || card.querySelector('h3');
-                if (title) data.push(title.textContent);
-            });
-            healthData.push({ date: new Date().toISOString(), items: data });
-            localStorage.setItem('amanshuHealth', JSON.stringify(healthData));
+    if (saveTrackerBtn) {
+        saveTrackerBtn.addEventListener('click', function() {
+            var weight = document.getElementById('trackWeight');
+            var running = document.getElementById('trackRunning');
+            var exercise = document.getElementById('trackExercise');
+            var sunbath = document.getElementById('trackSunbath');
+            var playing = document.getElementById('trackPlaying');
+            var data = {
+                date: new Date().toISOString(),
+                weight: weight ? weight.value : '',
+                running: running ? running.value : '',
+                exercise: exercise ? exercise.value : '',
+                sunbath: sunbath ? sunbath.value : '',
+                playing: playing ? playing.value : ''
+            };
+            var saved = JSON.parse(localStorage.getItem('amanshuHealth') || '[]');
+            saved.push(data);
+            localStorage.setItem('amanshuHealth', JSON.stringify(saved));
             alert('Health data saved successfully!');
         });
     }
+
+    var openAiHealthBtn = document.getElementById('openAiHealthBtn');
+    var aiHealthModal = document.getElementById('aiHealthModal');
+    var analyzeBtn = document.getElementById('analyzeBtn');
+    var healthInput = document.getElementById('healthInput');
+    var radarChartInstance = null;
 
     function openAiHealthModal() {
         if (aiHealthModal) aiHealthModal.classList.add('active');
     }
 
-    function closeAiHealthModal() {
-        if (aiHealthModal) aiHealthModal.classList.remove('active');
+    if (openAiHealthBtn) {
+        openAiHealthBtn.addEventListener('click', openAiHealthModal);
     }
-
-    if (aiHealthBtn) aiHealthBtn.addEventListener('click', openAiHealthModal);
-    if (aiHealthModalClose) aiHealthModalClose.addEventListener('click', closeAiHealthModal);
-    if (aiHealthModalOverlay) aiHealthModalOverlay.addEventListener('click', closeAiHealthModal);
 
     function parseHealthInput(text) {
         var lower = text.toLowerCase();
         var scores = { energy: 50, focus: 50, hydration: 50, sleep: 50, exercise: 50, mental: 50 };
 
-        if (lower.includes('sleep') || lower.includes('insomnia') || lower.includes('rest')) {
-            scores.sleep = lower.includes('good sleep') || lower.includes('well rested') ? 80 : 35;
+        if (lower.indexOf('sleep') !== -1 || lower.indexOf('slept') !== -1) {
+            scores.sleep = (lower.indexOf('good sleep') !== -1 || lower.indexOf('well rested') !== -1 || lower.indexOf('8 hours') !== -1 || lower.indexOf('7 hours') !== -1) ? 85 : 30;
         }
-        if (lower.includes('tired') || lower.includes('fatigue') || lower.includes('exhausted')) {
+        if (lower.indexOf('tired') !== -1 || lower.indexOf('fatigue') !== -1 || lower.indexOf('exhausted') !== -1 || lower.indexOf('low energy') !== -1) {
             scores.energy = 25;
-            scores.exercise = lower.includes('exercise') ? 60 : 30;
         }
-        if (lower.includes('water') || lower.includes('hydrat') || lower.includes('thirsty')) {
-            scores.hydration = lower.includes('drink water') || lower.includes('hydrated') ? 75 : 35;
+        if (lower.indexOf('water') !== -1 || lower.indexOf('drunk') !== -1 || lower.indexOf('hydrat') !== -1) {
+            scores.hydration = (lower.indexOf('lots of water') !== -1 || lower.indexOf('3 liters') !== -1 || lower.indexOf('4 liters') !== -1 || lower.indexOf('well hydrated') !== -1) ? 85 : 35;
         }
-        if (lower.includes('exercise') || lower.includes('workout') || lower.includes('gym') || lower.includes('run')) {
-            scores.exercise = 75;
+        if (lower.indexOf('exercise') !== -1 || lower.indexOf('ran') !== -1 || lower.indexOf('workout') !== -1 || lower.indexOf('gym') !== -1 || lower.indexOf('running') !== -1) {
+            scores.exercise = 80;
             scores.energy = Math.min(scores.energy + 20, 95);
         }
-        if (lower.includes('stress') || lower.includes('anxious') || lower.includes('worried') || lower.includes('depress')) {
-            scores.mental = 30;
-            scores.focus = 35;
+        if (lower.indexOf('stress') !== -1 || lower.indexOf('stressed') !== -1 || lower.indexOf('anxious') !== -1 || lower.indexOf('worried') !== -1) {
+            scores.mental = 25;
+            scores.focus = 30;
         }
-        if (lower.includes('focus') || lower.includes('concentrat') || lower.includes('attention')) {
-            scores.focus = lower.includes('good focus') || lower.includes('focused') ? 80 : 45;
+        if (lower.indexOf('focus') !== -1 || lower.indexOf('concentrat') !== -1 || lower.indexOf('productive') !== -1) {
+            scores.focus = (lower.indexOf('good focus') !== -1 || lower.indexOf('very focused') !== -1) ? 85 : 45;
         }
-        if (lower.includes('headache') || lower.includes('migraine')) {
-            scores.energy = Math.max(scores.energy - 20, 10);
-            scores.mental = Math.max(scores.mental - 15, 10);
+        if (lower.indexOf('head') !== -1 || lower.indexOf('headache') !== -1) {
+            scores.mental = Math.max(scores.mental - 20, 10);
+            scores.energy = Math.max(scores.energy - 15, 10);
         }
-        if (lower.includes('eye') || lower.includes('eyes') || lower.includes('strain')) {
-            scores.focus = Math.max(scores.focus - 15, 15);
+        if (lower.indexOf('eye') !== -1 || lower.indexOf('eyes') !== -1 || lower.indexOf('eye strain') !== -1) {
+            scores.focus = Math.max(scores.focus - 20, 10);
         }
-        if (lower.includes('healthy') || lower.includes('good') || lower.includes('great') || lower.includes('fine')) {
+        if (lower.indexOf('healthy') !== -1 || lower.indexOf('great') !== -1 || lower.indexOf('good') !== -1) {
             scores.energy = Math.max(scores.energy, 70);
             scores.mental = Math.max(scores.mental, 65);
         }
-        if (lower.includes('meditat') || lower.includes('yoga') || lower.includes('peaceful') || lower.includes('calm')) {
-            scores.mental = 80;
-            scores.focus = Math.min(scores.focus + 15, 95);
+
+        var hasKeyword = (lower.indexOf('sleep') !== -1 || lower.indexOf('slept') !== -1 || lower.indexOf('tired') !== -1 ||
+            lower.indexOf('water') !== -1 || lower.indexOf('drunk') !== -1 || lower.indexOf('hydrat') !== -1 ||
+            lower.indexOf('exercise') !== -1 || lower.indexOf('ran') !== -1 || lower.indexOf('workout') !== -1 ||
+            lower.indexOf('stress') !== -1 || lower.indexOf('stressed') !== -1 || lower.indexOf('anxious') !== -1 ||
+            lower.indexOf('focus') !== -1 || lower.indexOf('concentrat') !== -1 ||
+            lower.indexOf('head') !== -1 || lower.indexOf('headache') !== -1 ||
+            lower.indexOf('eye') !== -1 || lower.indexOf('eyes') !== -1 ||
+            lower.indexOf('healthy') !== -1 || lower.indexOf('good') !== -1 || lower.indexOf('great') !== -1);
+
+        if (!hasKeyword) {
+            scores.energy = 40 + Math.floor(Math.random() * 41);
+            scores.focus = 40 + Math.floor(Math.random() * 41);
+            scores.hydration = 40 + Math.floor(Math.random() * 41);
+            scores.sleep = 40 + Math.floor(Math.random() * 41);
+            scores.exercise = 40 + Math.floor(Math.random() * 41);
+            scores.mental = 40 + Math.floor(Math.random() * 41);
         }
+
         return scores;
     }
 
     function drawRadarChart(scores) {
         var canvas = document.getElementById('radarChart');
-        if (!canvas || typeof Chart === 'undefined') {
-            var fallback = document.getElementById('radarFallback');
-            if (fallback) fallback.style.display = 'block';
-            return;
-        }
+        if (!canvas || typeof Chart === 'undefined') return;
         var ctx = canvas.getContext('2d');
-        if (radarChart) radarChart.destroy();
-        radarChart = new Chart(ctx, {
+        if (window.radarChartInstance) window.radarChartInstance.destroy();
+        window.radarChartInstance = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Energy','Focus','Hydration','Sleep','Exercise','Mental Health'],
+                labels: ['Energy', 'Focus', 'Hydration', 'Sleep', 'Exercise', 'Mental Health'],
                 datasets: [{
-                    label: 'Your Health',
+                    label: 'Your Health Score',
                     data: [scores.energy, scores.focus, scores.hydration, scores.sleep, scores.exercise, scores.mental],
                     backgroundColor: 'rgba(37,99,235,0.2)',
                     borderColor: '#2563eb',
                     borderWidth: 2,
-                    pointBackgroundColor: '#2563eb'
+                    pointBackgroundColor: '#2563eb',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
                 }]
             },
             options: {
-                scales: { r: { beginAtZero: true, max: 100 } },
+                scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } } },
                 plugins: { legend: { display: false } }
             }
         });
     }
 
     function updateProgressRings(scores) {
-        var ringIds = ['energyRing','focusRing','hydrationRing','sleepRing'];
-        var scoreKeys = ['energy','focus','hydration','sleep'];
-        ringIds.forEach(function(id, i) {
-            var ring = document.getElementById(id);
+        var ringData = [
+            { id: 'energyRing', valId: 'energyVal', score: scores.energy },
+            { id: 'focusRing', valId: 'focusVal', score: scores.focus },
+            { id: 'hydrationRing', valId: 'hydrationVal', score: scores.hydration },
+            { id: 'sleepRing', valId: 'sleepVal', score: scores.sleep }
+        ];
+        var circumference = 2 * Math.PI * 40;
+        ringData.forEach(function(r) {
+            var ring = document.getElementById(r.id);
+            var valEl = document.getElementById(r.valId);
             if (ring) {
-                var circumference = 2 * Math.PI * 45;
-                var offset = circumference - (scores[scoreKeys[i]] / 100) * circumference;
                 ring.style.strokeDasharray = circumference;
-                ring.style.strokeDashoffset = offset;
-                var label = document.getElementById(id + 'Label');
-                if (label) label.textContent = scores[scoreKeys[i]];
+                ring.style.strokeDashoffset = circumference;
+                (function(ringEl, score, circumferenceVal, valElem) {
+                    setTimeout(function() {
+                        ringEl.style.transition = 'stroke-dashoffset 1s ease';
+                        ringEl.style.strokeDashoffset = circumferenceVal - (score / 100) * circumferenceVal;
+                        if (valElem) valElem.textContent = score + '%';
+                    }, 300);
+                })(ring, r.score, circumference, valEl);
             }
         });
     }
 
     function updateBodySvg(scores) {
-        var bodyParts = {
-            head: scores.focus,
-            brain: scores.mental,
-            heart: scores.energy,
-            stomach: scores.hydration,
-            legs: scores.exercise
-        };
-        Object.keys(bodyParts).forEach(function(part) {
-            var el = document.querySelector('[data-body-part="' + part + '"]');
-            if (el) {
-                if (bodyParts[part] < 40) {
-                    el.classList.add('glow-warning');
-                    el.classList.remove('glow-good');
-                } else if (bodyParts[part] > 70) {
-                    el.classList.add('glow-good');
-                    el.classList.remove('glow-warning');
-                } else {
-                    el.classList.remove('glow-warning', 'glow-good');
-                }
-            }
+        var bodyHead = document.getElementById('bodyBrain');
+        var bodyTorso = document.querySelector('.body-torso');
+        var bodyArms = document.querySelectorAll('.body-arm');
+        var bodyLegs = document.querySelectorAll('.body-leg');
+        var bodyEyeL = document.getElementById('bodyEye');
+        var bodyEyeR = document.getElementById('bodyEye2');
+
+        if (bodyHead) {
+            bodyHead.classList.remove('glow');
+            if (scores.sleep < 40 || scores.mental < 35) bodyHead.classList.add('glow');
+        }
+        bodyArms.forEach(function(el) {
+            el.classList.remove('glow');
+            if (scores.exercise < 40) el.classList.add('glow');
         });
+        bodyLegs.forEach(function(el) {
+            el.classList.remove('glow');
+            if (scores.exercise < 40) el.classList.add('glow');
+        });
+        if (bodyTorso) {
+            bodyTorso.classList.remove('glow');
+            if (scores.hydration < 40 || scores.mental < 35) bodyTorso.classList.add('glow');
+        }
+        if (bodyEyeL) {
+            bodyEyeL.classList.remove('glow');
+            if (scores.focus < 35) bodyEyeL.classList.add('glow');
+        }
+        if (bodyEyeR) {
+            bodyEyeR.classList.remove('glow');
+            if (scores.focus < 35) bodyEyeR.classList.add('glow');
+        }
     }
 
-    function generateAiTips(scores) {
-        var tips = [];
-        if (scores.energy < 40) tips.push({ type:'warning', text:'Your energy levels are low. Try getting more sleep and eating nutritious meals.' });
-        else if (scores.energy > 70) tips.push({ type:'good', text:'Great energy levels! Keep maintaining your routine.' });
-        else tips.push({ type:'suggestion', text:'Your energy is moderate. A short walk or healthy snack can boost it.' });
-
-        if (scores.hydration < 40) tips.push({ type:'warning', text:'You need more water! Aim for 8-10 glasses daily.' });
-        else if (scores.hydration > 70) tips.push({ type:'good', text:'Good hydration habits! Keep it up.' });
-        else tips.push({ type:'suggestion', text:'Try drinking water more frequently throughout the day.' });
-
-        if (scores.mental < 40) tips.push({ type:'warning', text:'High stress detected. Practice deep breathing or meditation for 10 minutes.' });
-        else if (scores.mental > 70) tips.push({ type:'good', text:'Mental health looks great! Keep practicing mindfulness.' });
-        else tips.push({ type:'suggestion', text:'Consider taking short breaks to reduce stress levels.' });
-
-        if (scores.exercise < 40) tips.push({ type:'warning', text:'You need more physical activity. Start with 20 minutes of walking daily.' });
-        else if (scores.exercise > 70) tips.push({ type:'good', text:'Excellent exercise routine! Your body thanks you.' });
-        else tips.push({ type:'suggestion', text:'Try adding 15 more minutes of exercise to your routine.' });
-
-        return tips.slice(0, 4);
+    function generateActionItems(scores) {
+        var items = [];
+        var allScores = [
+            { key: 'sleep', name: 'Sleep', val: scores.sleep },
+            { key: 'energy', name: 'Energy', val: scores.energy },
+            { key: 'hydration', name: 'Hydration', val: scores.hydration },
+            { key: 'exercise', name: 'Exercise', val: scores.exercise },
+            { key: 'mental', name: 'Mental Health', val: scores.mental },
+            { key: 'focus', name: 'Focus', val: scores.focus }
+        ];
+        allScores.sort(function(a, b) { return a.val - b.val; });
+        allScores.slice(0, 4).forEach(function(s) {
+            var icon, text;
+            if (s.val < 40) {
+                icon = '\u26A0\uFE0F';
+                if (s.key === 'sleep') text = 'Warning: Your sleep is critically low. Try to get 7-8 hours tonight.';
+                else if (s.key === 'energy') text = 'Warning: Energy levels are very low. Eat a nutritious meal and rest.';
+                else if (s.key === 'hydration') text = 'Warning: You are dehydrated. Drink at least 8 glasses of water today.';
+                else if (s.key === 'exercise') text = 'Warning: Very low physical activity. Start with a 20-minute walk.';
+                else if (s.key === 'mental') text = 'Warning: High stress detected. Practice deep breathing for 10 minutes.';
+                else text = 'Warning: Low focus levels. Take a break and try meditation.';
+                items.push({ icon: icon, text: text, type: 'warning' });
+            } else if (s.val <= 70) {
+                icon = '\uD83D\uDCA1';
+                if (s.key === 'sleep') text = 'Suggestion: Try to sleep 30 minutes earlier tonight.';
+                else if (s.key === 'energy') text = 'Suggestion: A short walk or healthy snack can boost your energy.';
+                else if (s.key === 'hydration') text = 'Suggestion: Keep a water bottle nearby and sip regularly.';
+                else if (s.key === 'exercise') text = 'Suggestion: Add 15 more minutes of exercise to your routine.';
+                else if (s.key === 'mental') text = 'Suggestion: Take short breaks between study sessions.';
+                else text = 'Suggestion: Try the Pomodoro technique to improve concentration.';
+                items.push({ icon: icon, text: text, type: 'suggestion' });
+            } else {
+                icon = '\u2705';
+                if (s.key === 'sleep') text = 'Good: Great sleep habits! Keep maintaining your sleep schedule.';
+                else if (s.key === 'energy') text = 'Good: Excellent energy levels! Keep up your routine.';
+                else if (s.key === 'hydration') text = 'Good: Well hydrated! Keep drinking water throughout the day.';
+                else if (s.key === 'exercise') text = 'Good: Great exercise routine! Your body thanks you.';
+                else if (s.key === 'mental') text = 'Good: Mental health looks great! Keep practicing mindfulness.';
+                else text = 'Good: Excellent focus! You are performing well.';
+                items.push({ icon: icon, text: text, type: 'good' });
+            }
+        });
+        return items;
     }
 
     if (analyzeBtn) {
@@ -507,34 +478,54 @@ document.addEventListener('DOMContentLoaded', function() {
             drawRadarChart(scores);
             updateProgressRings(scores);
             updateBodySvg(scores);
-            var tipsContainer = document.getElementById('aiTips');
-            if (tipsContainer) {
-                var tips = generateAiTips(scores);
-                tipsContainer.innerHTML = tips.map(function(tip) {
-                    var icon = tip.type === 'warning' ? '⚠️' : tip.type === 'good' ? '✅' : '💡';
-                    return '<div class="ai-tip ' + tip.type + '">' + icon + ' ' + tip.text + '</div>';
+            var actionItems = generateActionItems(scores);
+            var container = document.getElementById('actionItems');
+            if (container) {
+                container.innerHTML = actionItems.map(function(item) {
+                    return '<div class="action-item ' + item.type + '">' + item.icon + ' ' + item.text + '</div>';
                 }).join('');
             }
-            var resultsDiv = document.getElementById('aiResults');
-            if (resultsDiv) resultsDiv.style.display = 'block';
+            var output = document.getElementById('analysisOutput');
+            if (output) output.style.display = 'block';
         });
     }
 
-    roadmapPills.forEach(function(pill) {
+    var careerPills = document.querySelectorAll('.career-pill');
+    var careerCards = document.querySelectorAll('.career-card');
+
+    careerPills.forEach(function(pill) {
         pill.addEventListener('click', function() {
-            roadmapPills.forEach(function(p) { p.classList.remove('active'); });
+            careerPills.forEach(function(p) { p.classList.remove('active'); });
             pill.classList.add('active');
-            var roadmapId = pill.getAttribute('data-roadmap');
-            roadmapPanels.forEach(function(panel) {
-                panel.classList.remove('active');
-                if (panel.id === roadmapId) panel.classList.add('active');
+            var career = pill.getAttribute('data-career');
+            careerCards.forEach(function(card) {
+                if (card.getAttribute('data-career') === career) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
     });
 
-    function formatTime(seconds) {
-        var m = Math.floor(seconds / 60);
-        var s = seconds % 60;
+    var timerStart = document.getElementById('timerStart');
+    var timerPause = document.getElementById('timerPause');
+    var timerReset = document.getElementById('timerReset');
+    var timerText = document.getElementById('timerText');
+    var timerProgress = document.getElementById('timerProgress');
+    var timerInterval = null;
+    var timerSeconds = 1500;
+    var isWorkSession = true;
+    var timerCircumference = 2 * Math.PI * 90;
+
+    if (timerProgress) {
+        timerProgress.style.strokeDasharray = timerCircumference;
+        timerProgress.style.strokeDashoffset = 0;
+    }
+
+    function formatTime(sec) {
+        var m = Math.floor(sec / 60);
+        var s = sec % 60;
         return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
     }
 
@@ -551,12 +542,16 @@ document.addEventListener('DOMContentLoaded', function() {
             osc.start();
             gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
             osc.stop(ctx.currentTime + 0.5);
-        } catch(e) {}
+        } catch (e) {}
     }
 
     function updateTimerDisplay() {
-        if (timerDisplay) timerDisplay.textContent = formatTime(timerSeconds);
-        if (timerLabel) timerLabel.textContent = isWorkSession ? 'Focus Time' : 'Break Time';
+        if (timerText) timerText.textContent = formatTime(timerSeconds);
+        if (timerProgress) {
+            var total = isWorkSession ? 1500 : 300;
+            var progress = timerSeconds / total;
+            timerProgress.style.strokeDashoffset = timerCircumference * (1 - progress);
+        }
     }
 
     function startTimer() {
@@ -565,20 +560,22 @@ document.addEventListener('DOMContentLoaded', function() {
             timerSeconds--;
             updateTimerDisplay();
             if (timerSeconds <= 0) {
-                playBeep();
                 clearInterval(timerInterval);
                 timerInterval = null;
+                playBeep();
                 isWorkSession = !isWorkSession;
                 timerSeconds = isWorkSession ? 1500 : 300;
                 updateTimerDisplay();
-                alert(isWorkSession ? 'Break over! Time to focus.' : 'Great work! Take a break.');
+                alert(isWorkSession ? 'Break is over! Time to focus.' : 'Great work! Take a 5 min break.');
             }
         }, 1000);
     }
 
     function pauseTimer() {
-        clearInterval(timerInterval);
-        timerInterval = null;
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
     }
 
     function resetTimer() {
@@ -588,43 +585,54 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTimerDisplay();
     }
 
-    if (startTimerBtn) startTimerBtn.addEventListener('click', startTimer);
-    if (pauseTimerBtn) pauseTimerBtn.addEventListener('click', pauseTimer);
-    if (resetTimerBtn) resetTimerBtn.addEventListener('click', resetTimer);
+    if (timerStart) timerStart.addEventListener('click', startTimer);
+    if (timerPause) timerPause.addEventListener('click', pauseTimer);
+    if (timerReset) timerReset.addEventListener('click', resetTimer);
     updateTimerDisplay();
+
+    var goalInput = document.getElementById('goalInput');
+    var addGoalBtn = document.getElementById('addGoalBtn');
+    var goalsList = document.getElementById('goalsList');
+    var goalProgress = document.getElementById('goalProgress');
+    var goalPercent = document.getElementById('goalPercent');
+    var goals = JSON.parse(localStorage.getItem('amanshuGoals') || '[]');
+    var goalCircumference = 2 * Math.PI * 50;
+
+    if (goalProgress) {
+        goalProgress.style.strokeDasharray = goalCircumference;
+        goalProgress.style.strokeDashoffset = goalCircumference;
+    }
 
     function renderGoals() {
         if (!goalsList) return;
         goalsList.innerHTML = '';
-        goals.forEach(function(goal, index) {
+        goals.forEach(function(goal, i) {
             var li = document.createElement('li');
             li.className = 'goal-item' + (goal.done ? ' completed' : '');
-            li.innerHTML =
-                '<input type="checkbox" class="goal-checkbox" ' + (goal.done ? 'checked' : '') + ' data-index="' + index + '">' +
+            li.innerHTML = '<input type="checkbox" class="goal-check" ' + (goal.done ? 'checked' : '') + ' data-index="' + i + '">' +
                 '<span class="goal-text">' + goal.text + '</span>' +
-                '<button class="goal-delete" data-index="' + index + '">✕</button>';
+                '<button class="goal-delete" data-index="' + i + '">\u2715</button>';
             goalsList.appendChild(li);
         });
-        updateGoalsProgress();
+        updateGoalProgress();
         localStorage.setItem('amanshuGoals', JSON.stringify(goals));
     }
 
-    function updateGoalsProgress() {
-        if (!goalsProgress || goals.length === 0) {
-            if (goalsProgress) goalsProgress.style.strokeDashoffset = 283;
+    function updateGoalProgress() {
+        if (!goalProgress || goals.length === 0) {
+            if (goalProgress) goalProgress.style.strokeDashoffset = goalCircumference;
+            if (goalPercent) goalPercent.textContent = '0%';
             return;
         }
         var completed = goals.filter(function(g) { return g.done; }).length;
         var pct = completed / goals.length;
-        var circumference = 2 * Math.PI * 45;
-        var offset = circumference - pct * circumference;
-        if (goalsProgress) goalsProgress.style.strokeDashoffset = offset;
-        var pctLabel = document.getElementById('goalsPercent');
-        if (pctLabel) pctLabel.textContent = Math.round(pct * 100) + '%';
+        goalProgress.style.transition = 'stroke-dashoffset 0.5s ease';
+        goalProgress.style.strokeDashoffset = goalCircumference - pct * goalCircumference;
+        if (goalPercent) goalPercent.textContent = Math.round(pct * 100) + '%';
     }
 
     function addGoal(text) {
-        if (!text.trim()) return;
+        if (!text || !text.trim()) return;
         goals.push({ text: text.trim(), done: false });
         renderGoals();
     }
@@ -632,12 +640,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (addGoalBtn) {
         addGoalBtn.addEventListener('click', function() {
             addGoal(goalInput.value);
-            goalInput.value = '';
+            if (goalInput) goalInput.value = '';
         });
     }
 
     if (goalInput) {
-        goalInput.addEventListener('keypress', function(e) {
+        goalInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 addGoal(goalInput.value);
                 goalInput.value = '';
@@ -648,7 +656,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (goalsList) {
         goalsList.addEventListener('click', function(e) {
             var idx;
-            if (e.target.classList.contains('goal-checkbox')) {
+            if (e.target.classList.contains('goal-check')) {
                 idx = parseInt(e.target.getAttribute('data-index'));
                 goals[idx].done = !goals[idx].done;
                 renderGoals();
@@ -662,113 +670,115 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderGoals();
 
+    var quizData = [
+        { q: 'Capital of India?', options: ['Mumbai', 'New Delhi', 'Kolkata', 'Chennai'], answer: 1 },
+        { q: 'Red Planet?', options: ['Venus', 'Mars', 'Jupiter', 'Saturn'], answer: 1 },
+        { q: '15 \u00D7 15?', options: ['200', '225', '250', '275'], answer: 1 },
+        { q: 'Telephone inventor?', options: ['Edison', 'Newton', 'Bell', 'Tesla'], answer: 2 },
+        { q: 'Largest ocean?', options: ['Atlantic', 'Indian', 'Pacific', 'Arctic'], answer: 2 }
+    ];
+
+    var startQuizBtn = document.getElementById('startQuizBtn');
+    var quizActive = document.getElementById('quizActive');
+    var quizQuestion = document.getElementById('quizQuestion');
+    var quizOptions = document.getElementById('quizOptions');
+    var quizProgress = document.getElementById('quizProgress');
+    var quizScoreEl = document.getElementById('quizScore');
+    var quizResult = document.getElementById('quizResult');
+    var quizResultText = document.getElementById('quizResultText');
+    var quizFinalScore = document.getElementById('quizFinalScore');
+    var restartQuizBtn = document.getElementById('restartQuizBtn');
     var currentQuizIndex = 0;
     var quizScore = 0;
 
     function renderQuizQuestion() {
-        if (!quizContainer || currentQuizIndex >= quizData.length) {
+        if (currentQuizIndex >= quizData.length) {
             showQuizResult();
             return;
         }
         var q = quizData[currentQuizIndex];
-        var optionsHtml = q.options.map(function(opt, i) {
-            return '<button class="quiz-option" data-index="' + i + '">' + opt + '</button>';
-        }).join('');
-        quizContainer.innerHTML =
-            '<div class="quiz-progress">Question ' + (currentQuizIndex + 1) + ' of ' + quizData.length + '</div>' +
-            '<div class="quiz-question">' + q.q + '</div>' +
-            '<div class="quiz-options">' + optionsHtml + '</div>';
-        var optionBtns = quizContainer.querySelectorAll('.quiz-option');
-        optionBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var selected = parseInt(btn.getAttribute('data-index'));
-                var correct = q.answer;
-                optionBtns.forEach(function(b, i) {
-                    b.disabled = true;
-                    if (i === correct) b.classList.add('correct');
-                    if (i === selected && i !== correct) b.classList.add('wrong');
+        if (quizProgress) quizProgress.textContent = 'Question ' + (currentQuizIndex + 1) + '/' + quizData.length;
+        if (quizScoreEl) quizScoreEl.textContent = 'Score: ' + quizScore;
+        if (quizQuestion) quizQuestion.textContent = q.q;
+        if (quizOptions) {
+            quizOptions.innerHTML = '';
+            q.options.forEach(function(opt, i) {
+                var btn = document.createElement('button');
+                btn.className = 'quiz-opt';
+                btn.textContent = opt;
+                btn.addEventListener('click', function() {
+                    var btns = quizOptions.querySelectorAll('.quiz-opt');
+                    btns.forEach(function(b, j) {
+                        b.disabled = true;
+                        if (j === q.answer) b.classList.add('correct');
+                        if (j === i && j !== q.answer) b.classList.add('wrong');
+                    });
+                    if (i === q.answer) quizScore++;
+                    if (quizScoreEl) quizScoreEl.textContent = 'Score: ' + quizScore;
+                    setTimeout(function() {
+                        currentQuizIndex++;
+                        renderQuizQuestion();
+                    }, 1000);
                 });
-                if (selected === correct) quizScore++;
-                setTimeout(function() {
-                    currentQuizIndex++;
-                    renderQuizQuestion();
-                }, 1000);
-            });
-        });
-    }
-
-    function showQuizResult() {
-        if (!quizContainer) return;
-        var pct = Math.round((quizScore / quizData.length) * 100);
-        var msg = pct >= 80 ? 'Excellent! You are a genius!' : pct >= 60 ? 'Good job! Keep learning!' : pct >= 40 ? 'Not bad! Try again to improve.' : 'Keep trying! Practice makes perfect.';
-        quizContainer.innerHTML =
-            '<div class="quiz-result">' +
-            '<h3>Quiz Complete!</h3>' +
-            '<div class="quiz-score">' + quizScore + ' / ' + quizData.length + '</div>' +
-            '<div class="quiz-percentage">' + pct + '%</div>' +
-            '<p class="quiz-message">' + msg + '</p>' +
-            '<button class="btn btn-primary quiz-restart">Try Again</button>' +
-            '</div>';
-        var restartBtn = quizContainer.querySelector('.quiz-restart');
-        if (restartBtn) {
-            restartBtn.addEventListener('click', function() {
-                currentQuizIndex = 0;
-                quizScore = 0;
-                renderQuizQuestion();
+                quizOptions.appendChild(btn);
             });
         }
     }
 
-    if (quizStartBtn) {
-        quizStartBtn.addEventListener('click', function() {
-            currentQuizIndex = 0;
-            quizScore = 0;
-            quizStartBtn.style.display = 'none';
-            quizContainer.style.display = 'block';
-            renderQuizQuestion();
+    function showQuizResult() {
+        if (quizActive) quizActive.style.display = 'none';
+        if (quizResult) quizResult.style.display = 'block';
+        var pct = Math.round((quizScore / quizData.length) * 100);
+        var msg = pct >= 80 ? 'Excellent!' : pct >= 60 ? 'Good job!' : pct >= 40 ? 'Not bad, keep trying!' : 'Keep practicing!';
+        if (quizResultText) quizResultText.textContent = msg;
+        if (quizFinalScore) quizFinalScore.textContent = quizScore + ' / ' + quizData.length + ' (' + pct + '%)';
+    }
+
+    function startQuiz() {
+        currentQuizIndex = 0;
+        quizScore = 0;
+        if (startQuizBtn) startQuizBtn.style.display = 'none';
+        if (quizActive) quizActive.style.display = 'block';
+        if (quizResult) quizResult.style.display = 'none';
+        renderQuizQuestion();
+    }
+
+    if (startQuizBtn) startQuizBtn.addEventListener('click', startQuiz);
+    if (restartQuizBtn) restartQuizBtn.addEventListener('click', startQuiz);
+
+    var loginBtn = document.getElementById('loginBtn');
+    var loginModal = document.getElementById('loginModal');
+
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function() {
+            if (loginModal) loginModal.classList.add('active');
         });
     }
 
-    function openLoginModal() {
-        if (loginModal) loginModal.classList.add('active');
+    if (loginModal) {
+        var submitBtn = loginModal.querySelector('.submit-btn');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function() {
+                var inputs = loginModal.querySelectorAll('input');
+                var phoneVal = inputs[0] ? inputs[0].value.trim() : '';
+                var emailVal = inputs[1] ? inputs[1].value.trim() : '';
+                if (!/^\d{10}$/.test(phoneVal)) {
+                    alert('Please enter a valid 10-digit phone number.');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                alert('Login successful! Welcome to Amanshu Classes.');
+                loginModal.classList.remove('active');
+                if (inputs[0]) inputs[0].value = '';
+                if (inputs[1]) inputs[1].value = '';
+            });
+        }
     }
 
-    function closeLoginModal() {
-        if (loginModal) loginModal.classList.remove('active');
-    }
-
-    if (loginBtn) loginBtn.addEventListener('click', openLoginModal);
-    if (loginModalClose) loginModalClose.addEventListener('click', closeLoginModal);
-    if (loginModalOverlay) loginModalOverlay.addEventListener('click', closeLoginModal);
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var phone = document.getElementById('loginPhone');
-            var email = document.getElementById('loginEmail');
-            var phoneVal = phone ? phone.value.trim() : '';
-            var emailVal = email ? email.value.trim() : '';
-            var phoneRegex = /^\d{10}$/;
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!phoneRegex.test(phoneVal)) {
-                alert('Please enter a valid 10-digit phone number.');
-                return;
-            }
-            if (!emailRegex.test(emailVal)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            alert('Login successful! Welcome to Amanshu Classes.');
-            closeLoginModal();
-            loginForm.reset();
-        });
-    }
-
-    downloadBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            alert('Download will start soon!');
-        });
-    });
+    var scrollToTop = document.getElementById('scrollToTop');
 
     if (scrollToTop) {
         window.addEventListener('scroll', function() {
@@ -783,181 +793,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    var firstSection = document.querySelector('.section');
-    if (firstSection) {
-        firstSection.classList.add('active');
-    }
-
-    var ncertData = {
-        '1': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Magic Fun Time','Joining and Sharing','How Many','Story Time','Give and Take','Head to Tail','Me and My Family','How Long How Far','Flowers and Leaves','Playing with Numbers','Small and Big','Where to Look From','Patterns','Jugs and Mugs','Heavy and Light']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['जादुई रंगशाला','घर','किताबें','पूजा के फूल','हमारी दुकान','पशु पक्षी','अच्छे बच्चे','तितली','बंदर गिलहरी','बुलबुल','हवाई जहाज़','घड़ियाल','सबकी अपनी अपनी जगह','लालची कुत्ता','मेला में']},
-                {name:'English',icon:'📖',code:'en',chapters:['A Happy Child','After a Bath','The Little Bird','Cake','Merry Go Round','Lambo','On My Way to School','The Tailor and His Son','Sitting Quietly','Who Has Seen the Wind','A Little Turtle','I Like Worms','Once I Saw a Little Bird','Mittu and the Yellow Mango','Rain']},
-                {name:'EVS',icon:'🌍',code:'ev',chapters:['Getting to Know Us','People Who Help Us','Food','Shelter','Water','My Family','Going to School','Means of Communication','Things We Make and Do']}
-            ]
-        },
-        '2': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['What is Long What is Round','Counting in Groups','How Much Can You Carry','Counting in Tens','Patterns','Fun with Numbers','Jugs and Maks','Tens and Ones','My Funday','Add our Points','Lines and Lines','Give and Take','The Longest Step','Birds Come Birds Go','How Many Ponytails']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['ऊँट चले','बैल और गाय','मेरी कलम','पक्षियों की दुनिया','हमारा घर','पतझड़ में','आम की टोकरी','तितली और कली','सुर्खाब के पंख','आसमान में क्या है','पापा जब बच्चे थे','गाड़ी वाला','लाल टोपी','कब तक','मेहनती रीमा']},
-                {name:'English',icon:'📖',code:'en',chapters:['First Day at School','Haldi's Haircut','The Nail Fight','A Little Turtle','I Am Lucky','I Want to Sleep','The Bubbles','Ship of the Desert','Drop of Water','On Top of the World','Strange Machine','Princess September','I Want Something in a Cage','Crying is of No Use','The Proud Tree']},
-                {name:'EVS',icon:'🌍',code:'ev',chapters:['In Our School','Our Neighbourhood','Water','Home and House','Our National Symbols','Occupation','Sharing our Feelings','Our Body','We Are Different We Are The Same','Our Country India','Rules to Follow','Festivals of India']}
-            ]
-        },
-        '3': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Where to Look From','Fun with Numbers','Give and Take','Long and Short','Shapes and Designs','Fun with Give and Take','Time and Again','Fractions','How Big How Heavy','Pictographs','Play with Patterns','Jugs and Mugs','Can We Share','Smart Charts','Rupees and Paise']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['कोयल और कौआ','पर्वतों पर','आम की कहानी','मेहनत ही सफलता की कुंजी है','छोटी सी कहानी','लालची भालू','जादुई पेंसिल','जब मैं छोटा था','हमारा परिवार','शाम का दृश्य','गुनेस की गोलियाँ','बादलों के साथ खेलना','मेरे चिट्ठी','मैं भी कल की तरह बड़ा होऊँगा','हमारा घर']},
-                {name:'English',icon:'📖',code:'en',chapters:['The Enormous Turnip','A Little Fish Story','I Can Do It','The Kite','The Monkey and the Crocodile','Very Busy','Who Is It','Going to the Bazaar','The Storming of the Fort','Crying','The Yellow Butterfly','Little Tiger Big Tiger','The Story of Amrita','My Family','A House for a Bird']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Food','Housing','Clothing','Family and Friends','Occupations','The Plant World','The Animal World','Our Environment','Our Body','Water','Travel','Safety and First Aid']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['Our Country India','Our National Symbols','Our Neighbourhood','Getting to Know India','Festivals of India','Our Leaders','Our Helpers','Our School','Our Body','Our Houses']}
-            ]
-        },
-        '4': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Building with Bricks','Long and Short','A Trip to Bhopal','Ticks and Trips','The Way the World Looks','The Junk Seller','Jugs and Mugs','Carts and Wheels','Halves and Quarters','Play with Patterns','Tables and Shares','How Heavy How Light','Fields and Fences','Smart Charts','Ways to Multiply and Divide']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['मन के भोले भाले बादल','जब मैं छोटी थी','दादी माँ की कहानी','पानी की कहानी','नन्हा बन्शी','हमारी कक्षा','दूर से आने वाले','भालू ने खेली फुटबॉल','कबीर के दोहे','पक्षियों के गीत','अपनी माँ','मछली की आँखें','रानी का बाग़','गुनेस और उसका कुत्ता','सबकी अपनी अपनी जगह']},
-                {name:'English',icon:'📖',code:'en',chapters:['Wake Up','The Donkey','I Had a Little Hen','A Very Tall Rabbit','Enviornment','A Little Turtle','Run','Noses','The Enormous Elephant','The Little Giraffe','The Little Bird','Who Has Seen The Wind','A Beautiful Day','The Crow and the Pitcher','The Milkmaid and Her Pail']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Crops for Us','Sources of Food','A House of My Own','Clothes We Wear','Keeping Away from Disease','The Water We Drink','Every Drop Counts','Moving Without Legs','Weaves of Cloth','Spinning Weaving','The Earth Our Home','A Shelter So High','Winds and Seasons','Rocks and Minerals','The Solid State']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['Maps','The Earth and the Globe','Globe: Parallels and Meridians','The Four Circles of the Globe','Major Domains of the Earth','Major Landforms of the Earth','Our Country India','Indian Physiographic Division','Drainage in India','Climate of India','Natural Vegetation and Wildlife','India: Size and Location','The Constitution of India','Government','Panchayati Raj','Types of Government','Understanding Democracy']}
-            ]
-        },
-        '5': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['The Fish Tale','Shapes and Angles','How Many Squares','Parts and Wholes','Does it Look the Same','Be My Multiple I Will Be Your Factor','Can You See the Pattern','Mapping Your Way','Boxes and Sketches','Tenths and Hundredths','Area and Its Boundary','Smart Charts','Pipes and Cisterns','How Big How Heavy','Partial and Whole Numbers']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['राख का चूल्हा','फसलें','मेरे गाँव का नाम रोशन है','सुन्दर काँच टूट गया','तीन बहनें','होशियारी से काम लो','कबीर के दोहे','साँझ और प्रभात','ल्हासा की ओर','बिरजू राजा और पंडित व्यास','कठपुतली','कलम की कहानी','जीवन का चक्र','नदी की डुबकी','धरती की सन्तान']},
-                {name:'English',icon:'📖',code:'en',chapters:['Ice Cream Man','Wonderful Waste','Teamwork','Crying','My Shadow','Crying is of No Use','The Little Bully','Nobody\'s Friend','Division','Who Did Patrick\'s Homework','Topsy-turvy Land','Gulliver\'s Travels','Hiroshima','Who Will Follow My Footsteps','A House is not a Home']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Super Senses','A Tail of Two Birds','Animal Homes','The Plant Fairy','Seeds and Seeds','Drop by Drop','A Shelter So High','My School Building','Walls Tell Stories','Sunita in Space','A Trip to North East India','When the Earth Shook!','Blow Hot Blow Cold','What if it Finishes?','The Sun the Stars and the Moon']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['What is History','On the Trail of the Earliest People','From Gatherings to Growing Food','In the Earliest Cities','What Books and Burials Tell Us','Kingdoms Kings and an Early Republic','New Questions and Ideas','Ashoka The Emperor Who Gave Up War','Vital Villages Thriving Towns','Traders Kings and Pilgrims','New Empires and Kingdoms','Buildings Paintings and Books','The Earth in the Solar System','Globe: Latitudes and Longitudes','The Four Circles of the Earth','Major Domains of the Earth','Major Landforms of the Earth','Our Country India']}
-            ]
-        },
-        '6': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Knowing Our Numbers','Whole Numbers','Playing with Numbers','Basic Geometrical Ideas','Understanding Elementary Shapes','Integers','Fractions','Decimals','Data Handling','Mensuration','Algebra','Ratio and Proportion','Symmetry','Practical Geometry']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Food: Where Does It Come From?','Components of Food','Fibre to Fabric','Sorting Materials into Groups','Separation of Substances','Changes Around Us','Getting to Know Plants','Body Movements','The Living Organisms and Their Surroundings','Motion and Measurement of Distinctions','Light Shadows and Reflections','Electricity and Circuits','Fun with Magnets','Water','Air Around Us','Garbage In Garbage Out']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['What History is and How Do We Know About It','On the Trail of the Earliest People','From Gatherings to Growing Food','In the Earliest Cities','What Books and Burials Tell Us','Kingdoms Kings and an Early Republic','New Questions and Ideas','Ashoka The Emperor Who Gave Up War','Vital Villages Thriving Towns','Traders Kings and Pilgrims','New Empires and Kingdoms','Buildings Paintings and Books','The Earth in the Solar System','Globe: Latitudes and Longitudes','Major Domains of the Earth','Major Landforms of the Earth','Our Country India','India: Size and Location','The Constitution of India']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['वह चिड़िया जो','बचपन','नादान दोस्त','चाँद से थोड़ी बात','अक्ल बड़ी या भैंस','समझ की बातें','संसार परिचय','आम की कहानी','पतझड़ में एक दिन','मेरे चिट्ठी','पहाड़ों पर चरते जानवर','नयी सुबह','शहर की तरफ','जब मैं बच्चा था','लाल टोपी']},
-                {name:'English',icon:'📖',code:'en',chapters:['Who Did Patrick\'s Homework?','How the Dog Found Himself a New Master!','Taro\'s Reward','An Indian American Woman in Space: Kalpana Chawla','A Different Kind of School','Who I Am','Fair Play','The Banyan Tree','Deserts','The Ashes That Made Trees Bloom','Quality of Mercy','The Wonder Called Sleep','A Pact with the Suns','What if it Finishes?','The Wonderful Words']}
-            ]
-        },
-        '7': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Integers','Fractions and Decimals','Data Handling','Simple Equations','Lines and Angles','The Triangle and its Properties','Congruence of Triangles','Comparing Quantities','Rational Numbers','Practical Geometry','Perimeter and Area','Algebraic Expressions','Exponents and Powers','Symmetry','Visualising Solid Shapes']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Nutrition in Plants','Nutrition in Animals','Fibre to Fabric','Heat','Acids Bases and Salts','Physical and Chemical Changes','Weather Climate and Adaptations of Animals to Climate','Winds Storms and Cyclones','Soil','Respiration in Organisms','Transportation in Animals and Plants','Reproduction in Plants','Motion and Time','Electric Current and Its Effects','Light','Water: A Precious Resource','Forests: Our Lifeline','Wastewater Story']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['Tracing Changes Through a Thousand Years','New Kings and Kingdoms','The Delhi Sultans','The Mughal Empire','Rulers and Buildings','Towns Traders and Craftspersons','Tribes Nomads and Settled Communities','Devotional Paths to the Divine','The Making of Regional Cultures','Eighteenth-Century Political Formations','Environment','Inside Our Earth','Our Changing Earth','Air','Water','Human-Environment Interactions','Natural Vegetation and Wild Life','Waste Water Story']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['हम पंछी उन्मुक्त गगन के','परीक्षा','पापा की पोशाक','ससुराल में खाना बनाना','शाम की बात','सीता की सिमरन','भोर का तारा','चिड़िया की बच्ची','एक घंटे की दौड़','मिठाइयों की दुकान','नेताजी का चश्मा','बहादुर बच्चे','मिट्टी की मूर्तियाँ','विश्व की भाषा','विद्यालय के बाद']}
-            ]
-        },
-        '8': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Rational Numbers','Linear Equations in One Variable','Understanding Quadrilaterals','Practical Geometry','Data Handling','Squares and Square Roots','Cubes and Cube Roots','Comparing Quantities','Algebraic Expressions and Identities','Visualising Solid Shapes','Mensuration','Exponents and Powers','Direct and Inverse Proportions','Factorisation','Introduction to Graphs','Playing with Numbers']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Crop Production and Management','Microorganisms: Friends and Foe','Synthetic Fibres and Plastics','Materials: Metals and Non-Metals','Coal and Petroleum','Combustion and Flame','Conservation of Plants and Animals','Cell: Structure and Functions','Reproduction in Animals','Reaching the Age of Adolescence','Force and Pressure','Friction','Sound','Chemical Effects of Electric Current','Some Natural Phenomena','Light','Stars and the Solar System','Pollution of Air and Water']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['How When and Where','From Trade to Territory','Ruling the Countryside','Tribals Dikus and the Vision of a Golden Age','When People Rebel','Weavers Iron Smelters and Factory Owners','Civilising the Native Educating the Nation','Women Caste and Reform','The Making of the National Movement: 1870s-1947','India After Independence','The Indian Constitution','Understanding Secularism','Why Do We Need a Parliament?','Understanding Laws','Judiciary','Understanding Our Criminal Justice System','Confronting Marginalisation','Public Facilities','Social Justice and the Marginalised','Strategies for Social Change']},
-                {name:'English',icon:'📖',code:'en',chapters:['The Best Christmas Present in the World','The Tsunami','Glimpses of the Past','Bepin Choudhury\'s Lapse of Memory','The Summit Within','This is Jody\'s Fawn','A Visit to Cambridge','A Short Monsoon Diary','The Great Stone Face-I','The Great Stone Face-II','The Ant and the Cricket','Geography Lesson','The Seven Ages','Owl and the Pussycat','Macbeth','Janaki\'s Marriage']}
-            ]
-        },
-        '9': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Number Systems','Polynomials','Coordinate Geometry','Linear Equations in Two Variables','Introduction to Euclid\'s Geometry','Lines and Angles','Triangles','Quadrilaterals','Areas of Parallelograms and Triangles','Circles','Constructions','Heron\'s Formula','Surface Areas and Volumes','Statistics','Probability']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Matter in Our Surroundings','Is Matter Around Us Pure','Atoms and Molecules','Structure of the Atom','The Fundamental Unit of Life','Tissues','Diversity in Living Organisms','Motion','Force and Laws of Motion','Gravitation','Work and Energy','Sound','Why Do We Fall Ill','Natural Resources','Improvement in Food Resources']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['The French Revolution','Socialism in Europe and the Russian Revolution','Nazism and the Rise of Hitler','Forest Society and Colonialism','Pastoralists in the Modern World','India: Size and Location','Physical Features','Drainage','Climate','Natural Vegetation and Wild Life','Population','Democratic Politics in India','Constitutional Design','Electoral Politics','Working of Institutions','The Story of Village Palampur','People as Resource','Poverty as a Challenge','Food Security in India']},
-                {name:'English',icon:'📖',code:'en',chapters:['The Fun They Had','The Sound of Music','The Little Girl','A Truly Beautiful Mind','The Snake and the Mirror','My Childhood','Packing','Reach for the Top','The Bond of Love','Kathmandu','If I Were You','A Legend of the Northland','No Men Are Foreign','On Killing a Tree','A Slumber Did My Spirit Seal','The Duck and the Kangaroo']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['दो बैलों की कथा','ल्हासा की ओर','उपभोक्ता संरक्षण','साँवले सपनों की याद','मेरे संग की धुनें','गिरगिट','परीक्षा पर चर्चा','पानी की कहानी','सवेरे की भ्रमर गीत','कबीर के दोहे','श्रम विभाजन और जाति प्रथा','साखियाँ एवं संवाद','एवलिन ग्लेनी','लॉरेंस का चित्रण','काशी में अपने अपने बिरजू']}
-            ]
-        },
-        '10': {
-            subjects: [
-                {name:'Mathematics',icon:'📐',code:'ma',chapters:['Real Numbers','Polynomials','Pair of Linear Equations in Two Variables','Quadratic Equations','Arithmetic Progressions','Triangles','Coordinate Geometry','Introduction to Trigonometry','Circles','Constructions','Areas Related to Circles','Surface Areas and Volumes','Statistics','Probability']},
-                {name:'Science',icon:'🔬',code:'sc',chapters:['Chemical Reactions and Equations','Acids Bases and Salts','Metals and Non-metals','Carbon and Its Compounds','Life Processes','Control and Coordination','How do Organisms Reproduce','Heredity and Evolution','Light - Reflection and Refraction','The Human Eye and the Colorful World','Electricity','Magnetic Effects of Electric Current','Our Environment','Sustainable Management of Natural Resources']},
-                {name:'Social Science',icon:'🌍',code:'ss',chapters:['The Rise of Nationalism in Europe','Nationalism in India','The Making of a Global World','The Age of Industrialisation','Print Culture and the Modern World','Resources and Development','Forest and Wildlife Resources','Water Resources','Agriculture','Minerals and Energy Resources','Manufacturing Industries','Lifting the Barriers of Poverty','Development','Sectors of the Indian Economy','Money and Credit','Globalisation and the Indian Economy','Consumer Rights','Power Sharing','Democracy and Diversity','Gender Religion and Caste','Political Parties','Outcomes of Democracy','Development and Diversity','Memory and Work']},
-                {name:'English',icon:'📖',code:'en',chapters:['A Letter to God','Nelson Mandela: Long Walk to Freedom','Two Stories about Flying','From the Diary of Anne Frank','The Hundred Dresses - I','The Hundred Dresses - II','Glimpses of India','Mijbil the Otter','Madam Rides the Bus','The Sermon at Benares','The Proposal','Dust of Snow','Fire and Ice','A Tiger in the Zoo','How to Tell Wild Animals','The Ball Poem','Amanda!','Animals','The Tale of Custard the Dragon','For Anne Gregory']},
-                {name:'Hindi',icon:'📝',code:'hi',chapters:['सूरदास के पद','राम-लक्ष्मण-परशुराम संवाद','सवेरे की भ्रमर गीत','जहाँ मैं नहीं था','अब कहाँ दूसरों के दुख से','दो कविताएँ','तीन लड़कियाँ','मेरा छोटा सा घर','बालगोबिन भगत','मिट्टी की मूर्तियाँ','विप्लव के स्वप्न भगत सिंह','लोकगीत','नारी शक्ति','जब मैं बच्चा था','ल्हासा की ओर','राजस्थान की रानियाँ','कार्यालय की मेज पर','श्री गणेश और मूषक की कथा','स्त्री शिक्षा के विरोधी कुतर्क','कबीर के दोहे','एक स्वर का संगीत','धर्म और विज्ञान','एक टिपिया की डायरी','पतझड़ में एक दिन']}
-            ]
-        }
-    };
-
-    var pdfClassSelect = document.getElementById('pdfClassSelect');
-    var pdfSubjectGrid = document.getElementById('pdfSubjectGrid');
-    var pdfChapterPanel = document.getElementById('pdfChapterList');
-    var chapterTitle = document.getElementById('chapterTitle');
-    var chapterList = document.getElementById('chapterList');
-    var closeChapterBtn = document.getElementById('closeChapterList');
-
-    function getSubjectChaptersUrl(cls, subjectCode) {
-        var classNum = parseInt(cls);
-        if (classNum <= 5) {
-            return 'https://ncert.nic.in/textbook.php?jess' + cls + subjectCode;
-        } else {
-            return 'https://ncert.nic.in/textbook.php?jess' + cls + subjectCode;
-        }
-    }
-
-    function getChapterPdfUrl(cls, subjectCode, chapterNum) {
-        var prefix = 'jess';
-        var padded = chapterNum.toString().padStart(2, '0');
-        return 'https://ncert.nic.in/textbook/pdf/' + prefix + cls + subjectCode + padded + '.pdf';
-    }
-
-    function renderSubjects(cls) {
-        if (!cls || !ncertData[cls]) {
-            pdfSubjectGrid.innerHTML = '<p style="color:var(--text-light);text-align:center;padding:40px;">Select a class to view subjects</p>';
-            return;
-        }
-        var subjects = ncertData[cls].subjects;
-        var html = '';
-        subjects.forEach(function(sub) {
-            html += '<div class="pdf-card subject-card" data-class="' + cls + '" data-subject="' + sub.code + '" data-name="' + sub.name + '" data-icon="' + sub.icon + '" data-count="' + sub.chapters.length + '">';
-            html += '<div class="pdf-icon">' + sub.icon + '</div>';
-            html += '<h4>' + sub.name + '</h4>';
-            html += '<p>' + sub.chapters.length + ' Chapters</p>';
-            html += '<button class="btn btn-outline btn-sm view-chapters">View Chapters</button>';
-            html += '</div>';
+    document.querySelectorAll('.play-btn, .join-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            alert('Coming soon!');
         });
-        pdfSubjectGrid.innerHTML = html;
-
-        var cards = pdfSubjectGrid.querySelectorAll('.subject-card');
-        cards.forEach(function(card) {
-            card.querySelector('.view-chapters').addEventListener('click', function(e) {
-                e.stopPropagation();
-                var classVal = card.getAttribute('data-class');
-                var subCode = card.getAttribute('data-subject');
-                var subName = card.getAttribute('data-name');
-                var subIcon = card.getAttribute('data-icon');
-                var subData = ncertData[classVal].subjects.find(function(s) { return s.code === subCode; });
-                showChapters(classVal, subData, subName, subIcon);
-            });
-        });
-    }
-
-    function showChapters(cls, subData, subName, subIcon) {
-        if (!subData) return;
-        chapterTitle.innerHTML = subIcon + ' Class ' + cls + ' - ' + subName;
-        var html = '';
-        subData.chapters.forEach(function(ch, i) {
-            var url = getChapterPdfUrl(cls, subData.code, i + 1);
-            html += '<div class="chapter-item">';
-            html += '<span class="chapter-num">' + (i + 1) + '</span>';
-            html += '<span class="chapter-name">' + ch + '</span>';
-            html += '<a href="' + url + '" target="_blank" class="btn btn-primary btn-sm chapter-download">📥 Download</a>';
-            html += '</div>';
-        });
-        chapterList.innerHTML = html;
-        pdfChapterPanel.style.display = 'block';
-    }
-
-    if (closeChapterBtn) {
-        closeChapterBtn.addEventListener('click', function() {
-            pdfChapterPanel.style.display = 'none';
-        });
-    }
-
-    if (pdfClassSelect) {
-        pdfClassSelect.addEventListener('change', function() {
-            renderSubjects(this.value);
-            pdfChapterPanel.style.display = 'none';
-        });
-    }
-
-    renderSubjects('');
+    });
 });

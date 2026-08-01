@@ -5,178 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AMANSHU CLASSES</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <div class="logo">
-        <div class="logo-circle">AC</div>
-        <span class="logo-text">AMANSHU CLASSES</span>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-circle">AC</div>
+      <span class="logo-text">AMANSHU CLASSES</span>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <a class="nav-link active" data-section="sec-home"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></a>
+    <a class="nav-link" data-section="sec-courses"><span class="nav-icon">📚</span><span class="nav-label">Courses</span></a>
+    <a class="nav-link" data-section="sec-class"><span class="nav-icon">📖</span><span class="nav-label">Class</span></a>
+    <a class="nav-link" data-section="sec-live"><span class="nav-icon">🎥</span><span class="nav-label">Live Class</span></a>
+    <a class="nav-link" data-section="sec-pdf"><span class="nav-icon">📝</span><span class="nav-label">PDF Notes</span></a>
+    <a class="nav-link" data-section="sec-recorded"><span class="nav-icon">🎬</span><span class="nav-label">Recorded Batch</span></a>
+    <a class="nav-link" data-section="sec-health"><span class="nav-icon">💪</span><span class="nav-label">Health & Wellness</span></a>
+    <a class="nav-link" data-section="sec-career"><span class="nav-icon">🗺️</span><span class="nav-label">Career Roadmap</span></a>
+    <a class="nav-link" data-section="sec-ai"><span class="nav-icon">🤖</span><span class="nav-label">AI Learning Hub</span></a>
+    <a class="nav-link" data-section="sec-planner"><span class="nav-icon">⏱️</span><span class="nav-label">Study Planner</span></a>
+    <a class="nav-link" data-section="sec-quiz"><span class="nav-icon">❓</span><span class="nav-label">Quiz</span></a>
+    <a class="nav-link" data-section="sec-links"><span class="nav-icon">🔗</span><span class="nav-label">Important Links</span></a>
+    <a class="nav-link" data-section="sec-notifications"><span class="nav-icon">📢</span><span class="nav-label">Notifications</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <button class="sidebar-footer-btn" id="darkModeToggle">🌙 Dark Mode</button>
+    <button class="sidebar-footer-btn" id="settingsBtn">⚙️ Settings</button>
+  </div>
+</aside>
+
+<header class="topbar">
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <h1 class="page-title" id="pageTitle">Home</h1>
+  <button class="login-btn" id="loginBtn">Login</button>
+</header>
+
+<main class="content-area">
+  <div class="content-scroll">
+
+    <section id="sec-home" class="section active">
+      <div class="welcome-banner glass-card">
+        <h2>Welcome to AMANSHU CLASSES 🎓</h2>
+        <p>Your complete learning dashboard — courses, live classes, health tracking, and more.</p>
       </div>
-    </div>
-    <nav class="sidebar-nav">
-      <a href="#" class="nav-link active" data-section="sec-home"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a>
-      <a href="#" class="nav-link" data-section="sec-courses"><span class="nav-icon">📚</span><span class="nav-text">Courses</span></a>
-      <a href="#" class="nav-link" data-section="sec-class"><span class="nav-icon">📖</span><span class="nav-text">Class</span></a>
-      <a href="#" class="nav-link" data-section="sec-live"><span class="nav-icon">🎥</span><span class="nav-text">Live Class</span></a>
-      <a href="#" class="nav-link" data-section="sec-pdf"><span class="nav-icon">📝</span><span class="nav-text">PDF Notes</span></a>
-      <a href="#" class="nav-link" data-section="sec-recorded"><span class="nav-icon">🎬</span><span class="nav-text">Recorded Batch</span></a>
-      <a href="#" class="nav-link" data-section="sec-health"><span class="nav-icon">💪</span><span class="nav-text">Health & Wellness</span></a>
-      <a href="#" class="nav-link" data-section="sec-career"><span class="nav-icon">🗺️</span><span class="nav-text">Career Roadmap</span></a>
-      <a href="#" class="nav-link" data-section="sec-ai"><span class="nav-icon">🤖</span><span class="nav-text">AI Learning Hub</span></a>
-      <a href="#" class="nav-link" data-section="sec-planner"><span class="nav-icon">⏱️</span><span class="nav-text">Study Planner</span></a>
-      <a href="#" class="nav-link" data-section="sec-quiz"><span class="nav-icon">❓</span><span class="nav-text">Quiz</span></a>
-      <a href="#" class="nav-link" data-section="sec-links"><span class="nav-icon">🔗</span><span class="nav-text">Important Links</span></a>
-      <a href="#" class="nav-link" data-section="sec-notifications"><span class="nav-icon">📢</span><span class="nav-text">Notifications</span></a>
-    </nav>
-    <div class="sidebar-footer">
-      <button class="sidebar-action" id="darkModeToggle"><span>🌙</span><span>Dark Mode</span></button>
-      <button class="sidebar-action" id="settingsBtn"><span>⚙️</span><span>Settings</span></button>
-    </div>
-  </aside>
-
-  <main class="content-area">
-    <div class="topbar">
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <h2 class="page-title" id="pageTitle">Home</h2>
-      <div class="topbar-right">
-        <button class="login-btn" id="loginBtn">Login</button>
+      <div class="stat-cards">
+        <div class="stat-card glass-card"><span class="stat-num">5000+</span><span class="stat-label">Students</span></div>
+        <div class="stat-card glass-card"><span class="stat-num">50+</span><span class="stat-label">Teachers</span></div>
+        <div class="stat-card glass-card"><span class="stat-num">100+</span><span class="stat-label">Courses</span></div>
+        <div class="stat-card glass-card"><span class="stat-num">98%</span><span class="stat-label">Results</span></div>
       </div>
-    </div>
+      <h3 class="section-subtitle">Quick Actions</h3>
+      <div class="quick-actions-grid">
+        <button class="quick-action glass-card" data-target="sec-courses">🎓<span>Admission</span></button>
+        <button class="quick-action glass-card" data-target="sec-courses">📚<span>Courses</span></button>
+        <button class="quick-action glass-card" data-target="sec-live">🎥<span>Live</span></button>
+        <button class="quick-action glass-card" data-target="sec-health">💪<span>Health</span></button>
+      </div>
+      <h3 class="section-subtitle">Recent Notifications</h3>
+      <div class="recent-notifications glass-card">
+        <div class="notif-item"><span class="notif-dot"></span>New batch starting for BPSC — Enroll now!</div>
+        <div class="notif-item"><span class="notif-dot"></span>Live class at 6 PM — Physics Chapter 5</div>
+        <div class="notif-item"><span class="notif-dot"></span>Health tracker updated — Check your progress</div>
+      </div>
+    </section>
 
-    <div class="content-scroll">
-      <section id="sec-home" class="section active">
-        <div class="welcome-banner">
-          <h1>Welcome to AMANSHU CLASSES</h1>
-          <p>Your Gateway to Academic Excellence</p>
+    <section id="sec-courses" class="section">
+      <h2 class="section-title">Our Courses</h2>
+      <div class="courses-grid">
+        <div class="course-card glass-card">
+          <div class="course-badge">CBSE</div>
+          <h3>CBSE Board (Class 9-12)</h3>
+          <p>Complete CBSE syllabus with expert faculty and study material.</p>
+          <div class="course-price">₹5,999</div>
+          <button class="course-details-btn" data-course="cbse">View Details</button>
         </div>
-        <div class="stat-grid">
-          <div class="stat-card"><span class="stat-icon">👨‍🎓</span><span class="stat-number" data-count="5000">5000+</span><span class="stat-label">Students</span></div>
-          <div class="stat-card"><span class="stat-icon">👩‍🏫</span><span class="stat-number" data-count="50">50+</span><span class="stat-label">Teachers</span></div>
-          <div class="stat-card"><span class="stat-icon">📚</span><span class="stat-number" data-count="100">100+</span><span class="stat-label">Courses</span></div>
-          <div class="stat-card"><span class="stat-icon">🏆</span><span class="stat-number">98%</span><span class="stat-label">Results</span></div>
+        <div class="course-card glass-card">
+          <div class="course-badge">BPSC</div>
+          <h3>BPSC Preparation</h3>
+          <p>Comprehensive Bihar Public Service Commission exam preparation.</p>
+          <div class="course-price">₹8,999</div>
+          <button class="course-details-btn" data-course="bpsc">View Details</button>
         </div>
-        <h3 class="section-title">Quick Actions</h3>
-        <div class="quick-actions-grid">
-          <button class="quick-action-card" data-action="admission"><span class="qa-icon">📝</span><span>Admission</span></button>
-          <button class="quick-action-card" data-action="courses"><span class="qa-icon">📚</span><span>My Courses</span></button>
-          <button class="quick-action-card" data-action="live"><span class="qa-icon">🎥</span><span>Live Class</span></button>
-          <button class="quick-action-card" data-action="health"><span class="qa-icon">💪</span><span>Health</span></button>
+        <div class="course-card glass-card">
+          <div class="course-badge">SSC</div>
+          <h3>SSC CGL/CHSL</h3>
+          <p>Staff Selection Commission exam preparation with practice sets.</p>
+          <div class="course-price">₹7,499</div>
+          <button class="course-details-btn" data-course="ssc">View Details</button>
         </div>
-        <h3 class="section-title">Recent Notifications</h3>
-        <div class="notification-list">
-          <div class="notification-item"><span class="notif-badge">NEW</span><div><strong>New Batch Started</strong><p>BPSC 71st batch starting from next Monday</p></div></div>
-          <div class="notification-item"><span class="notif-badge">HOT</span><div><strong>Live Class Today</strong><p>Physics Live Class at 6:00 PM</p></div></div>
-          <div class="notification-item"><span class="notif-badge">INFO</span><div><strong>New PDF Notes</strong><p>Mathematics Chapter 5 notes uploaded</p></div></div>
+        <div class="course-card glass-card">
+          <div class="course-badge">Railways</div>
+          <h3>Railway Exams (RRB)</h3>
+          <p>Railway recruitment board exam preparation with mock tests.</p>
+          <div class="course-price">₹6,999</div>
+          <button class="course-details-btn" data-course="railways">View Details</button>
         </div>
-      </section>
+        <div class="course-card glass-card">
+          <div class="course-badge">School</div>
+          <h3>School Tuition (1-10)</h3>
+          <p>Foundation courses for all subjects with personalized attention.</p>
+          <div class="course-price">₹3,999</div>
+          <button class="course-details-btn" data-course="school">View Details</button>
+        </div>
+      </div>
+    </section>
 
-      <section id="sec-courses" class="section">
-        <h2 class="section-title">Our Courses</h2>
-        <div class="course-grid">
-          <div class="course-card">
-            <div class="course-icon">📘</div>
-            <h3>CBSE Board</h3>
-            <p>Complete preparation for Class 9-12 CBSE students</p>
-            <div class="course-meta"><span>₹5,999</span><span>45 Teachers</span></div>
-            <button class="course-details-btn" data-course="cbse">View Details</button>
-          </div>
-          <div class="course-card">
-            <div class="course-icon">🏛️</div>
-            <h3>BPSC</h3>
-            <p>Bihar Public Service Commission complete course</p>
-            <div class="course-meta"><span>₹8,999</span><span>30 Teachers</span></div>
-            <button class="course-details-btn" data-course="bpsc">View Details</button>
-          </div>
-          <div class="course-card">
-            <div class="course-icon">📝</div>
-            <h3>SSC Exams</h3>
-            <p>Staff Selection Commission CGL/CHSL preparation</p>
-            <div class="course-meta"><span>₹7,499</span><span>35 Teachers</span></div>
-            <button class="course-details-btn" data-course="ssc">View Details</button>
-          </div>
-          <div class="course-card">
-            <div class="course-icon">🚂</div>
-            <h3>Railways</h3>
-            <p>RRB NTPC, Group D, ALP complete preparation</p>
-            <div class="course-meta"><span>₹6,999</span><span>25 Teachers</span></div>
-            <button class="course-details-btn" data-course="railways">View Details</button>
-          </div>
-          <div class="course-card">
-            <div class="course-icon">🏫</div>
-            <h3>School Courses</h3>
-            <p>Foundation courses for Class 1-10 students</p>
-            <div class="course-meta"><span>₹3,999</span><span>40 Teachers</span></div>
-            <button class="course-details-btn" data-course="school">View Details</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-class" class="section">
-        <h2 class="section-title">Class Selection</h2>
-        <div class="class-selector">
+    <section id="sec-class" class="section">
+      <h2 class="section-title">Class Portal</h2>
+      <div class="class-selector glass-card">
+        <label for="classSelect">Select your class:</label>
+        <div class="class-select-row">
           <select id="classSelect">
-            <option value="">Select Class</option>
-            <option value="1">Class 1</option>
-            <option value="2">Class 2</option>
-            <option value="3">Class 3</option>
-            <option value="4">Class 4</option>
-            <option value="5">Class 5</option>
-            <option value="6">Class 6</option>
-            <option value="7">Class 7</option>
-            <option value="8">Class 8</option>
-            <option value="9">Class 9</option>
-            <option value="10">Class 10</option>
-          </select>
-          <button class="go-btn" id="goClassBtn">Go</button>
-        </div>
-        <div id="classResult" class="class-result" style="display:none;">
-          <div class="class-info-card">
-            <h3 id="classResultTitle"></h3>
-            <div class="subjects-grid" id="subjectsGrid"></div>
-            <div class="class-timing"><strong>Timing:</strong> 6:00 AM - 8:00 AM (Mon-Sat)</div>
-            <div class="class-fees"><strong>Fees:</strong> ₹3,999/year</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-live" class="section">
-        <h2 class="section-title">Live Classes</h2>
-        <h3 class="sub-section-title">Happening Now</h3>
-        <div class="live-grid">
-          <div class="live-card">
-            <div class="live-badge">LIVE</div>
-            <div class="live-icon">📐</div>
-            <h4>Mathematics - Trigonometry</h4>
-            <p>By Aman Sir</p>
-            <button class="join-btn">Join Now</button>
-          </div>
-          <div class="live-card">
-            <div class="live-badge">LIVE</div>
-            <div class="live-icon">⚛️</div>
-            <h4>Physics - Thermodynamics</h4>
-            <p>By Dr. Sharma</p>
-            <button class="join-btn">Join Now</button>
-          </div>
-          <div class="live-card">
-            <div class="live-badge upcoming">UPCOMING</div>
-            <div class="live-icon">🧪</div>
-            <h4>Chemistry - Organic</h4>
-            <p>By Priya Ma'am</p>
-            <p class="live-time">Starts at 7:00 PM</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-pdf" class="section">
-        <h2 class="section-title">NCERT PDF Notes</h2>
-        <p class="section-desc">Download official NCERT textbooks for all classes</p>
-        <div class="pdf-class-selector">
-          <label>Select Class:</label>
-          <select id="pdfClassSelect" class="select-styled">
             <option value="">-- Choose Class --</option>
             <option value="1">Class 1</option>
             <option value="2">Class 2</option>
@@ -189,252 +134,559 @@
             <option value="9">Class 9</option>
             <option value="10">Class 10</option>
           </select>
+          <button id="goClassBtn" class="btn-go">Go →</button>
         </div>
-        <div id="pdfSubjectGrid" class="pdf-grid"></div>
-        <div id="pdfChapterList" class="pdf-chapter-panel" style="display:none;">
-          <div class="chapter-header">
-            <h3 id="chapterTitle"></h3>
-            <button class="btn-close-chapter" id="closeChapterList">✕</button>
-          </div>
-          <div id="chapterList" class="chapter-list"></div>
-        </div>
-      </section>
-
-      <section id="sec-recorded" class="section">
-        <h2 class="section-title">Recorded Batches</h2>
-        <div class="recorded-grid">
-          <div class="recorded-card"><div class="recorded-thumb">🎬</div><h4>BPSC 70th Complete</h4><p>250+ Videos</p><button class="play-btn">▶️ Watch</button></div>
-          <div class="recorded-card"><div class="recorded-thumb">🎬</div><h4>SSC CGL 2025</h4><p>180+ Videos</p><button class="play-btn">▶️ Watch</button></div>
-          <div class="recorded-card"><div class="recorded-thumb">🎬</div><h4>CBSE Class 10</h4><p>200+ Videos</p><button class="play-btn">▶️ Watch</button></div>
-          <div class="recorded-card"><div class="recorded-thumb">🎬</div><h4>Railway NTPC</h4><p>150+ Videos</p><button class="play-btn">▶️ Watch</button></div>
-        </div>
-      </section>
-
-      <section id="sec-health" class="section">
-        <h2 class="section-title">Health & Wellness</h2>
-        <div class="health-sub-nav">
-          <button class="health-pill active" data-health-cat="all">All</button>
-          <button class="health-pill" data-health-cat="diet">🥗 Diet</button>
-          <button class="health-pill" data-health-cat="sleep">😴 Sleep</button>
-          <button class="health-pill" data-health-cat="mental">🧠 Mental Health</button>
-          <button class="health-pill" data-health-cat="exercise">🏃 Exercise</button>
-          <button class="health-pill" data-health-cat="hydration">💧 Hydration</button>
-          <button class="health-pill" data-health-cat="eyes">👁️ Eye Care</button>
-          <button class="health-pill" data-health-cat="brain">🧠 Brain</button>
-        </div>
-        <div id="healthContent">
-          <div id="healthAll">
-            <div class="ai-health-btn-wrap">
-              <button id="openAiHealthBtn" class="ai-health-btn">🤖 AI Health Analyzer</button>
-            </div>
-            <div class="health-tracker-form">
-              <h3>Daily Health Tracker</h3>
-              <div class="tracker-fields">
-                <div class="tracker-field"><label>Weight (kg)</label><input type="number" id="trackWeight" placeholder="65"></div>
-                <div class="tracker-field"><label>Running (min)</label><input type="number" id="trackRunning" placeholder="30"></div>
-                <div class="tracker-field"><label>Exercise (min)</label><input type="number" id="trackExercise" placeholder="45"></div>
-                <div class="tracker-field"><label>Sunbath (min)</label><input type="number" id="trackSunbath" placeholder="15"></div>
-                <div class="tracker-field"><label>Playing (min)</label><input type="number" id="trackPlaying" placeholder="20"></div>
-              </div>
-              <button class="save-tracker-btn" id="saveTrackerBtn">💾 Save Today's Data</button>
-            </div>
-            <div class="health-grid">
-              <div class="health-topic-card" data-cat="diet"><div class="ht-icon">🥗</div><h4>Diet & Nutrition</h4><p>Eat balanced meals with proteins, carbs, vitamins</p><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div><span class="progress-text">70%</span><p class="ht-tip">Tip: Eat 5 fruits daily</p></div>
-              <div class="health-topic-card" data-cat="sleep"><div class="ht-icon">😴</div><h4>Sleep Quality</h4><p>Get 7-8 hours of quality sleep</p><div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div><span class="progress-text">60%</span><p class="ht-tip">Tip: Sleep before 10 PM</p></div>
-              <div class="health-topic-card" data-cat="mental"><div class="ht-icon">🧠</div><h4>Mental Health</h4><p>Practice meditation and stress management</p><div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div><span class="progress-text">55%</span><p class="ht-tip">Tip: Meditate 10 min daily</p></div>
-              <div class="health-topic-card" data-cat="exercise"><div class="ht-icon">🏃</div><h4>Exercise</h4><p>30-45 minutes of physical activity daily</p><div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div><span class="progress-text">65%</span><p class="ht-tip">Tip: Morning walks are best</p></div>
-              <div class="health-topic-card" data-cat="hydration"><div class="ht-icon">💧</div><h4>Hydration</h4><p>Drink 3-4 liters of water daily</p><div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div><span class="progress-text">50%</span><p class="ht-tip">Tip: Keep a water bottle nearby</p></div>
-              <div class="health-topic-card" data-cat="eyes"><div class="ht-icon">👁️</div><h4>Eye Care</h4><p>Follow 20-20-20 rule for screen time</p><div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div><span class="progress-text">45%</span><p class="ht-tip">Tip: Look away every 20 min</p></div>
-              <div class="health-topic-card" data-cat="brain"><div class="ht-icon">🧠</div><h4>Brain Power</h4><p>Solve puzzles and read daily</p><div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div><span class="progress-text">60%</span><p class="ht-tip">Tip: Learn something new daily</p></div>
-              <div class="health-topic-card" data-cat="mental"><div class="ht-icon">🧘</div><h4>Stress Management</h4><p>Take breaks and breathe deeply</p><div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div><span class="progress-text">40%</span><p class="ht-tip">Tip: Deep breathing helps</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-career" class="section">
-        <h2 class="section-title">Career Roadmap</h2>
-        <div class="career-sub-nav">
-          <button class="career-pill active" data-career="after10">After 10</button>
-          <button class="career-pill" data-career="after12">After 12</button>
-          <button class="career-pill" data-career="grad">Graduation</button>
-          <button class="career-pill" data-career="govt">Govt Jobs</button>
-          <button class="career-pill" data-career="modern">Modern Skills</button>
-        </div>
-        <div class="career-cards" id="careerCards">
-          <div class="career-card" data-career="after10"><div class="career-icon">📘</div><h4>After 10th</h4><p>Choose streams: Science, Commerce, Arts. Explore diploma courses, ITI certifications.</p><ul><li>Science → Engineering/Medical</li><li>Commerce → CA/CS/BBA</li><li>Arts → UPSC/Law/Journalism</li></ul></div>
-          <div class="career-card" data-career="after12"><div class="career-icon">🎓</div><h4>After 12th</h4><p>Engineering, Medical, Law, Management entrance exams.</p><ul><li>JEE → IITs/NITs</li><li>NEET → MBBS/BDS</li><li>CLAT → Law Schools</li></ul></div>
-          <div class="career-card" data-career="grad"><div class="career-icon">🏛️</div><h4>Graduation</h4><p>Higher studies, competitive exams, skill development.</p><ul><li>UPSC Civil Services</li><li>MBA from Top B-Schools</li><li>M.Tech/MS Abroad</li></ul></div>
-          <div class="career-card" data-career="govt"><div class="career-icon">🇮🇳</div><h4>Govt Jobs</h4><p>Secure government career options.</p><ul><li>BPSC/BSSC</li><li>SSC CGL/CHSL</li><li>Railways RRB</li></ul></div>
-          <div class="career-card" data-career="modern"><div class="career-icon">💻</div><h4>Modern Skills</h4><p>Tech careers and new-age skills.</p><ul><li>Web Development</li><li>AI/ML & Data Science</li><li>Digital Marketing</li></ul></div>
-        </div>
-      </section>
-
-      <section id="sec-ai" class="section">
-        <h2 class="section-title">AI Learning Hub</h2>
-        <div class="ai-grid">
-          <div class="ai-card"><div class="ai-icon">🤖</div><h4>ChatGPT</h4><p>Your AI writing & learning assistant</p><a href="https://chat.openai.com" target="_blank" class="ai-link">Open →</a></div>
-          <div class="ai-card"><div class="ai-icon">💻</div><h4>GitHub Copilot</h4><p>AI pair programmer for coding</p><a href="https://github.com/features/copilot" target="_blank" class="ai-link">Open →</a></div>
-          <div class="ai-card"><div class="ai-icon">✨</div><h4>Gemini</h4><p>Google's multimodal AI</p><a href="https://gemini.google.com" target="_blank" class="ai-link">Open →</a></div>
-          <div class="ai-card"><div class="ai-icon">📓</div><h4>NotebookLM</h4><p>AI research notebook by Google</p><a href="https://notebooklm.google.com" target="_blank" class="ai-link">Open →</a></div>
-          <div class="ai-card"><div class="ai-icon">🔍</div><h4>Perplexity</h4><p>AI-powered search engine</p><a href="https://perplexity.ai" target="_blank" class="ai-link">Open →</a></div>
-        </div>
-        <div class="prompt-section">
-          <h3 class="section-title">Prompt Engineering Tips</h3>
-          <div class="prompt-cards">
-            <div class="prompt-card"><span class="prompt-num">1</span><div><strong>Be Specific</strong><p>Give clear context and desired output format</p></div></div>
-            <div class="prompt-card"><span class="prompt-num">2</span><div><strong>Use Examples</strong><p>Provide input-output examples for better results</p></div></div>
-            <div class="prompt-card"><span class="prompt-num">3</span><div><strong>Break Down Tasks</strong><p>Split complex tasks into smaller steps</p></div></div>
-            <div class="prompt-card"><span class="prompt-num">4</span><div><strong>Iterate & Refine</strong><p>Improve prompts based on output quality</p></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-planner" class="section">
-        <h2 class="section-title">Study Planner</h2>
-        <div class="planner-layout">
-          <div class="pomodoro-section">
-            <h3>Pomodoro Timer</h3>
-            <div class="pomodoro-display">
-              <svg class="timer-ring" viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="90" class="timer-bg"/>
-                <circle cx="100" cy="100" r="90" class="timer-progress" id="timerProgress"/>
-              </svg>
-              <div class="timer-text" id="timerText">25:00</div>
-            </div>
-            <div class="timer-controls">
-              <button class="timer-btn" id="timerStart">▶️ Start</button>
-              <button class="timer-btn" id="timerPause">⏸️ Pause</button>
-              <button class="timer-btn" id="timerReset">🔄 Reset</button>
-            </div>
-          </div>
-          <div class="goals-section">
-            <h3>Daily Goals</h3>
-            <div class="goal-input-wrap">
-              <input type="text" id="goalInput" placeholder="Add a new goal...">
-              <button id="addGoalBtn" class="add-goal-btn">+ Add</button>
-            </div>
-            <ul class="goals-list" id="goalsList"></ul>
-            <div class="progress-circle-wrap">
-              <svg class="progress-circle" viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="50" class="progress-bg"/>
-                <circle cx="60" cy="60" r="50" class="progress-ring" id="goalProgress"/>
-              </svg>
-              <span class="progress-percent" id="goalPercent">0%</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-quiz" class="section">
-        <h2 class="section-title">Quiz</h2>
-        <div class="quiz-area" id="quizArea">
-          <div class="quiz-start-screen">
-            <h3>Test Your Knowledge</h3>
-            <p>10 Questions • Multiple Choice</p>
-            <button class="start-quiz-btn" id="startQuizBtn">Start Quiz</button>
-          </div>
-          <div class="quiz-active" id="quizActive" style="display:none;">
-            <div class="quiz-header">
-              <span id="quizProgress">Question 1/10</span>
-              <span id="quizScore">Score: 0</span>
-            </div>
-            <div class="quiz-question" id="quizQuestion"></div>
-            <div class="quiz-options" id="quizOptions"></div>
-          </div>
-          <div class="quiz-result" id="quizResult" style="display:none;">
-            <h3 id="quizResultText"></h3>
-            <p id="quizFinalScore"></p>
-            <button class="start-quiz-btn" id="restartQuizBtn">Restart Quiz</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-links" class="section">
-        <h2 class="section-title">Important Links</h2>
-        <h3 class="sub-section-title">YouTube Channels</h3>
-        <div class="links-grid">
-          <a href="https://www.youtube.com/@amansireducation" target="_blank" class="link-card"><span class="link-icon">▶️</span><div><strong>Aman Sir Education</strong><p>Quality education content</p></div></a>
-          <a href="https://www.youtube.com/@khanacademyhindi" target="_blank" class="link-card"><span class="link-icon">▶️</span><div><strong>Khan Academy Hindi</strong><p>Free world-class education</p></div></a>
-          <a href="https://www.youtube.com/@unacademy" target="_blank" class="link-card"><span class="link-icon">▶️</span><div><strong>Unacademy</strong><p>India's top educators</p></div></a>
-          <a href="https://www.youtube.com/@StudyIQ" target="_blank" class="link-card"><span class="link-icon">▶️</span><div><strong>Study IQ</strong><p>Current affairs & prep</p></div></a>
-          <a href="https://www.youtube.com/channel/UCAlDLInBXWHvmraqr7WZx7A" target="_blank" class="link-card"><span class="link-icon">▶️</span><div><strong>Aman Shu Classes</strong><p>Official YouTube Channel</p></div></a>
-        </div>
-        <h3 class="sub-section-title">Websites</h3>
-        <div class="links-grid">
-          <a href="https://ncert.nic.in" target="_blank" class="link-card"><span class="link-icon">🌐</span><div><strong>NCERT</strong><p>Official NCERT textbooks</p></div></a>
-          <a href="https://cbseacademic.nic.in" target="_blank" class="link-card"><span class="link-icon">🌐</span><div><strong>CBSE Academic</strong><p>CBSE official resources</p></div></a>
-        </div>
-      </section>
-
-      <section id="sec-notifications" class="section">
-        <h2 class="section-title">Notifications</h2>
-        <div class="notif-full-list">
-          <div class="notification-item full"><span class="notif-badge">NEW</span><div><strong>New Batch Started</strong><p>BPSC 71st batch starting from next Monday. Enroll now!</p><span class="notif-time">2 hours ago</span></div></div>
-          <div class="notification-item full"><span class="notif-badge">HOT</span><div><strong>Live Class Today</strong><p>Physics Live Class at 6:00 PM with Dr. Sharma</p><span class="notif-time">5 hours ago</span></div></div>
-          <div class="notification-item full"><span class="notif-badge">INFO</span><div><strong>New PDF Notes</strong><p>Mathematics Chapter 5 notes uploaded. Download now!</p><span class="notif-time">1 day ago</span></div></div>
-          <div class="notification-item full"><span class="notif-badge">UPDATE</span><div><strong>App Update</strong><p>New features added: AI Health Analyzer, Study Planner</p><span class="notif-time">2 days ago</span></div></div>
-          <div class="notification-item full"><span class="notif-badge">OFFER</span><div><strong>50% OFF</strong><p>Republic Day sale on all courses. Limited time!</p><span class="notif-time">3 days ago</span></div></div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <div class="modal-overlay" id="loginModal">
-    <div class="modal">
-      <div class="modal-header"><h3>Login</h3><button class="modal-close" data-close="loginModal">✕</button></div>
-      <div class="modal-body">
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
-        <button class="submit-btn">Send OTP</button>
+        <div id="classResult" class="class-result"></div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="modal-overlay" id="aiHealthModal">
-    <div class="modal modal-large">
-      <div class="modal-header"><h3>🤖 AI Health Analyzer</h3><button class="modal-close" data-close="aiHealthModal">✕</button></div>
-      <div class="modal-body split-screen">
-        <div class="split-left">
-          <h4>Describe Your Daily Routine</h4>
-          <textarea id="healthInput" rows="8" placeholder="e.g., I slept for 4 hours, skipped breakfast, studied for 6 hours, feel tired and have headache..."></textarea>
-          <button class="analyze-btn" id="analyzeBtn">🔍 Analyze My Health</button>
+    <section id="sec-live" class="section">
+      <h2 class="section-title">Live Classes</h2>
+      <div class="live-grid">
+        <div class="live-card glass-card">
+          <div class="live-badge live-active">● LIVE</div>
+          <h3>Physics — Thermodynamics</h3>
+          <p>Teacher: Aman Sir</p>
+          <span class="live-time">6:00 PM - 7:30 PM</span>
         </div>
-        <div class="split-right" id="analysisOutput" style="display:none;">
-          <h4>Health Analysis</h4>
-          <canvas id="radarChart" width="300" height="300"></canvas>
-          <div class="ring-grid">
-            <div class="ring-item"><svg viewBox="0 0 100 100" class="ring-svg"><circle cx="50" cy="50" r="40" class="ring-bg"/><circle cx="50" cy="50" r="40" class="ring-fill energy-ring" id="energyRing"/></svg><span class="ring-label">Energy</span><span class="ring-value" id="energyVal">0%</span></div>
-            <div class="ring-item"><svg viewBox="0 0 100 100" class="ring-svg"><circle cx="50" cy="50" r="40" class="ring-bg"/><circle cx="50" cy="50" r="40" class="ring-fill focus-ring" id="focusRing"/></svg><span class="ring-label">Focus</span><span class="ring-value" id="focusVal">0%</span></div>
-            <div class="ring-item"><svg viewBox="0 0 100 100" class="ring-svg"><circle cx="50" cy="50" r="40" class="ring-bg"/><circle cx="50" cy="50" r="40" class="ring-fill hydration-ring" id="hydrationRing"/></svg><span class="ring-label">Hydration</span><span class="ring-value" id="hydrationVal">0%</span></div>
-            <div class="ring-item"><svg viewBox="0 0 100 100" class="ring-svg"><circle cx="50" cy="50" r="40" class="ring-bg"/><circle cx="50" cy="50" r="40" class="ring-fill sleep-ring" id="sleepRing"/></svg><span class="ring-label">Sleep</span><span class="ring-value" id="sleepVal">0%</span></div>
+        <div class="live-card glass-card">
+          <div class="live-badge live-active">● LIVE</div>
+          <h3>Mathematics — Calculus</h3>
+          <p>Teacher: Priya Ma'am</p>
+          <span class="live-time">5:00 PM - 6:00 PM</span>
+        </div>
+        <div class="live-card glass-card">
+          <div class="live-badge live-upcoming">UPCOMING</div>
+          <h3>Chemistry — Organic</h3>
+          <p>Teacher: Raj Sir</p>
+          <span class="live-time">Tomorrow 7:00 AM</span>
+        </div>
+        <div class="live-card glass-card">
+          <div class="live-badge live-upcoming">UPCOMING</div>
+          <h3>English — Grammar</h3>
+          <p>Teacher: Sneha Ma'am</p>
+          <span class="live-time">Tomorrow 10:00 AM</span>
+        </div>
+        <div class="live-card glass-card">
+          <div class="live-badge live-active">● LIVE</div>
+          <h3>Biology — Human Anatomy</h3>
+          <p>Teacher: Neha Ma'am</p>
+          <span class="live-time">4:00 PM - 5:30 PM</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-pdf" class="section">
+      <h2 class="section-title">PDF Notes</h2>
+      <div class="pdf-controls glass-card">
+        <label for="pdfClassSelect">Select Class:</label>
+        <select id="pdfClassSelect">
+          <option value="">-- Choose Class --</option>
+          <option value="9">Class 9</option>
+          <option value="10">Class 10</option>
+          <option value="11">Class 11</option>
+          <option value="12">Class 12</option>
+        </select>
+      </div>
+      <div class="pdf-grid">
+        <div class="pdf-card glass-card">
+          <div class="pdf-icon">📄</div>
+          <h4>Physics — Chapter 1: Motion</h4>
+          <p>Class 11 • 2.4 MB</p>
+          <button class="btn-download">Download PDF</button>
+        </div>
+        <div class="pdf-card glass-card">
+          <div class="pdf-icon">📄</div>
+          <h4>Mathematics — Algebra Notes</h4>
+          <p>Class 10 • 1.8 MB</p>
+          <button class="btn-download">Download PDF</button>
+        </div>
+        <div class="pdf-card glass-card">
+          <div class="pdf-icon">📄</div>
+          <h4>Chemistry — Periodic Table</h4>
+          <p>Class 10 • 3.1 MB</p>
+          <button class="btn-download">Download PDF</button>
+        </div>
+        <div class="pdf-card glass-card">
+          <div class="pdf-icon">📄</div>
+          <h4>Biology — Cell Structure</h4>
+          <p>Class 9 • 2.0 MB</p>
+          <button class="btn-download">Download PDF</button>
+        </div>
+        <div class="pdf-card glass-card">
+          <div class="pdf-icon">📄</div>
+          <h4>English — Writing Skills</h4>
+          <p>Class 12 • 1.5 MB</p>
+          <button class="btn-download">Download PDF</button>
+        </div>
+        <div class="pdf-card glass-card">
+          <div class="pdf-icon">📄</div>
+          <h4>History — Modern India</h4>
+          <p>Class 10 • 4.2 MB</p>
+          <button class="btn-download">Download PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-recorded" class="section">
+      <h2 class="section-title">Recorded Batches</h2>
+      <div class="recorded-grid">
+        <div class="recorded-card glass-card">
+          <div class="recorded-thumb">🎬</div>
+          <h3>CBSE 2025-26 Complete</h3>
+          <p>All subjects • 150+ lectures</p>
+          <div class="recorded-meta"><span>45 hours</span><span>By Aman Sir</span></div>
+          <button class="btn-watch">Watch Now</button>
+        </div>
+        <div class="recorded-card glass-card">
+          <div class="recorded-thumb">🎬</div>
+          <h3>BPSC Foundation Batch</h3>
+          <p>Pre + Mains • 200+ lectures</p>
+          <div class="recorded-meta"><span>80 hours</span><span>By Team AC</span></div>
+          <button class="btn-watch">Watch Now</button>
+        </div>
+        <div class="recorded-card glass-card">
+          <div class="recorded-thumb">🎬</div>
+          <h3>SSC CGL Crash Course</h3>
+          <p>Complete • 120+ lectures</p>
+          <div class="recorded-meta"><span>60 hours</span><span>By Priya Ma'am</span></div>
+          <button class="btn-watch">Watch Now</button>
+        </div>
+        <div class="recorded-card glass-card">
+          <div class="recorded-thumb">🎬</div>
+          <h3>Railway Special Batch</h3>
+          <p>RRB • 100+ lectures</p>
+          <div class="recorded-meta"><span>55 hours</span><span>By Raj Sir</span></div>
+          <button class="btn-watch">Watch Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-health" class="section">
+      <div class="health-header">
+        <h2 class="section-title">Health & Wellness Hub</h2>
+        <button class="ai-analyzer-trigger" id="openAiHealthBtn">
+          <span class="pulse-dot"></span> AI Health Analyzer
+        </button>
+      </div>
+
+      <div class="health-pills">
+        <button class="h-pill active" data-hcat="all">All</button>
+        <button class="h-pill" data-hcat="diet">🥗 Diet</button>
+        <button class="h-pill" data-hcat="sleep">😴 Sleep</button>
+        <button class="h-pill" data-hcat="mental">🧠 Mental</button>
+        <button class="h-pill" data-hcat="exercise">🏃 Exercise</button>
+        <button class="h-pill" data-hcat="hydration">💧 Hydration</button>
+        <button class="h-pill" data-hcat="eyes">👁️ Eyes</button>
+        <button class="h-pill" data-hcat="brain">🧠 Brain</button>
+      </div>
+
+      <div class="health-dashboard">
+        <div class="health-left">
+          <div class="daily-tracker glass-card">
+            <h3>Daily Tracker</h3>
+            <div class="tracker-grid">
+              <div class="t-field"><label>Weight (kg)</label><input type="number" id="trackWeight" placeholder="65"></div>
+              <div class="t-field"><label>Running (min)</label><input type="number" id="trackRunning" placeholder="30"></div>
+              <div class="t-field"><label>Exercise (min)</label><input type="number" id="trackExercise" placeholder="45"></div>
+              <div class="t-field"><label>Sunbath (min)</label><input type="number" id="trackSunbath" placeholder="15"></div>
+              <div class="t-field"><label>Playing (min)</label><input type="number" id="trackPlaying" placeholder="20"></div>
+            </div>
+            <button class="btn-save-tracker" id="saveTrackerBtn">💾 Save Today</button>
+            <div id="trackerMsg" class="tracker-msg"></div>
           </div>
-          <div class="body-outline-wrap">
-            <svg viewBox="0 0 200 350" class="body-outline">
-              <ellipse cx="100" cy="40" rx="28" ry="35" class="body-head" id="bodyBrain"/>
-              <rect x="65" y="75" width="70" height="100" rx="15" class="body-torso"/>
-              <rect x="25" y="80" width="40" height="90" rx="12" class="body-arm"/>
-              <rect x="135" y="80" width="40" height="90" rx="12" class="body-arm"/>
-              <ellipse cx="100" cy="170" rx="20" ry="15" class="body-stomach" id="bodyStomach"/>
-              <rect x="70" y="175" width="28" height="110" rx="10" class="body-leg"/>
-              <rect x="102" y="175" width="28" height="110" rx="10" class="body-leg"/>
-              <circle cx="82" cy="35" rx="8" ry="6" class="body-eye" id="bodyEye"/>
-              <circle cx="118" cy="35" rx="8" ry="6" class="body-eye" id="bodyEye2"/>
+
+          <div class="health-stats-row">
+            <div class="mini-stat glass-card">
+              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="72, 100" class="ring-fill"/></svg></div>
+              <span class="ms-val">72%</span><span class="ms-label">Overall</span>
+            </div>
+            <div class="mini-stat glass-card">
+              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="65, 100" class="ring-fill"/></svg></div>
+              <span class="ms-val">65%</span><span class="ms-label">Energy</span>
+            </div>
+            <div class="mini-stat glass-card">
+              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="58, 100" class="ring-fill"/></svg></div>
+              <span class="ms-val">58%</span><span class="ms-label">Focus</span>
+            </div>
+            <div class="mini-stat glass-card">
+              <div class="ms-ring"><svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="3"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#06b6d4" stroke-width="3" stroke-dasharray="50, 100" class="ring-fill"/></svg></div>
+              <span class="ms-val">50%</span><span class="ms-label">Hydration</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="health-right">
+          <div class="health-topics-grid">
+            <div class="ht-card" data-cat="diet">
+              <div class="htc-icon">🥗</div>
+              <h4>Diet & Nutrition</h4>
+              <p>Balanced meals with proteins, carbs, vitamins</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:70%"></div></div>
+              <span class="htc-val">70%</span>
+              <p class="htc-tip">Eat 5 fruits daily</p>
+            </div>
+            <div class="ht-card" data-cat="sleep">
+              <div class="htc-icon">😴</div>
+              <h4>Sleep Quality</h4>
+              <p>7-8 hours of quality sleep</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:60%"></div></div>
+              <span class="htc-val">60%</span>
+              <p class="htc-tip">Sleep before 10 PM</p>
+            </div>
+            <div class="ht-card" data-cat="mental">
+              <div class="htc-icon">🧠</div>
+              <h4>Mental Health</h4>
+              <p>Meditation & stress management</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:55%"></div></div>
+              <span class="htc-val">55%</span>
+              <p class="htc-tip">Meditate 10 min daily</p>
+            </div>
+            <div class="ht-card" data-cat="exercise">
+              <div class="htc-icon">🏃</div>
+              <h4>Exercise</h4>
+              <p>30-45 min physical activity daily</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:65%"></div></div>
+              <span class="htc-val">65%</span>
+              <p class="htc-tip">Morning walks are best</p>
+            </div>
+            <div class="ht-card" data-cat="hydration">
+              <div class="htc-icon">💧</div>
+              <h4>Hydration</h4>
+              <p>3-4 liters of water daily</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:50%"></div></div>
+              <span class="htc-val">50%</span>
+              <p class="htc-tip">Keep water bottle nearby</p>
+            </div>
+            <div class="ht-card" data-cat="eyes">
+              <div class="htc-icon">👁️</div>
+              <h4>Eye Care</h4>
+              <p>20-20-20 rule for screens</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:45%"></div></div>
+              <span class="htc-val">45%</span>
+              <p class="htc-tip">Look away every 20 min</p>
+            </div>
+            <div class="ht-card" data-cat="brain">
+              <div class="htc-icon">🧠</div>
+              <h4>Brain Power</h4>
+              <p>Solve puzzles & read daily</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:60%"></div></div>
+              <span class="htc-val">60%</span>
+              <p class="htc-tip">Learn something new daily</p>
+            </div>
+            <div class="ht-card" data-cat="mental">
+              <div class="htc-icon">🧘</div>
+              <h4>Stress Management</h4>
+              <p>Take breaks & breathe deeply</p>
+              <div class="htc-progress"><div class="htc-fill" style="width:40%"></div></div>
+              <span class="htc-val">40%</span>
+              <p class="htc-tip">Deep breathing helps</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-career" class="section">
+      <h2 class="section-title">Career Roadmap</h2>
+      <div class="career-pills">
+        <button class="career-pill active" data-cpath="all">All Paths</button>
+        <button class="career-pill" data-cpath="engineering">Engineering</button>
+        <button class="career-pill" data-cpath="medical">Medical</button>
+        <button class="career-pill" data-cpath="government">Government</button>
+        <button class="career-pill" data-cpath="tech">Technology</button>
+        <button class="career-pill" data-cpath="arts">Arts & Humanities</button>
+      </div>
+      <div class="career-grid">
+        <div class="career-card glass-card" data-cpath="engineering">
+          <div class="career-icon">⚙️</div>
+          <h3>Engineering (IIT/JEE)</h3>
+          <p>Class 11-12 PCM → JEE Main → JEE Advanced → IIT/NIT</p>
+          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        </div>
+        <div class="career-card glass-card" data-cpath="medical">
+          <div class="career-icon">🏥</div>
+          <h3>Medical (NEET)</h3>
+          <p>Class 11-12 PCB → NEET → MBBS/BDS</p>
+          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        </div>
+        <div class="career-card glass-card" data-cpath="government">
+          <div class="career-icon">🏛️</div>
+          <h3>Government (UPSC/BPSC)</h3>
+          <p>Graduation → Prelims → Mains → Interview → IAS/IPS</p>
+          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        </div>
+        <div class="career-card glass-card" data-cpath="tech">
+          <div class="career-icon">💻</div>
+          <h3>Technology (BCA/B.Tech)</h3>
+          <p>Class 12 → BCA/B.Tech CS → Internships → Job</p>
+          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        </div>
+        <div class="career-card glass-card" data-cpath="arts">
+          <div class="career-icon">🎨</div>
+          <h3>Arts & Humanities</h3>
+          <p>Class 12 Arts → BA → UPSC/Teaching/Journalism</p>
+          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        </div>
+        <div class="career-card glass-card" data-cpath="government">
+          <div class="career-icon">🚂</div>
+          <h3>Railway (RRB/NTPC)</h3>
+          <p>Graduation → RRB NTPC → Group B/C posts</p>
+          <div class="career-timeline"><span>Step 1</span><span>Step 2</span><span>Step 3</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-ai" class="section">
+      <h2 class="section-title">AI Learning Hub</h2>
+      <p class="section-desc">Leverage AI tools to supercharge your learning.</p>
+      <div class="ai-grid">
+        <div class="ai-card glass-card">
+          <div class="ai-card-icon">💬</div>
+          <h3>ChatGPT</h3>
+          <p>Ask questions, get explanations, write essays, solve problems.</p>
+          <a href="https://chat.openai.com" target="_blank" class="ai-link">Open ChatGPT →</a>
+        </div>
+        <div class="ai-card glass-card">
+          <div class="ai-card-icon">🐙</div>
+          <h3>GitHub Copilot</h3>
+          <p>AI pair programmer for coding students and developers.</p>
+          <a href="https://github.com/features/copilot" target="_blank" class="ai-link">Open Copilot →</a>
+        </div>
+        <div class="ai-card glass-card">
+          <div class="ai-card-icon">✨</div>
+          <h3>Google Gemini</h3>
+          <p>Google's AI assistant for research, writing, and analysis.</p>
+          <a href="https://gemini.google.com" target="_blank" class="ai-link">Open Gemini →</a>
+        </div>
+        <div class="ai-card glass-card">
+          <div class="ai-card-icon">📓</div>
+          <h3>NotebookLM</h3>
+          <p>Upload notes, get summaries, create study guides with AI.</p>
+          <a href="https://notebooklm.google.com" target="_blank" class="ai-link">Open NotebookLM →</a>
+        </div>
+        <div class="ai-card glass-card">
+          <div class="ai-card-icon">🔍</div>
+          <h3>Perplexity AI</h3>
+          <p>AI-powered search engine with cited sources for research.</p>
+          <a href="https://perplexity.ai" target="_blank" class="ai-link">Open Perplexity →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-planner" class="section">
+      <h2 class="section-title">Study Planner</h2>
+      <div class="planner-grid">
+        <div class="pomodoro-card glass-card">
+          <h3>Pomodoro Timer</h3>
+          <div class="pomodoro-display">
+            <svg viewBox="0 0 36 36" class="pomo-ring">
+              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2"/>
+              <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="100, 100" class="pomo-progress"/>
+            </svg>
+            <div class="pomo-time" id="pomoTime">25:00</div>
+          </div>
+          <div class="pomo-controls">
+            <button id="pomoStart" class="btn-pomo">▶ Start</button>
+            <button id="pomoPause" class="btn-pomo" style="display:none">⏸ Pause</button>
+            <button id="pomoReset" class="btn-pomo">↺ Reset</button>
+          </div>
+          <div class="pomo-modes">
+            <button class="pomo-mode active" data-duration="25">25 min</button>
+            <button class="pomo-mode" data-duration="15">15 min</button>
+            <button class="pomo-mode" data-duration="5">5 min</button>
+          </div>
+        </div>
+        <div class="goals-card glass-card">
+          <h3>Today's Goals</h3>
+          <div class="goals-input-row">
+            <input type="text" id="goalInput" placeholder="Add a new goal...">
+            <button id="addGoalBtn" class="btn-add-goal">+ Add</button>
+          </div>
+          <ul id="goalsList" class="goals-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-quiz" class="section">
+      <h2 class="section-title">Quiz Zone</h2>
+      <div class="quiz-container glass-card">
+        <div id="quizArea">
+          <h3 id="quizQuestion">Loading question...</h3>
+          <div id="quizOptions" class="quiz-options"></div>
+          <div id="quizFeedback" class="quiz-feedback"></div>
+          <div class="quiz-meta">
+            <span id="quizScore">Score: 0</span>
+            <span id="quizCount">Question 1 / 10</span>
+          </div>
+          <button id="quizNext" class="btn-quiz-next" style="display:none">Next Question →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-links" class="section">
+      <h2 class="section-title">Important Links</h2>
+      <h3 class="section-subtitle">YouTube Channels</h3>
+      <div class="links-grid">
+        <a href="https://www.youtube.com/@AmanSirEducation" target="_blank" class="link-card glass-card">
+          <div class="link-icon">📺</div>
+          <h4>Aman Sir Education</h4>
+          <p>Official channel of Aman Sir</p>
+        </a>
+        <a href="https://www.youtube.com/@KhanAcademyHindi" target="_blank" class="link-card glass-card">
+          <div class="link-icon">📺</div>
+          <h4>Khan Academy Hindi</h4>
+          <p>Free world-class education</p>
+        </a>
+        <a href="https://www.youtube.com/@UnacademyFoundation" target="_blank" class="link-card glass-card">
+          <div class="link-icon">📺</div>
+          <h4>Unacademy</h4>
+          <p>India's top educators</p>
+        </a>
+        <a href="https://www.youtube.com/@StudyIQeducation" target="_blank" class="link-card glass-card">
+          <div class="link-icon">📺</div>
+          <h4>Study IQ</h4>
+          <p>UPSC & competitive exams</p>
+        </a>
+        <a href="https://www.youtube.com/channel/UCAlDLInBXWHvmraqr7WZx7A" target="_blank" class="link-card glass-card">
+          <div class="link-icon">📺</div>
+          <h4>Aman Shu Classes</h4>
+          <p>AMANSHU CLASSES official</p>
+        </a>
+      </div>
+      <h3 class="section-subtitle">Websites</h3>
+      <div class="links-grid">
+        <a href="https://ncert.nic.in" target="_blank" class="link-card glass-card">
+          <div class="link-icon">🌐</div>
+          <h4>NCERT</h4>
+          <p>Official NCERT textbooks & resources</p>
+        </a>
+        <a href="https://cbseacademic.nic.in" target="_blank" class="link-card glass-card">
+          <div class="link-icon">🌐</div>
+          <h4>CBSE Academic</h4>
+          <p>CBSE syllabus, sample papers & guidelines</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="sec-notifications" class="section">
+      <h2 class="section-title">Notifications</h2>
+      <div class="notifications-list">
+        <div class="notif-card glass-card">
+          <div class="notif-badge new">NEW</div>
+          <h4>New BPSC Batch Announced</h4>
+          <p>Enrollment is now open for BPSC 2026 Foundation Batch. Limited seats available.</p>
+          <span class="notif-time">2 hours ago</span>
+        </div>
+        <div class="notif-card glass-card">
+          <div class="notif-badge new">NEW</div>
+          <h4>Live Class: Physics - Thermodynamics</h4>
+          <p>Tonight at 6:00 PM. Don't miss the important numericals session!</p>
+          <span class="notif-time">5 hours ago</span>
+        </div>
+        <div class="notif-card glass-card">
+          <h4>Health Tracker Updated</h4>
+          <p>Your weekly health report is ready. Check your progress in the Health & Wellness Hub.</p>
+          <span class="notif-time">1 day ago</span>
+        </div>
+        <div class="notif-card glass-card">
+          <h4>New PDF Notes Uploaded</h4>
+          <p>Physics Chapter 5 and Chemistry Chapter 3 notes are now available for download.</p>
+          <span class="notif-time">2 days ago</span>
+        </div>
+        <div class="notif-card glass-card">
+          <h4>CBSE Sample Papers 2026</h4>
+          <p>Official CBSE sample papers for all subjects are now available. Practice daily!</p>
+          <span class="notif-time">3 days ago</span>
+        </div>
+        <div class="notif-card glass-card">
+          <h4>Quiz Results Published</h4>
+          <p>Your Science quiz results are out. Score: 8/10. Great job!</p>
+          <span class="notif-time">4 days ago</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="modal-overlay" id="aiHealthModal">
+  <div class="analyzer-modal">
+    <div class="analyzer-header">
+      <h3>🤖 AI Health Analyzer</h3>
+      <button class="modal-close" data-close="aiHealthModal">✕</button>
+    </div>
+    <div class="analyzer-body">
+      <div class="analyzer-input-panel">
+        <label>Describe your daily routine or health issues:</label>
+        <textarea id="healthInput" placeholder="e.g., I slept for 4 hours, feeling tired, drank 2 glasses of water, no exercise today, feeling stressed about exams..."></textarea>
+        <button class="btn-analyze" id="analyzeBtn">🔬 Analyze My Health</button>
+      </div>
+      <div class="analyzer-output-panel">
+        <div class="chart-section">
+          <h4>Overall Well-being Radar</h4>
+          <canvas id="radarChart" width="300" height="300"></canvas>
+        </div>
+        <div class="rings-section">
+          <div class="ring-item" id="ringEnergy">
+            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
+            <span class="ring-val">0%</span><span class="ring-label">Energy</span>
+          </div>
+          <div class="ring-item" id="ringFocus">
+            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
+            <span class="ring-val">0%</span><span class="ring-label">Focus</span>
+          </div>
+          <div class="ring-item" id="ringHydration">
+            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
+            <span class="ring-val">0%</span><span class="ring-label">Hydration</span>
+          </div>
+          <div class="ring-item" id="ringSleep">
+            <svg viewBox="0 0 36 36"><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" stroke-width="2.5"/><path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="0, 100" class="ring-progress"/></svg>
+            <span class="ring-val">0%</span><span class="ring-label">Sleep</span>
+          </div>
+        </div>
+        <div class="body-map-section">
+          <h4>Body Impact Map</h4>
+          <div class="body-map">
+            <svg viewBox="0 0 200 400" id="bodyMap">
+              <circle cx="100" cy="40" r="30" class="body-head" id="bodyHead"/>
+              <rect x="75" y="75" width="50" height="80" rx="10" class="body-torso" id="bodyTorso"/>
+              <rect x="50" y="80" width="22" height="70" rx="8" class="body-arm" id="bodyArmL"/>
+              <rect x="128" y="80" width="22" height="70" rx="8" class="body-arm" id="bodyArmR"/>
+              <rect x="78" y="160" width="18" height="90" rx="8" class="body-leg" id="bodyLegL"/>
+              <rect x="104" y="160" width="18" height="90" rx="8" class="body-leg" id="bodyLegR"/>
+              <circle cx="85" cy="32" r="5" class="body-eye" id="bodyEyeL"/>
+              <circle cx="115" cy="32" r="5" class="body-eye" id="bodyEyeR"/>
             </svg>
           </div>
-          <div class="action-items" id="actionItems"></div>
+        </div>
+        <div class="action-items" id="actionItems">
+          <p class="action-placeholder">Enter your routine and click Analyze to see AI-powered health insights</p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal-overlay" id="courseModal">
-    <div class="modal">
-      <div class="modal-header"><h3 id="courseModalTitle">Course Details</h3><button class="modal-close" data-close="courseModal">✕</button></div>
-      <div class="modal-body" id="courseModalBody"></div>
+<div class="modal-overlay" id="courseModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Course Details</h3><button class="modal-close" data-close="courseModal">✕</button></div>
+    <div class="modal-body" id="courseModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="loginModal">
+  <div class="modal login-modal">
+    <div class="modal-header"><h3>Login</h3><button class="modal-close" data-close="loginModal">✕</button></div>
+    <div class="modal-body">
+      <form id="loginForm">
+        <div class="form-group"><label>Phone Number</label><input type="tel" id="loginPhone" placeholder="10-digit number" maxlength="10"></div>
+        <div class="form-group"><label>Email ID</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
+        <button type="submit" class="btn-login-submit">Login</button>
+      </form>
     </div>
   </div>
+</div>
 
-  <script src="script.js"></script>
 </body>
 </html>
