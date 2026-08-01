@@ -750,4 +750,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (firstSection) {
         firstSection.classList.add('active');
     }
+
+    var deferredPrompt;
+    window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        var installBanner = document.createElement('div');
+        installBanner.className = 'install-banner';
+        installBanner.innerHTML = '<div class="install-content"><span>📱 Install AMANSHU CLASSES App</span><button class="btn btn-primary install-btn">Install</button><button class="install-close">✕</button></div>';
+        document.body.appendChild(installBanner);
+        setTimeout(function() { installBanner.classList.add('show'); }, 1000);
+        installBanner.querySelector('.install-btn').addEventListener('click', function() {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then(function(choice) {
+                if (choice.outcome === 'accepted') {
+                    installBanner.remove();
+                }
+                deferredPrompt = null;
+            });
+        });
+        installBanner.querySelector('.install-close').addEventListener('click', function() {
+            installBanner.remove();
+        });
+    });
+
+    window.addEventListener('appinstalled', function() {
+        alert('App installed successfully!');
+    });
 });

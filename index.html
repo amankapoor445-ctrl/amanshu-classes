@@ -8,6 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Amanshu Classes">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="description" content="AMANSHU CLASSES - World-class educational platform">
+  <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
   <aside class="sidebar">
@@ -419,5 +427,14 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/amanshu-classes/service-worker.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW failed'));
+      });
+    }
+  </script>
 </body>
 </html>
