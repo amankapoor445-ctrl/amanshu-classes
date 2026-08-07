@@ -1139,6 +1139,8 @@
         <button class="resource-tab" data-rtab="ai-tools">🤖 AI Learning Hub</button>
         <button class="resource-tab" data-rtab="quiz">❓ Quiz Zone</button>
         <button class="resource-tab" data-rtab="planner">⏱️ Study Planner</button>
+        <button class="resource-tab" data-rtab="calculator">🧮 Calculator</button>
+        <button class="resource-tab" data-rtab="calendar">📅 Calendar</button>
       </div>
 
       <div class="resource-tab-content active" id="rtab-pdfs">
@@ -1286,6 +1288,91 @@
               <button class="btn btn-primary" id="restartQuizBtn">Try Again</button>
             </div>
             <button class="btn btn-primary btn-lg" id="startQuizBtn">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="resource-tab-content" id="rtab-calculator">
+        <div class="calculator-container glass-card">
+          <h3>🧮 Scientific Calculator</h3>
+          <div class="calc-display">
+            <input type="text" id="calcExpression" readonly placeholder="0">
+            <div id="calcResult" class="calc-result">0</div>
+          </div>
+          <div class="calc-history" id="calcHistory">
+            <div class="calc-history-label">History</div>
+            <div id="calcHistoryList"></div>
+          </div>
+          <div class="calc-buttons">
+            <button class="calc-btn calc-func" data-action="clear">AC</button>
+            <button class="calc-btn calc-func" data-action="backspace">⌫</button>
+            <button class="calc-btn calc-func" data-action="percent">%</button>
+            <button class="calc-btn calc-op" data-action="operator" data-value="/">÷</button>
+
+            <button class="calc-btn" data-action="number" data-value="7">7</button>
+            <button class="calc-btn" data-action="number" data-value="8">8</button>
+            <button class="calc-btn" data-action="number" data-value="9">9</button>
+            <button class="calc-btn calc-op" data-action="operator" data-value="*">×</button>
+
+            <button class="calc-btn" data-action="number" data-value="4">4</button>
+            <button class="calc-btn" data-action="number" data-value="5">5</button>
+            <button class="calc-btn" data-action="number" data-value="6">6</button>
+            <button class="calc-btn calc-op" data-action="operator" data-value="-">−</button>
+
+            <button class="calc-btn" data-action="number" data-value="1">1</button>
+            <button class="calc-btn" data-action="number" data-value="2">2</button>
+            <button class="calc-btn" data-action="number" data-value="3">3</button>
+            <button class="calc-btn calc-op" data-action="operator" data-value="+">+</button>
+
+            <button class="calc-btn" data-action="number" data-value="00">00</button>
+            <button class="calc-btn" data-action="number" data-value="0">0</button>
+            <button class="calc-btn" data-action="decimal">.</button>
+            <button class="calc-btn calc-equals" data-action="equals">=</button>
+          </div>
+          <div class="calc-scientific">
+            <button class="calc-btn calc-sci" data-action="sci" data-value="sin">sin</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="cos">cos</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="tan">tan</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="log">log</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="ln">ln</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="sqrt">√</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="pow">x²</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="pi">π</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="e">e</button>
+            <button class="calc-btn calc-sci" data-action="sci" data-value="fact">n!</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="resource-tab-content" id="rtab-calendar">
+        <div class="calendar-container glass-card">
+          <div class="cal-header">
+            <button class="btn btn-ghost" id="calPrev">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+            </button>
+            <h3 id="calMonthYear">August 2026</h3>
+            <button class="btn btn-ghost" id="calNext">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+            </button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="cal-days" id="calDays"></div>
+          <div class="cal-today-info glass-card" id="calTodayInfo">
+            <h4 id="calSelectedDate">Today</h4>
+            <div id="calEvents">
+              <p class="cal-no-events">No events for this day</p>
+            </div>
+            <div class="cal-add-event">
+              <input type="text" id="calEventInput" placeholder="Add event/reminder..." class="cal-event-input">
+              <input type="time" id="calEventTime" class="cal-event-time">
+              <button class="btn btn-primary btn-sm" id="calAddEventBtn">+ Add</button>
+            </div>
+          </div>
+          <div class="cal-events-list glass-card" id="calEventsList">
+            <h4>Upcoming Events</h4>
+            <div id="calUpcomingEvents"></div>
           </div>
         </div>
       </div>

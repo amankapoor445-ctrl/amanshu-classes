@@ -736,6 +736,297 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ===== CALCULATOR =====
+  var calcExpression = document.getElementById('calcExpression');
+  var calcResult = document.getElementById('calcResult');
+  var calcHistoryList = document.getElementById('calcHistoryList');
+  var calcExpressionStr = '';
+  var calcLastResult = '';
+  var calcHistory = JSON.parse(localStorage.getItem('amanshuCalcHistory') || '[]');
+
+  function updateCalcDisplay() {
+    if (calcExpression) calcExpression.value = calcExpressionStr;
+  }
+
+  function calculateCalc() {
+    try {
+      var expr = calcExpressionStr
+        .replace(/×/g, '*')
+        .replace(/÷/g, '/')
+        .replace(/−/g, '-');
+      var result = Function('"use strict"; return (' + expr + ')')();
+      if (!isFinite(result)) throw new Error('Invalid');
+      var rounded = Math.round(result * 1e10) / 1e10;
+      calcLastResult = rounded.toString();
+      if (calcResult) calcResult.textContent = rounded;
+      addCalcHistory(calcExpressionStr + ' = ' + rounded);
+      return rounded;
+    } catch (e) {
+      if (calcResult) calcResult.textContent = 'Error';
+      return null;
+    }
+  }
+
+  function addCalcHistory(entry) {
+    calcHistory.unshift(entry);
+    if (calcHistory.length > 20) calcHistory.pop();
+    localStorage.setItem('amanshuCalcHistory', JSON.stringify(calcHistory));
+    renderCalcHistory();
+  }
+
+  function renderCalcHistory() {
+    if (!calcHistoryList) return;
+    calcHistoryList.innerHTML = calcHistory.slice(0, 5).map(function(h) {
+      return '<div class="calc-history-item">' + h + '</div>';
+    }).join('');
+  }
+
+  document.querySelectorAll('.calc-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var action = btn.getAttribute('data-action');
+      var value = btn.getAttribute('data-value');
+
+      if (action === 'number') {
+        calcExpressionStr += value;
+      } else if (action === 'decimal') {
+        calcExpressionStr += '.';
+      } else if (action === 'operator') {
+        calcExpressionStr += value;
+      } else if (action === 'clear') {
+        calcExpressionStr = '';
+        if (calcResult) calcResult.textContent = '0';
+      } else if (action === 'backspace') {
+        calcExpressionStr = calcExpressionStr.slice(0, -1);
+      } else if (action === 'percent') {
+        try {
+          calcExpressionStr = (parseFloat(calcExpressionStr) / 100).toString();
+        } catch (e) {}
+      } else if (action === 'equals') {
+        calculateCalc();
+        calcExpressionStr = calcLastResult;
+        updateCalcDisplay();
+        return;
+      } else if (action === 'sci') {
+        handleScientific(value);
+      }
+      updateCalcDisplay();
+    });
+  });
+
+  function handleScientific(func) {
+    var current = calcResult ? parseFloat(calcResult.textContent) : 0;
+    var result;
+    switch (func) {
+      case 'sin': result = Math.sin(current * Math.PI / 180); break;
+      case 'cos': result = Math.cos(current * Math.PI / 180); break;
+      case 'tan': result = Math.tan(current * Math.PI / 180); break;
+      case 'log': result = Math.log10(current); break;
+      case 'ln': result = Math.log(current); break;
+      case 'sqrt': result = Math.sqrt(current); break;
+      case 'pow': result = current * current; break;
+      case 'pi': result = Math.PI; break;
+      case 'e': result = Math.E; break;
+      case 'fact':
+        result = 1;
+        for (var i = 2; i <= Math.floor(current); i++) result *= i;
+        break;
+      default: result = current;
+    }
+    if (!isFinite(result)) { if (calcResult) calcResult.textContent = 'Error'; return; }
+    result = Math.round(result * 1e10) / 1e10;
+    calcLastResult = result.toString();
+    calcExpressionStr = result.toString();
+    if (calcResult) calcResult.textContent = result;
+    updateCalcDisplay();
+  }
+
+  renderCalcHistory();
+
+  // ===== CALENDAR =====
+  var calMonthYear = document.getElementById('calMonthYear');
+  var calDays = document.getElementById('calDays');
+  var calSelectedDate = document.getElementById('calSelectedDate');
+  var calEvents = document.getElementById('calEvents');
+  var calEventInput = document.getElementById('calEventInput');
+  var calEventTime = document.getElementById('calEventTime');
+  var calAddEventBtn = document.getElementById('calAddEventBtn');
+  var calUpcomingEvents = document.getElementById('calUpcomingEvents');
+
+  var calCurrentDate = new Date();
+  var calSelectedDateObj = new Date();
+  var calEventsData = JSON.parse(localStorage.getItem('amanshuCalEvents') || '[]');
+
+  var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  function renderCalendar() {
+    var year = calCurrentDate.getFullYear();
+    var month = calCurrentDate.getMonth();
+
+    if (calMonthYear) calMonthYear.textContent = monthNames[month] + ' ' + year;
+
+    var firstDay = new Date(year, month, 1).getDay();
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var daysInPrevMonth = new Date(year, month, 0).getDate();
+
+    if (!calDays) return;
+    calDays.innerHTML = '';
+
+    var today = new Date();
+    var selectedStr = calSelectedDateObj.toISOString().split('T')[0];
+
+    // Previous month days
+    for (var i = firstDay - 1; i >= 0; i--) {
+      var day = daysInPrevMonth - i;
+      var div = document.createElement('div');
+      div.className = 'cal-day other-month';
+      div.textContent = day;
+      calDays.appendChild(div);
+    }
+
+    // Current month days
+    for (var d = 1; d <= daysInMonth; d++) {
+      var dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+      var div = document.createElement('div');
+      div.className = 'cal-day';
+      div.textContent = d;
+      div.setAttribute('data-date', dateStr);
+
+      if (d === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+        div.classList.add('today');
+      }
+      if (dateStr === selectedStr) {
+        div.classList.add('selected');
+      }
+      if (calEventsData.some(function(e) { return e.date === dateStr; })) {
+        div.classList.add('has-event');
+      }
+
+      div.addEventListener('click', function() {
+        var date = this.getAttribute('data-date');
+        if (date) {
+          calSelectedDateObj = new Date(date + 'T00:00:00');
+          renderCalendar();
+          renderCalDayEvents(date);
+        }
+      });
+
+      calDays.appendChild(div);
+    }
+
+    // Next month days
+    var totalCells = firstDay + daysInMonth;
+    var remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    for (var n = 1; n <= remaining; n++) {
+      var div = document.createElement('div');
+      div.className = 'cal-day other-month';
+      div.textContent = n;
+      calDays.appendChild(div);
+    }
+
+    renderCalDayEvents(selectedStr);
+    renderUpcomingEvents();
+  }
+
+  function renderCalDayEvents(dateStr) {
+    if (!calSelectedDateObj) return;
+    var d = calSelectedDateObj;
+    if (calSelectedDateDate) calSelectedDateDate.textContent = monthNames[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+
+    var dayEvents = calEventsData.filter(function(e) { return e.date === dateStr; });
+    if (!calEvents) return;
+
+    if (dayEvents.length === 0) {
+      calEvents.innerHTML = '<p class="cal-no-events">No events for this day</p>';
+    } else {
+      calEvents.innerHTML = dayEvents.map(function(e, i) {
+        return '<div class="cal-event-item">' +
+          '<span class="cal-event-time">' + (e.time || 'All day') + '</span>' +
+          '<span class="cal-event-text">' + e.text + '</span>' +
+          '<button class="cal-event-delete" data-date="' + dateStr + '" data-index="' + i + '">\u2715</button>' +
+          '</div>';
+      }).join('');
+    }
+  }
+
+  var calSelectedDateDate = calSelectedDate;
+
+  function renderUpcomingEvents() {
+    if (!calUpcomingEvents) return;
+    var today = new Date().toISOString().split('T')[0];
+    var upcoming = calEventsData.filter(function(e) { return e.date >= today; }).sort(function(a, b) { return a.date.localeCompare(b.date); }).slice(0, 5);
+
+    if (upcoming.length === 0) {
+      calUpcomingEvents.innerHTML = '<p class="cal-no-events">No upcoming events</p>';
+    } else {
+      calUpcomingEvents.innerHTML = upcoming.map(function(e) {
+        var d = new Date(e.date + 'T00:00:00');
+        return '<div class="cal-upcoming-item">' +
+          '<div class="cal-upcoming-date"><span class="cu-day">' + d.getDate() + '</span><span class="cu-month">' + monthNames[d.getMonth()].substring(0, 3) + '</span></div>' +
+          '<div class="cal-upcoming-info"><strong>' + e.text + '</strong><span>' + (e.time || 'All day') + '</span></div>' +
+          '</div>';
+      }).join('');
+    }
+  }
+
+  if (calAddEventBtn) {
+    calAddEventBtn.addEventListener('click', function() {
+      var text = calEventInput ? calEventInput.value.trim() : '';
+      if (!text) return;
+      var dateStr = calSelectedDateObj.toISOString().split('T')[0];
+      var time = calEventTime ? calEventTime.value : '';
+      calEventsData.push({ date: dateStr, text: text, time: time });
+      localStorage.setItem('amanshuCalEvents', JSON.stringify(calEventsData));
+      if (calEventInput) calEventInput.value = '';
+      renderCalendar();
+    });
+  }
+
+  if (calEventInput) {
+    calEventInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') calAddEventBtn.click();
+    });
+  }
+
+  // Delete events
+  if (calEvents) {
+    calEvents.addEventListener('click', function(e) {
+      if (e.target.classList.contains('cal-event-delete')) {
+        var date = e.target.getAttribute('data-date');
+        var index = parseInt(e.target.getAttribute('data-index'));
+        // Find all events for this date, remove the one at index, then rebuild
+        var dayEvents = [];
+        var otherEvents = [];
+        calEventsData.forEach(function(ev) {
+          if (ev.date === date) dayEvents.push(ev);
+          else otherEvents.push(ev);
+        });
+        dayEvents.splice(index, 1);
+        calEventsData = otherEvents.concat(dayEvents);
+        localStorage.setItem('amanshuCalEvents', JSON.stringify(calEventsData));
+        renderCalendar();
+      }
+    });
+  }
+
+  var calPrev = document.getElementById('calPrev');
+  var calNext = document.getElementById('calNext');
+
+  if (calPrev) {
+    calPrev.addEventListener('click', function() {
+      calCurrentDate.setMonth(calCurrentDate.getMonth() - 1);
+      renderCalendar();
+    });
+  }
+
+  if (calNext) {
+    calNext.addEventListener('click', function() {
+      calCurrentDate.setMonth(calCurrentDate.getMonth() + 1);
+      renderCalendar();
+    });
+  }
+
+  renderCalendar();
+
   // Initial counter animation if home is active
   if (homeSection && homeSection.classList.contains('active')) {
     animateCounters();
