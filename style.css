@@ -228,22 +228,47 @@ html, body {
   border-radius:var(--radius); padding:40px;
   display:flex; align-items:center; gap:40px;
   margin-bottom:24px; position:relative; overflow:hidden;
-  min-height:280px;
+  min-height:320px;
 }
 
 .hero-content { flex:1; z-index:2; }
 
 .hero-badge {
-  display:inline-block; padding:6px 14px;
+  display:inline-flex; align-items:center; gap:6px;
+  padding:6px 14px;
   background:rgba(245,158,11,0.15); color:#fbbf24;
   border-radius:20px; font-size:12px; font-weight:600;
   margin-bottom:16px; border:1px solid rgba(245,158,11,0.2);
 }
 
 .hero-title {
-  font-family:'Poppins',sans-serif; font-size:32px;
-  font-weight:800; color:#fff; margin-bottom:12px;
-  line-height:1.2;
+  font-family:'Poppins',sans-serif; margin-bottom:8px;
+  line-height:1.1;
+}
+
+.hero-welcome {
+  display:block; font-size:16px; font-weight:500;
+  color:#94a3b8; letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:4px;
+}
+
+.hero-institute-name {
+  display:block; font-size:42px; font-weight:900;
+  color:#fff; letter-spacing:1px;
+  text-shadow:0 0 40px rgba(37,99,235,0.3);
+}
+
+.hero-highlight {
+  background:linear-gradient(135deg, #f59e0b, #f97316);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-shadow:none;
+}
+
+.hero-tagline {
+  font-size:14px; color:#60a5fa; font-weight:500;
+  font-style:italic; margin-bottom:12px;
+  letter-spacing:0.5px;
 }
 
 .hero-desc { color:#94a3b8; font-size:15px; line-height:1.6; margin-bottom:24px; max-width:500px; }
@@ -254,16 +279,55 @@ html, body {
 .hero-actions .btn-outline:hover { background:rgba(255,255,255,0.1); }
 
 .hero-visual {
-  position:relative; width:300px; height:200px; flex-shrink:0;
+  position:relative; width:300px; height:280px; flex-shrink:0;
+  display:flex; flex-direction:column; align-items:center;
 }
 
-.hero-ring {
-  position:absolute; width:180px; height:180px;
-  border:2px solid rgba(37,99,235,0.2); border-radius:50%;
-  top:50%; left:50%; transform:translate(-50%,-50%);
-  animation: pulse-ring 3s ease-in-out infinite;
+.hero-founder-photo {
+  position:relative; width:200px; height:200px;
+  border-radius:50%; overflow:hidden;
+  border:4px solid rgba(245,158,11,0.4);
+  box-shadow:0 0 40px rgba(245,158,11,0.2), 0 0 80px rgba(37,99,235,0.15);
+  z-index:2;
+  animation: float-photo 4s ease-in-out infinite;
 }
-.ring-2 { width:140px; height:140px; animation-delay:1.5s; border-color:rgba(139,92,246,0.2); }
+
+.hero-founder-photo img {
+  width:100%; height:100%; object-fit:cover;
+}
+
+.hero-photo-glow {
+  position:absolute; inset:-4px;
+  border-radius:50%;
+  background:conic-gradient(from 0deg, #f59e0b, #2563eb, #8b5cf6, #f59e0b);
+  z-index:-1; animation:spin-glow 8s linear infinite;
+  opacity:0.5;
+}
+
+.hero-photo-placeholder {
+  width:100%; height:100%;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  background:rgba(255,255,255,0.05);
+  color:rgba(255,255,255,0.5);
+  gap:8px;
+}
+.hero-photo-placeholder span { font-size:14px; font-weight:600; }
+.hero-photo-placeholder small { font-size:10px; opacity:0.7; }
+
+.hero-founder-info {
+  display:flex; flex-direction:column; align-items:center;
+  margin-top:16px; z-index:2;
+}
+
+.founder-name {
+  font-size:16px; font-weight:700; color:#fff;
+  font-family:'Poppins',sans-serif;
+}
+
+.founder-role {
+  font-size:11px; color:#94a3b8; letter-spacing:0.5px;
+}
 
 .hero-float-card {
   position:absolute; background:rgba(255,255,255,0.1);
@@ -286,6 +350,14 @@ html, body {
 @keyframes pulse-ring {
   0%,100% { transform:translate(-50%,-50%) scale(1); opacity:0.5; }
   50% { transform:translate(-50%,-50%) scale(1.1); opacity:0.2; }
+}
+@keyframes float-photo {
+  0%,100% { transform:translateY(0) scale(1); }
+  50% { transform:translateY(-6px) scale(1.02); }
+}
+@keyframes spin-glow {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
 }
 
 /* ===== STATS ===== */
@@ -1151,9 +1223,13 @@ html, body {
   .ad-cards { grid-template-columns:1fr; }
 
   .hero-title { font-size:24px; }
+  .hero-institute-name { font-size:28px; }
   .hero-desc { font-size:13px; }
   .hero-actions { flex-direction:column; }
   .hero-actions .btn { width:100%; justify-content:center; }
+  .hero-visual { width:100%; height:auto; margin-top:20px; }
+  .hero-founder-photo { width:140px; height:140px; }
+  .hero-float-card { display:none; }
 
   .courses-grid { grid-template-columns:1fr; }
   .career-paths { grid-template-columns:repeat(2,1fr); }
@@ -1173,6 +1249,8 @@ html, body {
   .resource-tabs { gap:4px; }
   .resource-tab { padding:7px 14px; font-size:12px; }
   .pomo-time { font-size:28px; }
+  .hero-institute-name { font-size:24px; }
+  .hero-founder-photo { width:120px; height:120px; }
 }
 
 @media print {
