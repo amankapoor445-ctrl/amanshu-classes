@@ -284,12 +284,11 @@ html, body {
 }
 
 .hero-founder-photo {
-  position:relative; width:200px; height:200px;
-  border-radius:50%; overflow:hidden;
+  position:relative; width:200px; height:240px;
+  border-radius:16px; overflow:hidden;
   border:4px solid rgba(245,158,11,0.4);
   box-shadow:0 0 40px rgba(245,158,11,0.2), 0 0 80px rgba(37,99,235,0.15);
   z-index:2;
-  animation: float-photo 4s ease-in-out infinite;
 }
 
 .hero-founder-photo img {
@@ -1224,7 +1223,7 @@ html, body {
   .hero-actions { flex-direction:column; }
   .hero-actions .btn { width:100%; justify-content:center; }
   .hero-visual { width:100%; height:auto; margin-top:20px; }
-  .hero-founder-photo { width:140px; height:140px; }
+  .hero-founder-photo { width:140px; height:170px; }
   .hero-float-card { display:none; }
 
   .courses-grid { grid-template-columns:1fr; }
@@ -1246,7 +1245,7 @@ html, body {
   .resource-tab { padding:7px 14px; font-size:12px; }
   .pomo-time { font-size:28px; }
   .hero-institute-name { font-size:24px; }
-  .hero-founder-photo { width:120px; height:120px; }
+  .hero-founder-photo { width:120px; height:150px; }
 }
 
 @media print {
